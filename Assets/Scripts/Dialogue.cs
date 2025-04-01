@@ -16,11 +16,12 @@ public class DialogueManager : MonoBehaviour
     private bool startDialogue;
     private bool didDialogueStart;
     private int lineIndex;
+    private bool hasInteracted = false; 
 
     void Update()
     {
 
-        if (isMouseOver && Input.GetMouseButtonDown(0)) // 0 es el clic izquierdo
+        if (isMouseOver && Input.GetMouseButtonDown(0)  && !hasInteracted) // 0 es el clic izquierdo
         {
             if (!didDialogueStart)
             {
@@ -59,7 +60,8 @@ public class DialogueManager : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
-            dialogueMark.SetActive(true);
+           dialogueMark.SetActive(false); 
+            hasInteracted = true; 
         }
     }
 
@@ -74,17 +76,24 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+  
+
+
+      private void OnMouseEnter()
     {
-        isMouseOver = true;
-        dialogueMark.SetActive(true);
-        Debug.Log("El puntero está sobre el objeto. Se puede iniciar diálogo.");
+        if (!hasInteracted) // Solo muestra el ícono si no se ha interactuado antes
+        {
+            isMouseOver = true;
+            dialogueMark.SetActive(true);
+        }
     }
 
     private void OnMouseExit()
     {
         isMouseOver = false;
-        dialogueMark.SetActive(false);
-        Debug.Log("El puntero salió del objeto. Se cierra el diálogo.");
+        if (!hasInteracted) 
+        {
+            dialogueMark.SetActive(false);
+        }
     }
 }
