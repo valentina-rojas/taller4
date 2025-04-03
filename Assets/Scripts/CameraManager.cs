@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) 
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             ChangeCamera();
         }

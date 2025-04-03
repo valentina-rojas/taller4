@@ -8,6 +8,7 @@ public class CharacterSpawn : MonoBehaviour
     public Transform destination;    
 
     private int currentIndex = 0;    
+     private bool interactionFinished = false; 
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class CharacterSpawn : MonoBehaviour
         {
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
-            yield return new WaitUntil(() => InteractionCompleted());
+            yield return new WaitUntil(() => interactionFinished);
             Destroy(currentCharacter);
             currentIndex++;
             yield return new WaitForSeconds(1f);
@@ -47,9 +48,9 @@ public class CharacterSpawn : MonoBehaviour
         HabilitarDialogo();
     }
 
-    bool InteractionCompleted()
+   public void EndInteraction()
     {
-        return Input.GetKeyDown(KeyCode.Space); 
+        interactionFinished = true; // Se marca la interacción como terminada
     }
 
     private void HabilitarDialogo()
