@@ -3,12 +3,13 @@ using System.Collections;
 
 public class CharacterSpawn : MonoBehaviour
 {
-    public GameObject[] characters;  
+    public GameObject[] characters;
     public Transform spawnPoint;
-    public Transform destination;    
+    public Transform destination;
 
-    private int currentIndex = 0;    
-     private bool interactionFinished = false; 
+    private int currentIndex = 0;
+    private bool interactionFinished = false;
+
 
     void Start()
     {
@@ -20,11 +21,23 @@ public class CharacterSpawn : MonoBehaviour
         while (currentIndex < characters.Length)
         {
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
+
+            interactionFinished = false;
+            CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
+            if (atributos != null)
+            {
+                GameManager.instance.EstablecerPersonajeActual(atributos);
+            }
+            else
+            {
+                Debug.LogError("El personaje instanciado no tiene CharacterAttributes.");
+            }
+
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
             yield return new WaitUntil(() => interactionFinished);
             Destroy(currentCharacter);
             currentIndex++;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
 
         Debug.Log("Todos los personajes han pasado.");
@@ -48,9 +61,9 @@ public class CharacterSpawn : MonoBehaviour
         HabilitarDialogo();
     }
 
-   public void EndInteraction()
+    public void EndInteraction()
     {
-        interactionFinished = true; // Se marca la interacción como terminada
+        interactionFinished = true;
     }
 
     private void HabilitarDialogo()

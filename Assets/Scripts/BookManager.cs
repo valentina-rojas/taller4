@@ -15,6 +15,13 @@ public class BookManager : MonoBehaviour
 
     private BookData libroActual;
 
+    public GameObject panelConfirmarSeleccion;
+    public Image imagenConfirmarSeleccion;
+
+
+    private CharacterSpawn characterSpawn;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -25,20 +32,22 @@ public class BookManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
+        characterSpawn = FindFirstObjectByType<CharacterSpawn>();
+        if (characterSpawn == null)
+        {
+            Debug.LogError("CharacterSpawn no encontrado por BookManager.");
+        }
+    }
     public void MostrarInformacion(BookData libro)
     {
-        libroActual = libro; // Guardamos el libro actual
+        libroActual = libro;
 
         panelInfoLibro.SetActive(true);
         tituloTexto.text = libro.titulo;
         descripcionTexto.text = libro.descripcion;
         imagenLibroUI.sprite = libro.imagenLibro;
     }
-
-
-
 
     public void ConfirmarSeleccion()
     {
@@ -50,10 +59,29 @@ public class BookManager : MonoBehaviour
 
         Debug.Log("Libro seleccionado: " + libroActual.titulo);
         panelInfoLibro.SetActive(false);
+
+
+        panelConfirmarSeleccion.SetActive(true);
+        imagenConfirmarSeleccion.sprite = libroActual.imagenLibro;
+
     }
+
 
     public void CancelarSeleccion()
     {
         panelInfoLibro.SetActive(false);
+    }
+
+    public void RecomendarLibro()
+    {
+
+        panelConfirmarSeleccion.SetActive(false);
+        GameManager.instance.VerificarRecomendacion(libroActual);
+
+        if (characterSpawn != null)
+        {
+            characterSpawn.EndInteraction();
+        }
+
     }
 }

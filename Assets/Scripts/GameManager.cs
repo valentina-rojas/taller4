@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,33 +7,50 @@ public class GameManager : MonoBehaviour
 
     private UIManager uiManager;
 
+    [Header("Estado del juego")]
+    public CharacterAttributes personajeActual;
 
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     private void Start()
     {
         uiManager = FindFirstObjectByType<UIManager>();
-
         if (uiManager == null)
-        {
             Debug.LogError("UIManager no encontrado en la escena.");
+    }
+
+    public void EstablecerPersonajeActual(CharacterAttributes personaje)
+    {
+        personajeActual = personaje;
+    }
+
+    public void VerificarRecomendacion(BookData libro)
+    {
+        if (personajeActual == null)
+        {
+            Debug.LogError("No hay personaje actual asignado.");
+            return;
+        }
+
+        bool esCorrecto = personajeActual.libroDeseadoID == libro.libroID;
+
+        if (esCorrecto)
+        {
+            Debug.Log("¡Recomendación correcta! Era el libro exacto que quería.");
+        }
+        else if (personajeActual.tipoPreferido == libro.tipoLibro)
+        {
+            Debug.Log("Buena elección. Es del tipo que le gusta, aunque no era el libro exacto.");
+        }
+        else
+        {
+            Debug.Log("Mala recomendación. No coincide ni con el tipo ni el libro deseado.");
         }
     }
-
-    public void ConfirmarLibro(string titulo)
-    {
-      //Debug.Log("libro seleccionado" + titulo);
-    }
 }
-
-

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2788377987506924977}
   - component: {fileID: 4978074495582524776}
   m_Layer: 0
-  m_Name: pj1_0 (1)
+  m_Name: pj1_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -5431856803683344734, guid: fff747b4f0b681f4b847a88f1143cbc1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.2971698, b: 0.2971698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - FDDGSJDGJ
-  - 453453
-  - DFHDAZFGJ
-  libroDeseadoID: 1
-  tipoPreferido: pociones
+  - holisss
+  - yheuyetu
+  - gracias
+  libroDeseadoID: 3
+  tipoPreferido: historia
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0
