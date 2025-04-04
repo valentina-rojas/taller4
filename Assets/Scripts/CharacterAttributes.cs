@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterDialogue : MonoBehaviour
+public class CharacterAttributes : MonoBehaviour
 {
   [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 

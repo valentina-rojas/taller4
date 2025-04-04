@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
 
-    [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
     private float typingTime = 0.05f;
     private bool isMouseOver = false;
@@ -19,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     private bool hasInteracted = false;
     private bool canStartDialogue = false;
 
+  private string[] dialogueLines; 
+    private CharacterAttributes characterAttributes;
 
     private void Start()
     {
@@ -34,6 +35,18 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.LogError("UIManager no encontrado en la escena.");
+        }
+
+
+       
+        characterAttributes = GetComponent<CharacterAttributes>();
+        if (characterAttributes != null)
+        {
+            dialogueLines = characterAttributes.GetDialogueLines();
+        }
+        else
+        {
+            Debug.LogWarning("CharacterAttributes no está asignado en este GameObject.");
         }
     }
 
@@ -60,6 +73,8 @@ public class DialogueManager : MonoBehaviour
 
     private void StartDialogue()
     {
+          if (dialogueLines == null || dialogueLines.Length == 0) return;
+          
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
