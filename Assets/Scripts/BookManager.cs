@@ -18,8 +18,9 @@ public class BookManager : MonoBehaviour
     public GameObject panelConfirmarSeleccion;
     public Image imagenConfirmarSeleccion;
 
-
     private CharacterSpawn characterSpawn;
+
+    public Button botonConfirmar;
 
 
     private void Awake()
@@ -39,6 +40,8 @@ public class BookManager : MonoBehaviour
             Debug.LogError("CharacterSpawn no encontrado por BookManager.");
         }
     }
+
+
     public void MostrarInformacion(BookData libro)
     {
         libroActual = libro;
@@ -66,6 +69,16 @@ public class BookManager : MonoBehaviour
 
     }
 
+
+    public void HabilitarBotonConfirmacion()
+    {
+        botonConfirmar.gameObject.SetActive(true);
+    }
+
+      public void DeshabilitarBotonConfirmacion()
+    {
+        botonConfirmar.gameObject.SetActive(false);
+    }
 
     public void CancelarSeleccion()
     {

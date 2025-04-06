@@ -39,18 +39,22 @@ public class GameManager : MonoBehaviour
         }
 
         bool esCorrecto = personajeActual.libroDeseadoID == libro.libroID;
+        bool esDelTipoPreferido = personajeActual.tipoPreferido == libro.tipoLibro;
 
         if (esCorrecto)
         {
             Debug.Log("¡Recomendación correcta! Era el libro exacto que quería.");
+              ReputationBar.instance.AplicarDecision("buena");
         }
         else if (personajeActual.tipoPreferido == libro.tipoLibro)
         {
             Debug.Log("Buena elección. Es del tipo que le gusta, aunque no era el libro exacto.");
+             ReputationBar.instance.AplicarDecision("neutra"); 
         }
         else
         {
             Debug.Log("Mala recomendación. No coincide ni con el tipo ni el libro deseado.");
+              ReputationBar.instance.AplicarDecision("mala");
         }
     }
 }

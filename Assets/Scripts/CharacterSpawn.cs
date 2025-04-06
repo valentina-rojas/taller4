@@ -23,6 +23,8 @@ public class CharacterSpawn : MonoBehaviour
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
 
             interactionFinished = false;
+
+
             CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
             if (atributos != null)
             {
@@ -36,6 +38,7 @@ public class CharacterSpawn : MonoBehaviour
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
             yield return new WaitUntil(() => interactionFinished);
             Destroy(currentCharacter);
+            BookManager.instance.DeshabilitarBotonConfirmacion();
             currentIndex++;
             yield return new WaitForSeconds(2f);
         }

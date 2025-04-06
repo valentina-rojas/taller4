@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
 
-
     private float typingTime = 0.05f;
     private bool isMouseOver = false;
     private bool isPlayerInScene;
@@ -18,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     private bool hasInteracted = false;
     private bool canStartDialogue = false;
 
-  private string[] dialogueLines; 
+    private string[] dialogueLines;
     private CharacterAttributes characterAttributes;
 
     private void Start()
@@ -38,7 +37,6 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-       
         characterAttributes = GetComponent<CharacterAttributes>();
         if (characterAttributes != null)
         {
@@ -73,8 +71,8 @@ public class DialogueManager : MonoBehaviour
 
     private void StartDialogue()
     {
-          if (dialogueLines == null || dialogueLines.Length == 0) return;
-          
+        if (dialogueLines == null || dialogueLines.Length == 0) return;
+
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
@@ -95,6 +93,7 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(false);
             hasInteracted = true;
+            BookManager.instance.HabilitarBotonConfirmacion();
         }
     }
 
@@ -129,9 +128,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EnableDialogue()
     {
-        
 
-         if (!hasInteracted )
+
+        if (!hasInteracted)
         {
             canStartDialogue = true;
             isMouseOver = true;
