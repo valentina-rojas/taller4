@@ -18,10 +18,10 @@ public class BookData : MonoBehaviour
         originalColor = spriteRenderer.color;
     }
 
-    private void OnMouseDown()
+   /* private void OnMouseDown()
     {
         BookManager.instance.MostrarInformacion(this);
-    }
+    }*/
 
     private void OnMouseEnter()
     {
