@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e952700c552214349b9c5695e3d3be1e
+guid: b4482cf296c0a1547a285b66272b9ef6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5941049680408838957
-    second: libro5_0
+      213: -9085731540024192305
+    second: libros_misterio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: libro5_0
+      name: libros_misterio_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 195
+        width: 52
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dc784eeac62d8da0800000000000000
-      internalID: -5941049680408838957
+      spriteID: fc29b487d4ff8e180800000000000000
+      internalID: -9085731540024192305
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e916588ab96bdb4fa2379cec32e5586
+guid: 8c863b53438635f4c9c1017cf241ff90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2618848464893099914
-    second: libro1_0
+      213: -7144635170102922269
+    second: libros_pociones_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: libro1_0
+      name: libros_pociones_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 67
-        height: 195
+        width: 52
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6704879423bf7abd0800000000000000
-      internalID: -2618848464893099914
+      spriteID: 3e3b04caa2829dc90800000000000000
+      internalID: -7144635170102922269
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 738474159020d45458b010e41571cb6f
+guid: 081a76de40d7b4e439eb89b8b17e7b31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1226253172825729528
-    second: libro2_0
+      213: -416402902280908553
+    second: portada_terror_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: libro2_0
+      name: portada_terror_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 49
-        height: 217
+        width: 482
+        height: 686
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 806d60d7c397bfee0800000000000000
-      internalID: -1226253172825729528
+      spriteID: 7f0da1e34c3a83af0800000000000000
+      internalID: -416402902280908553
       vertices: []
       indices: 
       edges: []

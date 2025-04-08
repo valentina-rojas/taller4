@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62fc1f0a136dcf141a989bdde261cb66
+guid: f5233548856f39f4ca1b756a55d17348
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -68722062444572299
-    second: libro4_0
+      213: -8397736238367479277
+    second: portada_fantasia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: libro4_0
+      name: portada_fantasia_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 67
-        height: 217
+        width: 482
+        height: 686
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57152c7f5a9db0ff0800000000000000
-      internalID: -68722062444572299
+      spriteID: 31a6ea2626f357b80800000000000000
+      internalID: -8397736238367479277
       vertices: []
       indices: 
       edges: []
