@@ -83,7 +83,6 @@ public class BookManager : MonoBehaviour
 
     public void RecomendarLibro()
     {
-
         panelConfirmarSeleccion.SetActive(false);
         GameManager.instance.VerificarRecomendacion(libroActual);
 

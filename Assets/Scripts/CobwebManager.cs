@@ -5,6 +5,8 @@ public class CobwebManager : MonoBehaviour
 {
     public static CobwebManager instance;
 
+    private GameManager gameManager;
+
     private List<CobwebCleaning> telarañasActivas = new List<CobwebCleaning>();
 
     private void Awake()
@@ -12,6 +14,19 @@ public class CobwebManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
+
+    private void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+
+
+        if (gameManager == null)
+            Debug.LogError("GameManager no encontrado en la escena.");
+
+
+    }
+
+
 
     public void RegistrarTelaraña(CobwebCleaning telaraña)
     {
@@ -31,8 +46,8 @@ public class CobwebManager : MonoBehaviour
 
     private void AccionFinal()
     {
-        // Acá ponés lo que quieras que pase
         Debug.Log("Podés avanzar al siguiente paso ✨");
-        // Por ejemplo: activar un objeto, abrir una puerta, cambiar de escena, etc.
+
+        gameManager.IniciarSpawnDePersonajes();
     }
 }

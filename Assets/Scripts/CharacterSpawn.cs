@@ -11,7 +11,7 @@ public class CharacterSpawn : MonoBehaviour
     private bool interactionFinished = false;
 
 
-    void Start()
+    public void ComenzarSpawn()
     {
         StartCoroutine(SpawnCharacters());
     }
