@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - FDDGSJDGJ
-  - 453453
-  - DFHDAZFGJ
+  - hola
+  - necesito ayuda
+  - estoy buscando un libro de bla bla bla
   libroDeseadoID: 1
   tipoPreferido: pociones
 --- !u!114 &4978074495582524776

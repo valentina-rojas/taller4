@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class BookManager : MonoBehaviour
 {
     public static BookManager instance;
@@ -63,12 +61,10 @@ public class BookManager : MonoBehaviour
         Debug.Log("Libro seleccionado: " + libroActual.titulo);
         panelInfoLibro.SetActive(false);
 
-
         panelConfirmarSeleccion.SetActive(true);
         imagenConfirmarSeleccion.sprite = libroActual.imagenLibro;
 
     }
-
 
     public void HabilitarBotonConfirmacion()
     {
