@@ -7,8 +7,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
 
-    // Métodos públicos para obtener las referencias
+
     public GameObject GetDialogueMark() => dialogueMark;
     public GameObject GetDialoguePanel() => dialoguePanel;
     public TMP_Text GetDialogueText() => dialogueText;
+
+
+    
 }

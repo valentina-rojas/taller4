@@ -2,21 +2,25 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-  public Camera[] cameras; // Array de cámaras
-    private int currentCameraIndex = 0; // Índice de la cámara activa
+    public Camera[] cameras;
+    public GameObject[] canvasObjects;
+
+    private int currentCameraIndex = 0;
 
     void Start()
     {
-        // Desactivar todas las cámaras excepto la primera
         for (int i = 0; i < cameras.Length; i++)
         {
-            cameras[i].enabled = (i == 0);
+            bool isActive = (i == 0);
+            cameras[i].enabled = isActive;
+            if (canvasObjects != null && i < canvasObjects.Length)
+                canvasObjects[i].SetActive(isActive);
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) // Cambia de cámara con "C"
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeCamera();
         }
@@ -24,13 +28,15 @@ public class CameraManager : MonoBehaviour
 
     void ChangeCamera()
     {
-        // Desactivar la cámara actual
         cameras[currentCameraIndex].enabled = false;
+        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
+            canvasObjects[currentCameraIndex].SetActive(false);
 
-        // Mover al siguiente índice de cámara (cíclico)
         currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
 
-        // Activar la nueva cámara
+
         cameras[currentCameraIndex].enabled = true;
+        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
+            canvasObjects[currentCameraIndex].SetActive(true);
     }
 }

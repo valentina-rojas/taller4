@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2895489488244685839}
   - component: {fileID: 4311213848564350333}
-  - component: {fileID: 1467830951469731129}
   - component: {fileID: 3168058250089952231}
+  - component: {fileID: 2788377987506924977}
+  - component: {fileID: 4978074495582524776}
   m_Layer: 0
   m_Name: pj1_0 (1)
   m_TagString: Untagged
@@ -89,25 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1467830951469731129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4406605961863887185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d088109a95c97cb41a55e14556bfbc7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueMark: {fileID: 0}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  dialogueLines:
-  - 111
-  - dhjdgj
-  - 333
 --- !u!61 &3168058250089952231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,3 +136,38 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 17.31475, y: 8.25}
   m_EdgeRadius: 0
+--- !u!114 &2788377987506924977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406605961863887185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - hola
+  - necesito ayuda
+  - "hay una criatura herida en el bosque, y ninguna de mis recetas le est\xE1 haciendo
+    efecto"
+  - "busco un libro que guarde remedios que ya no se ense\xF1an"
+  libroDeseadoID: 1
+  tipoPreferido: pociones
+--- !u!114 &4978074495582524776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406605961863887185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05e4ea107c952145ac179a6a78788e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueMark: {fileID: 0}
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
