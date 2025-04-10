@@ -40,6 +40,18 @@ public class BookManager : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (panelInfoLibro.activeSelf)
+            {
+                CancelarSeleccion();
+            }
+        }
+    }
+
+
     public void MostrarInformacion(BookData libro)
     {
         libroActual = libro;
@@ -71,7 +83,7 @@ public class BookManager : MonoBehaviour
         botonConfirmar.gameObject.SetActive(true);
     }
 
-      public void DeshabilitarBotonConfirmacion()
+    public void DeshabilitarBotonConfirmacion()
     {
         botonConfirmar.gameObject.SetActive(false);
     }
