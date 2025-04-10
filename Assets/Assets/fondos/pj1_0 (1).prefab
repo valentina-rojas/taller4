@@ -151,7 +151,9 @@ MonoBehaviour:
   dialogueLines:
   - hola
   - necesito ayuda
-  - estoy buscando un libro de bla bla bla
+  - "hay una criatura herida en el bosque, y ninguna de mis recetas le est\xE1 haciendo
+    efecto"
+  - "busco un libro que guarde remedios que ya no se ense\xF1an"
   libroDeseadoID: 1
   tipoPreferido: pociones
 --- !u!114 &4978074495582524776

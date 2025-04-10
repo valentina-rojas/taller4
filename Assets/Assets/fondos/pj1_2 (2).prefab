@@ -150,11 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - buen dia
-  - nose que poner aca
-  - dame un libro
-  - porfas xx
-  libroDeseadoID: 3
-  tipoPreferido: historia
+  - estoy investigando referencias cruzadas entre mitos y literatura
+  - "necesito un ejemplar de Los \xDAltimos Hijos del Cometa Azul"
+  libroDeseadoID: 8
+  tipoPreferido: fantasia
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0
