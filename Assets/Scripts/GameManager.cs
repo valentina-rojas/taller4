@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Estado del juego")]
     public CharacterAttributes personajeActual;
+
+    public GameObject panelInfoLibro;
+    public TMP_Text textoDia;
+    public int numeroDia = 1; 
 
     private void Awake()
     {
@@ -29,6 +34,29 @@ public class GameManager : MonoBehaviour
 
         if (characterSpawn == null)
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
+
+     StartCoroutine(MostrarCartelInicioDia());
+    }
+
+    private IEnumerator MostrarCartelInicioDia()
+    {
+        // Mostrar panel con texto del día
+        panelInfoLibro.SetActive(true);
+        textoDia.text = $"Día {numeroDia}";
+
+        // Pausar juego (opcional) y desactivar interacción
+        Time.timeScale = 0f;
+        // También podrías desactivar inputs o pausar UI aquí
+
+        // Esperar unos segundos en tiempo real (no afectado por Time.timeScale)
+        yield return new WaitForSecondsRealtime(2.5f);
+
+        // Ocultar panel y reanudar juego
+        panelInfoLibro.SetActive(false);
+        Time.timeScale = 1f;
+
+      // Comienza el juego
+      FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(numeroDia); 
     }
 
 
