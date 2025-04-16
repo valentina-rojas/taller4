@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -13,8 +14,18 @@ public class GameManager : MonoBehaviour
     public CharacterAttributes personajeActual;
 
     public GameObject panelInfoLibro;
+    public GameObject panelFinNivel;
     public TMP_Text textoDia;
-    public int numeroDia = 1; 
+    public int nivelActual = 1;
+
+    [System.Serializable]
+    public class Nivel
+    {
+        public GameObject[] personajesDelNivel;
+    }
+
+    [Header("Niveles del juego")]
+    public Nivel[] niveles;
 
     private void Awake()
     {
@@ -35,14 +46,14 @@ public class GameManager : MonoBehaviour
         if (characterSpawn == null)
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
 
-     StartCoroutine(MostrarCartelInicioDia());
+        StartCoroutine(MostrarCartelInicioDia());
     }
 
     private IEnumerator MostrarCartelInicioDia()
     {
         // Mostrar panel con texto del día
         panelInfoLibro.SetActive(true);
-        textoDia.text = $"Día {numeroDia}";
+        textoDia.text = $"Día {nivelActual}";
 
         // Pausar juego (opcional) y desactivar interacción
         Time.timeScale = 0f;
@@ -55,16 +66,30 @@ public class GameManager : MonoBehaviour
         panelInfoLibro.SetActive(false);
         Time.timeScale = 1f;
 
-      // Comienza el juego
-      FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(numeroDia); 
+        // Comienza el juego
+        FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
     }
 
-
+    /*  public void IniciarSpawnDePersonajes()
+      {
+          characterSpawn.ComenzarSpawn();
+      }*/
 
     public void IniciarSpawnDePersonajes()
     {
-        characterSpawn.ComenzarSpawn();
+        if (nivelActual - 1 < niveles.Length)
+        {
+            characterSpawn.AsignarPersonajesDelNivel(niveles[nivelActual - 1].personajesDelNivel);
+            characterSpawn.ComenzarSpawn();
+        }
+        else
+        {
+            Debug.LogWarning("No hay más niveles definidos.");
+        }
     }
+
+
+
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
     {
@@ -98,4 +123,22 @@ public class GameManager : MonoBehaviour
             ReputationBar.instance.AplicarDecision("mala");
         }
     }
+
+    public void FinDeNivel()
+    {
+        Debug.Log("Fin de nivel alcanzado.");
+
+        nivelActual++;
+
+        panelFinNivel.gameObject.SetActive(true);
+        // StartCoroutine(MostrarCartelInicioDia());
+    }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f; 
+        nivelActual = 1; 
+        SceneManager.LoadScene("MenuPrincipal"); 
+    }
+
 }

@@ -108,7 +108,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+   /* private void OnMouseEnter()
     {
         if (!hasInteracted && canStartDialogue)
         {
@@ -124,12 +124,10 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueMark.SetActive(false);
         }
-    }
+    }*/
 
     public void EnableDialogue()
     {
-
-
         if (!hasInteracted)
         {
             canStartDialogue = true;

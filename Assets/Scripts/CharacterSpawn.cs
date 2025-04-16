@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CharacterSpawn : MonoBehaviour
 {
-    public GameObject[] characters;
+    private GameObject[] characters;
+
     public Transform spawnPoint;
     public Transform destination;
 
@@ -11,8 +12,15 @@ public class CharacterSpawn : MonoBehaviour
     private bool interactionFinished = false;
 
 
+    public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
+    {
+        characters = personajesDelNivel;
+    }
+
+
     public void ComenzarSpawn()
     {
+        currentIndex = 0;
         StartCoroutine(SpawnCharacters());
     }
 
@@ -36,14 +44,23 @@ public class CharacterSpawn : MonoBehaviour
             }
 
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
+
             yield return new WaitUntil(() => interactionFinished);
+
+            yield return StartCoroutine(MoveCharacter(currentCharacter, spawnPoint.position));
+
             Destroy(currentCharacter);
+
             BookManager.instance.DeshabilitarBotonConfirmacion();
+
             currentIndex++;
+
             yield return new WaitForSeconds(2f);
         }
 
         Debug.Log("Todos los personajes han pasado.");
+
+          GameManager.instance.FinDeNivel();
     }
 
     IEnumerator MoveCharacter(GameObject character, Vector3 targetPosition)
@@ -82,5 +99,4 @@ public class CharacterSpawn : MonoBehaviour
             Debug.LogError("DialogueManager no encontrado al habilitar diálogo.");
         }
     }
-
 }
