@@ -23,6 +23,7 @@ public class CatDialogues : MonoBehaviour
             "¡Hola! Soy Minino, tu asistente en esta librería mágica.",
             "Cada día vendrán criaturas distintas buscando libros.",
             "Recomiéndales libros según sus gustos o el que buscan exactamente.",
+            "Pero antes de recibir clientes deberias limpiar un poco este lugar...",
             "¡Suerte en tu primer día!" }
         },
         { 2, new string[] {
