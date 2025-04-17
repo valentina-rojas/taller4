@@ -86,6 +86,8 @@ public class CatDialogues : MonoBehaviour
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
             //BookManager.instance.HabilitarBotonConfirmacion();
+            TaskManager.instance.MostrarTareas();
+
         }
     }
 

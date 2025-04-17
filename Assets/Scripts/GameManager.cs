@@ -75,8 +75,13 @@ public class GameManager : MonoBehaviour
           characterSpawn.ComenzarSpawn();
       }*/
 
+
+
     public void IniciarSpawnDePersonajes()
     {
+
+         TaskManager.instance.OcultarListaTareas();
+
         if (nivelActual - 1 < niveles.Length)
         {
             characterSpawn.AsignarPersonajesDelNivel(niveles[nivelActual - 1].personajesDelNivel);
@@ -136,9 +141,9 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        Time.timeScale = 1f; 
-        nivelActual = 1; 
-        SceneManager.LoadScene("MenuPrincipal"); 
+        Time.timeScale = 1f;
+        nivelActual = 1;
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
 }
