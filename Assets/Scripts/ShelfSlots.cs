@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class ShelfSlots : MonoBehaviour, IDropHandler
 {
 
-     public string generoPermitido;
+    public string generoPermitido;
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
@@ -17,19 +17,19 @@ public class ShelfSlots : MonoBehaviour, IDropHandler
 
             currentDraggable.transform.SetParent(draggableItem.parentAfterDrag);
         }
-            draggableItem.parentAfterDrag = transform;
+        draggableItem.parentAfterDrag = transform;
 
 
-           BookData bookData = dropped.GetComponent<BookData>();
+        BookData bookData = dropped.GetComponent<BookData>();
 
         if (bookData.tipoLibro == generoPermitido)
         {
-                  Debug.Log("corresponde a este estante.");
+            Debug.Log("corresponde a este estante.");
         }
         else
         {
-            // Aquí puedes mostrar un mensaje, cambiar color o hacer sonido de error
             Debug.Log("Este libro no corresponde a este estante.");
         }
+        ShelfManager.instance.RevisarOrganizacion();
     }
 }

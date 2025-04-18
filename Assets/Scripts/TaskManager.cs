@@ -58,7 +58,7 @@ public class TaskManager : MonoBehaviour
 
         RevisarTareas();
     }
-
+ 
     private void RevisarTareas()
     {
         for (int i = 0; i < tareasCompletadas.Count; i++)
