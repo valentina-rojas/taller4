@@ -161,8 +161,8 @@ MonoBehaviour:
   niveles:
   - personajesDelNivel:
     - {fileID: 4406605961863887185, guid: a8da8e8cc78bcbd419e10bb0856638f2, type: 3}
-  - personajesDelNivel:
-    - {fileID: 4406605961863887185, guid: 639e52867ec461f4184ec0f0b8e2b5ec, type: 3}
+    - {fileID: 5489013454305063670, guid: 5450ced4880d35e4eb7f17dd4ee1d761, type: 3}
+    - {fileID: 4652195673153815505, guid: 3d804dc5ddf43a74b99b3e1f31086122, type: 3}
 --- !u!4 &44262575
 Transform:
   m_ObjectHideFlags: 0
@@ -1236,7 +1236,7 @@ MonoBehaviour:
     aislamiento en los Bosques Silenciosos, el libro ofrece recetas solo para quienes
     se atrevan a mirar m\xE1s all\xE1 del velo de la realidad. No apto para lectores
     impresionables o ansiosos por conservar su cordura."
-  imagenLibro: {fileID: 5251365391761005501, guid: edbaad81528529841a8c638a00fcea3e, type: 3}
+  imagenLibro: {fileID: -4721226998713458786, guid: e1378f9ebdcd9394db7bee5682767384, type: 3}
 --- !u!1001 &145948553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2450,7 +2450,7 @@ MonoBehaviour:
     Cada cap\xEDtulo est\xE1 basado en las emociones humanas b\xE1sicas: ira, deseo,
     miedo, esperanza. Ideal para alquimistas de guerra, b\xE1rbaros encantadores
     y poetas con un lado peligroso."
-  imagenLibro: {fileID: 5251365391761005501, guid: edbaad81528529841a8c638a00fcea3e, type: 3}
+  imagenLibro: {fileID: -4721226998713458786, guid: e1378f9ebdcd9394db7bee5682767384, type: 3}
 --- !u!1001 &269353660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4371,7 +4371,7 @@ MonoBehaviour:
     algunos libros est\xE1n escritos con sangre y relatan eventos a\xFAn no ocurridos,
     se da cuenta de que no est\xE1 solo\u2026 y que los estantes, si uno escucha
     con atenci\xF3n, tienen memoria propia. Y hambre.  "
-  imagenLibro: {fileID: -416402902280908553, guid: 081a76de40d7b4e439eb89b8b17e7b31, type: 3}
+  imagenLibro: {fileID: 5616735498906361540, guid: b7f6451fb79fc1a40af403359346a16e, type: 3}
 --- !u!1 &488156713
 GameObject:
   m_ObjectHideFlags: 0
@@ -8623,7 +8623,7 @@ MonoBehaviour:
     a su pasado como detective para seguir las pistas que el libro va dejando entre
     l\xEDneas. Pero cuanto m\xE1s se adentra en su misterio, m\xE1s difusa se vuelve
     la frontera entre ficci\xF3n y realidad."
-  imagenLibro: {fileID: -2468076494693781104, guid: f74567517a0b3904f98dd589260bc728, type: 3}
+  imagenLibro: {fileID: 1488180427319606480, guid: 84566c513d5035342a657db17d95ec1a, type: 3}
 --- !u!1001 &936383139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12858,7 +12858,7 @@ Transform:
   m_GameObject: {fileID: 1429045266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.77, y: 0.36, z: 0.05536038}
+  m_LocalPosition: {x: -14.77, y: 0.96, z: 0.05536038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13998,7 +13998,7 @@ Transform:
   m_GameObject: {fileID: 1648088102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.05, y: 0.36, z: 0.05536038}
+  m_LocalPosition: {x: -5.05, y: 0.96, z: 0.05536038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14140,7 +14140,7 @@ MonoBehaviour:
     sobre su origen antes de que la magia estelar desaparezca para siempre.  Una
     historia de magia antigua, sangre celestial y destinos que se cruzan bajo un
     cielo que vuelve a brillar.  "
-  imagenLibro: {fileID: -8397736238367479277, guid: f5233548856f39f4ca1b756a55d17348, type: 3}
+  imagenLibro: {fileID: 6875664790056892873, guid: 0388c976766e8944db976454d33c8882, type: 3}
 --- !u!1001 &1668270694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14809,7 +14809,7 @@ MonoBehaviour:
     caminar sin dejar huella, este libro recopila saberes de herbolarias errantes
     y druidas ermita\xF1os. Se dice que las p\xE1ginas est\xE1n hechas de hojas reales,
     vivas, que reaccionan al tacto de quien tiene intenci\xF3n de curar... o de cazar."
-  imagenLibro: {fileID: 5251365391761005501, guid: edbaad81528529841a8c638a00fcea3e, type: 3}
+  imagenLibro: {fileID: -4721226998713458786, guid: e1378f9ebdcd9394db7bee5682767384, type: 3}
 --- !u!1001 &1729118750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15197,7 +15197,7 @@ MonoBehaviour:
     comienzan a acercarse. Pronto deber\xE1 decidir si quemar el grimorio y vivir
     una vida normal\u2026 o desatar una magia capaz de resquebrajar el orden del
     mundo.\n\n"
-  imagenLibro: {fileID: -8397736238367479277, guid: f5233548856f39f4ca1b756a55d17348, type: 3}
+  imagenLibro: {fileID: 6875664790056892873, guid: 0388c976766e8944db976454d33c8882, type: 3}
 --- !u!1001 &1777631945
 PrefabInstance:
   m_ObjectHideFlags: 0
