@@ -85,6 +85,7 @@ public class CatDialogues : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
+             CameraManager.instance.ActivarBotonCamara();
             //BookManager.instance.HabilitarBotonConfirmacion();
             TaskManager.instance.MostrarTareas();
 

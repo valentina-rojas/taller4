@@ -76,6 +76,7 @@ public class DialogueManager : MonoBehaviour
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
+        CameraManager.instance.DesactivarBotonCamara();
         lineIndex = 0;
         StartCoroutine(ShowLine());
     }
@@ -94,6 +95,8 @@ public class DialogueManager : MonoBehaviour
             dialogueMark.SetActive(false);
             hasInteracted = true;
             BookManager.instance.HabilitarBotonConfirmacion();
+            CameraManager.instance.ActivarBotonCamara();
+
         }
     }
 
@@ -108,23 +111,23 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-   /* private void OnMouseEnter()
-    {
-        if (!hasInteracted && canStartDialogue)
-        {
-            isMouseOver = true;
-            dialogueMark.SetActive(true);
-        }
-    }
+    /* private void OnMouseEnter()
+     {
+         if (!hasInteracted && canStartDialogue)
+         {
+             isMouseOver = true;
+             dialogueMark.SetActive(true);
+         }
+     }
 
-    private void OnMouseExit()
-    {
-        isMouseOver = false;
-        if (!hasInteracted)
-        {
-            dialogueMark.SetActive(false);
-        }
-    }*/
+     private void OnMouseExit()
+     {
+         isMouseOver = false;
+         if (!hasInteracted)
+         {
+             dialogueMark.SetActive(false);
+         }
+     }*/
 
     public void EnableDialogue()
     {

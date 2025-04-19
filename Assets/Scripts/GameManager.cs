@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
 
         StartCoroutine(MostrarCartelInicioDia());
+
     }
 
     private IEnumerator MostrarCartelInicioDia()

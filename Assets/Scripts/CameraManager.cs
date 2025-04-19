@@ -1,11 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
+
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager instance;
+
     public Camera[] cameras;
     public GameObject[] canvasObjects;
 
     private int currentCameraIndex = 0;
+
+    public Button botonCambiarCamara1;
+
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -18,7 +35,40 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void CambiarCamara(int cameraIndex)
+    {
+        if (cameraIndex < 0 || cameraIndex >= cameras.Length)
+        {
+            Debug.LogWarning("Índice de cámara fuera de rango.");
+            return;
+        }
+
+        cameras[currentCameraIndex].enabled = false;
+        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
+            canvasObjects[currentCameraIndex].SetActive(false);
+
+        currentCameraIndex = cameraIndex;
+
+        cameras[currentCameraIndex].enabled = true;
+        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
+            canvasObjects[currentCameraIndex].SetActive(true);
+    }
+
+
+    public void DesactivarBotonCamara()
+    {
+
+        botonCambiarCamara1.interactable = false;
+    }
+
+    public void ActivarBotonCamara()
+    {
+
+        botonCambiarCamara1.interactable = true;
+    }
+
+
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -38,5 +88,5 @@ public class CameraManager : MonoBehaviour
         cameras[currentCameraIndex].enabled = true;
         if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
             canvasObjects[currentCameraIndex].SetActive(true);
-    }
+    }*/
 }
