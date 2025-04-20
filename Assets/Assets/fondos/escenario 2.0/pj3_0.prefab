@@ -149,13 +149,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLinesInicio:
-  - 
-  - 
-  - 
-  dialogueLinesBuena: []
-  dialogueLinesMala: []
-  libroDeseadoID: 7
-  tipoPreferido: historia
+  - "Buenas\u2026 "
+  - "o tal vez malas\u2026"
+  - "\xBFqu\xE9 hora es? Da igual."
+  - Busco La Dama de los Secretos Perdidos.
+  - "Y antes de que preguntes: s\xED, es para m\xED. "
+  - "Y no, no pienso contarte para qu\xE9 lo quiero.\r\n"
+  dialogueLinesBuena:
+  - "Hmm\u2026 s\xED, este es el que buscaba."
+  - Gracias...
+  dialogueLinesMala:
+  - "\xBFQu\xE9 te hizo pensar que me interesar\xEDa un libro de esos?"
+  - Ugh... no importa.
+  libroDeseadoID: 12
+  tipoPreferido: misterio
 --- !u!114 &1177564428679998758
 MonoBehaviour:
   m_ObjectHideFlags: 0
