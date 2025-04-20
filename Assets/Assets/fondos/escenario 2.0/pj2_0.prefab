@@ -148,12 +148,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - buen dia
-  - estoy investigando referencias cruzadas entre mitos y literatura
-  - "necesito un ejemplar de Los \xDAltimos Hijos del Cometa Azul"
-  libroDeseadoID: 8
-  tipoPreferido: fantasia
+  dialogueLinesInicio:
+  - Buen dia...
+  - "necesito ese libro\u2026"
+  - uno lleno de cuentos para asustar a los mocosos que se esconden bajo mi cama.
+  - No recuerdo el nombre...
+  - "Pero tenia historias de manos fr\xEDas, risas raras en los armarios... "
+  - "y cosas que se asoman desde debajo del colch\xF3n."
+  dialogueLinesBuena:
+  - "\xA1Justo lo que necesitaba!"
+  - " Jejeje\u2026 "
+  - "perfecto para asustar a esos mocosos et\xE9reos que me chillan en los tobillos
+    a medianoche."
+  - "Si sobrevivo hasta ma\xF1ana, paso a contarte c\xF3mo fue."
+  dialogueLinesMala:
+  - "A ver\u2026"
+  - "\xBFy esto qu\xE9 es?..."
+  - como me dejen un zapato bajo la cama esta noche, te maldigo las pantuflas.
+  libroDeseadoID: 63
+  tipoPreferido: terror
 --- !u!114 &1136955672045997557
 MonoBehaviour:
   m_ObjectHideFlags: 0

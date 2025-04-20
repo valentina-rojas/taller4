@@ -34,9 +34,12 @@ public class CharacterSpawn : MonoBehaviour
 
 
             CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
+            DialogueManager dialogueManager = currentCharacter.GetComponent<DialogueManager>();
             if (atributos != null)
             {
                 GameManager.instance.EstablecerPersonajeActual(atributos);
+                GameManager.instance.resultadoRecomendacion = GameManager.ResultadoRecomendacion.Ninguna;
+
             }
             else
             {
@@ -46,6 +49,7 @@ public class CharacterSpawn : MonoBehaviour
             yield return StartCoroutine(MoveCharacter(currentCharacter, destination.position));
 
             yield return new WaitUntil(() => interactionFinished);
+
 
             yield return StartCoroutine(MoveCharacter(currentCharacter, spawnPoint.position));
 
@@ -60,7 +64,7 @@ public class CharacterSpawn : MonoBehaviour
 
         Debug.Log("Todos los personajes han pasado.");
 
-          GameManager.instance.FinDeNivel();
+        GameManager.instance.FinDeNivel();
     }
 
     IEnumerator MoveCharacter(GameObject character, Vector3 targetPosition)
@@ -83,8 +87,28 @@ public class CharacterSpawn : MonoBehaviour
 
     public void EndInteraction()
     {
+        StartCoroutine(MostrarDialogoDeResultado());
+    }
+
+
+    private IEnumerator MostrarDialogoDeResultado()
+    {
+        DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>().gameObject.GetComponent<DialogueManager>();
+
+        if (dialogueManager != null)
+        {
+            dialogueManager.EmpezarDialogoResultado();
+            yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
+        }
+        else
+        {
+            Debug.LogError("DialogueManager no encontrado.");
+        }
+
         interactionFinished = true;
     }
+
+
 
     private void HabilitarDialogo()
     {

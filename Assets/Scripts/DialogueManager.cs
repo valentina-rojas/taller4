@@ -38,14 +38,14 @@ public class DialogueManager : MonoBehaviour
 
 
         characterAttributes = GetComponent<CharacterAttributes>();
-        if (characterAttributes != null)
-        {
-            dialogueLines = characterAttributes.GetDialogueLines();
-        }
-        else
-        {
-            Debug.LogWarning("CharacterAttributes no está asignado en este GameObject.");
-        }
+        /*  if (characterAttributes != null)
+          {
+              dialogueLines = characterAttributes.GetDialogueLines();
+          }
+          else
+          {
+              Debug.LogWarning("CharacterAttributes no está asignado en este GameObject.");
+          }*/
     }
 
 
@@ -69,8 +69,32 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
+    public void EmpezarDialogoResultado()
+    {
+        hasInteracted = false;
+        canStartDialogue = true;
+        StartDialogue();
+    }
+
+
     private void StartDialogue()
     {
+        if (characterAttributes == null) return;
+
+        switch (GameManager.instance.resultadoRecomendacion)
+        {
+            case GameManager.ResultadoRecomendacion.Buena:
+                dialogueLines = characterAttributes.GetDialogueBuena();
+                break;
+            case GameManager.ResultadoRecomendacion.Mala:
+                dialogueLines = characterAttributes.GetDialogueMala();
+                break;
+            default:
+                dialogueLines = characterAttributes.GetDialogueInicio();
+                break;
+        }
+
         if (dialogueLines == null || dialogueLines.Length == 0) return;
 
         didDialogueStart = true;
@@ -80,6 +104,7 @@ public class DialogueManager : MonoBehaviour
         lineIndex = 0;
         StartCoroutine(ShowLine());
     }
+
 
     private void NextDialogueLine()
     {
@@ -137,6 +162,11 @@ public class DialogueManager : MonoBehaviour
             isMouseOver = true;
             dialogueMark.SetActive(true);
         }
+    }
+
+    public bool HaTerminadoElDialogo()
+    {
+        return !didDialogueStart;
     }
 
 

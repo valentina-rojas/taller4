@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text textoDia;
     public int nivelActual = 1;
 
+    public enum ResultadoRecomendacion { Ninguna, Buena, Mala }
+
+    public ResultadoRecomendacion resultadoRecomendacion = ResultadoRecomendacion.Ninguna;
+
     [System.Serializable]
     public class Nivel
     {
@@ -81,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void IniciarSpawnDePersonajes()
     {
 
-         TaskManager.instance.OcultarListaTareas();
+        TaskManager.instance.OcultarListaTareas();
 
         if (nivelActual - 1 < niveles.Length)
         {
@@ -115,21 +119,20 @@ public class GameManager : MonoBehaviour
 
         if (esCorrecto)
         {
-            Debug.Log("¡Recomendación correcta! Era el libro exacto que quería.");
+            resultadoRecomendacion = ResultadoRecomendacion.Buena;
             ReputationBar.instance.AplicarDecision("buena");
         }
-        else if (personajeActual.tipoPreferido == libro.tipoLibro)
-        {
-            Debug.Log("Buena elección. Es del tipo que le gusta, aunque no era el libro exacto.");
-            ReputationBar.instance.AplicarDecision("neutra");
-        }
+        /*   else if (esDelTipoPreferido)
+           {
+               resultadoRecomendacion = ResultadoRecomendacion.Buena; // si querés que también sea buena, o poné "Neutra"
+               ReputationBar.instance.AplicarDecision("neutra");
+           }*/
         else
         {
-            Debug.Log("Mala recomendación. No coincide ni con el tipo ni el libro deseado.");
+            resultadoRecomendacion = ResultadoRecomendacion.Mala;
             ReputationBar.instance.AplicarDecision("mala");
         }
     }
-
     public void FinDeNivel()
     {
         Debug.Log("Fin de nivel alcanzado.");

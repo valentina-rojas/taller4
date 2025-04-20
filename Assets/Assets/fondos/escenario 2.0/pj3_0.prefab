@@ -148,10 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - edsgsfh
-  - HASHDSJ
-  - 576637456
+  dialogueLinesInicio:
+  - 
+  - 
+  - 
+  dialogueLinesBuena: []
+  dialogueLinesMala: []
   libroDeseadoID: 7
   tipoPreferido: historia
 --- !u!114 &1177564428679998758
