@@ -50,6 +50,7 @@ public class CharacterSpawn : MonoBehaviour
 
             yield return new WaitUntil(() => interactionFinished);
 
+            CameraManager.instance.DesactivarBotonCamara();
 
             yield return StartCoroutine(MoveCharacter(currentCharacter, spawnPoint.position));
 

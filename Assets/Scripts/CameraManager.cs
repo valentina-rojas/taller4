@@ -65,6 +65,7 @@ public class CameraManager : MonoBehaviour
     {
 
         botonCambiarCamara1.interactable = true;
+        Debug.Log("boton habilitado");
     }
 
 

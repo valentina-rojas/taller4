@@ -56,22 +56,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MostrarCartelInicioDia()
     {
-        // Mostrar panel con texto del día
+  
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
 
-        // Pausar juego (opcional) y desactivar interacción
         Time.timeScale = 0f;
-        // También podrías desactivar inputs o pausar UI aquí
+    
+        yield return new WaitForSecondsRealtime(3f);
 
-        // Esperar unos segundos en tiempo real (no afectado por Time.timeScale)
-        yield return new WaitForSecondsRealtime(2.5f);
-
-        // Ocultar panel y reanudar juego
         panelInfoLibro.SetActive(false);
         Time.timeScale = 1f;
 
-        // Comienza el juego
         FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
     }
 
@@ -81,11 +76,11 @@ public class GameManager : MonoBehaviour
       }*/
 
 
-
     public void IniciarSpawnDePersonajes()
     {
 
         TaskManager.instance.OcultarListaTareas();
+        CameraManager.instance.DesactivarBotonCamara();
 
         if (nivelActual - 1 < niveles.Length)
         {
