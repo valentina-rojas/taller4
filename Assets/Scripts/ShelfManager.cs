@@ -40,7 +40,7 @@ public class ShelfManager : MonoBehaviour
                     Debug.Log("Libro incorrecto en estante de " + estante.generoPermitido);
                     return false;
                 }
-            }
+            } 
         }
 
         Debug.Log("Todo bien organizado.");
