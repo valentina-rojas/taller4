@@ -19,8 +19,13 @@ public class GameManager : MonoBehaviour
     public int nivelActual = 1;
 
     public enum ResultadoRecomendacion { Ninguna, Buena, Mala }
-
     public ResultadoRecomendacion resultadoRecomendacion = ResultadoRecomendacion.Ninguna;
+
+    public int recomendacionesBuenas = 0;
+    public int recomendacionesMalas = 0;
+
+    public TMP_Text textoResultadoFinal;
+    public TMP_Text textoTituloFinDeDia;
 
     [System.Serializable]
     public class Nivel
@@ -28,8 +33,11 @@ public class GameManager : MonoBehaviour
         public GameObject[] personajesDelNivel;
     }
 
+
     [Header("Niveles del juego")]
     public Nivel[] niveles;
+
+
 
     private void Awake()
     {
@@ -51,17 +59,16 @@ public class GameManager : MonoBehaviour
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
 
         StartCoroutine(MostrarCartelInicioDia());
-
     }
 
     private IEnumerator MostrarCartelInicioDia()
     {
-  
+
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
 
         Time.timeScale = 0f;
-    
+
         yield return new WaitForSecondsRealtime(3f);
 
         panelInfoLibro.SetActive(false);
@@ -69,12 +76,6 @@ public class GameManager : MonoBehaviour
 
         FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
     }
-
-    /*  public void IniciarSpawnDePersonajes()
-      {
-          characterSpawn.ComenzarSpawn();
-      }*/
-
 
     public void IniciarSpawnDePersonajes()
     {
@@ -92,9 +93,6 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No hay más niveles definidos.");
         }
     }
-
-
-
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
     {
@@ -115,6 +113,7 @@ public class GameManager : MonoBehaviour
         if (esCorrecto)
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            recomendacionesBuenas++;
             ReputationBar.instance.AplicarDecision("buena");
         }
         /*   else if (esDelTipoPreferido)
@@ -125,17 +124,40 @@ public class GameManager : MonoBehaviour
         else
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
+            recomendacionesMalas++;
             ReputationBar.instance.AplicarDecision("mala");
         }
     }
+
     public void FinDeNivel()
     {
-        Debug.Log("Fin de nivel alcanzado.");
-
         nivelActual++;
 
         panelFinNivel.gameObject.SetActive(true);
-        // StartCoroutine(MostrarCartelInicioDia());
+
+        textoTituloFinDeDia.text = $"Fin del Día {nivelActual - 1}";
+
+        string mensajeFinal = "";
+
+        if (recomendacionesBuenas > recomendacionesMalas)
+        {
+            mensajeFinal = "¡Buen trabajo! Tus recomendaciones ayudaron a muchos clientes.";
+        }
+        else if (recomendacionesMalas > recomendacionesBuenas)
+        {
+            mensajeFinal = "Hoy no fue el mejor día... Intenta mejorar tus recomendaciones.";
+        }
+        else
+        {
+            mensajeFinal = "Un día regular. ¡Seguro mañana será mejor!";
+        }
+
+        textoResultadoFinal.text = mensajeFinal;
+
+        panelFinNivel.gameObject.SetActive(true);
+
+        recomendacionesBuenas = 0;
+        recomendacionesMalas = 0;
     }
 
     public void ReturnToMenu()

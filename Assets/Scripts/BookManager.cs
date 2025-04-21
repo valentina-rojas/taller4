@@ -15,6 +15,7 @@ public class BookManager : MonoBehaviour
 
     public GameObject panelConfirmarSeleccion;
     public Image imagenConfirmarSeleccion;
+    public TMP_Text tituloConfirmarSeleccion;
 
     private CharacterSpawn characterSpawn;
 
@@ -75,6 +76,8 @@ public class BookManager : MonoBehaviour
 
         panelConfirmarSeleccion.SetActive(true);
         imagenConfirmarSeleccion.sprite = libroActual.imagenLibro;
+        tituloConfirmarSeleccion.text = libroActual.titulo;
+ 
 
     }
 
