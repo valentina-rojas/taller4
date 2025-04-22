@@ -11,19 +11,19 @@ public class BookCoverManager : MonoBehaviour
     {
         portadaFinal.SetActive(true);
 
-       foreach (Transform child in portadaEditable.transform)
-{
-    RectTransform childRect = child.GetComponent<RectTransform>();
+        foreach (Transform child in portadaEditable.transform)
+        {
+            RectTransform childRect = child.GetComponent<RectTransform>();
 
-    DraggableItem draggable = child.GetComponent<DraggableItem>();
-    if (draggable != null)
-    {
-        draggable.enabled = false;
-    }
-}
+            DraggableItem draggable = child.GetComponent<DraggableItem>();
+            if (draggable != null)
+            {
+                draggable.enabled = false;
+            }
+        }
 
 
-     //   portadaEditable.SetActive(false);
+        //   portadaEditable.SetActive(false);
 
 
     }
