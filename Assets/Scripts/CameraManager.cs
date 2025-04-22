@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
-
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
@@ -14,6 +13,11 @@ public class CameraManager : MonoBehaviour
     private int currentCameraIndex = 0;
 
     public Button botonCambiarCamara1;
+
+
+    public GameObject panelReparacion;
+    public GameObject panelPortada;
+    public GameObject panelPortada2;
 
 
     void Awake()
@@ -57,37 +61,48 @@ public class CameraManager : MonoBehaviour
 
     public void DesactivarBotonCamara()
     {
-
         botonCambiarCamara1.interactable = false;
     }
 
     public void ActivarBotonCamara()
     {
-
         botonCambiarCamara1.interactable = true;
         Debug.Log("boton habilitado");
     }
 
 
-    /*void Update()
+
+    public void ActivarPanelReparacion()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeCamera();
-        }
+        panelReparacion.gameObject.SetActive(true);
+         Debug.Log("PANEL RESTAURACION HABILITADO");
     }
 
-    void ChangeCamera()
+    public void DesactivarPanelReparacion()
     {
-        cameras[currentCameraIndex].enabled = false;
-        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
-            canvasObjects[currentCameraIndex].SetActive(false);
-
-        currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
+        panelReparacion.gameObject.SetActive(false);
+    }
 
 
-        cameras[currentCameraIndex].enabled = true;
-        if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
-            canvasObjects[currentCameraIndex].SetActive(true);
-    }*/
+    public void ActivarPanelPortada()
+    {
+
+        panelPortada.gameObject.SetActive(true);
+    }
+
+    public void DesctivarPanelPortada()
+    {
+
+        panelPortada.gameObject.SetActive(false);
+        panelPortada2.gameObject.SetActive(false);
+    }
+
+
+
+    public void ActivarCamaraPrincipal()
+    {
+        CambiarCamara(0);
+    }
+
+
 }

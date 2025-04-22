@@ -31,6 +31,7 @@ public class CharacterSpawn : MonoBehaviour
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
 
             interactionFinished = false;
+            CharacterManager.instance.ResetearAtencion();
 
 
             CharacterAttributes atributos = currentCharacter.GetComponent<CharacterAttributes>();
@@ -86,29 +87,37 @@ public class CharacterSpawn : MonoBehaviour
         HabilitarDialogo();
     }
 
-    public void EndInteraction()
+   public void EndInteraction()
+{
+    if (!interactionFinished)
     {
         StartCoroutine(MostrarDialogoDeResultado());
     }
+}
 
+private IEnumerator MostrarDialogoDeResultado()
+{
+    // Verifica si el DialogueManager está listo
+    DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>().gameObject.GetComponent<DialogueManager>();
 
-    private IEnumerator MostrarDialogoDeResultado()
+    if (dialogueManager != null)
     {
-        DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>().gameObject.GetComponent<DialogueManager>();
-
-        if (dialogueManager != null)
-        {
-            dialogueManager.EmpezarDialogoResultado();
-            yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
-        }
-        else
-        {
-            Debug.LogError("DialogueManager no encontrado.");
-        }
-
-        interactionFinished = true;
+        dialogueManager.EmpezarDialogoResultado();
+        yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
+    }
+    else
+    {
+        Debug.LogError("DialogueManager no encontrado.");
     }
 
+    interactionFinished = true; // Marca la interacción como terminada
+}
+
+
+public void FinalizarInteraccion()
+{
+    interactionFinished = true;
+}
 
 
     private void HabilitarDialogo()

@@ -10,7 +10,7 @@ public class BookCoverDropArea : MonoBehaviour, IDropHandler
     GameObject droppedObject = eventData.pointerDrag;
     if (droppedObject != null)
     {
-        droppedObject.transform.SetParent(this.transform); // lo hace hijo de portadaEditable
+        droppedObject.transform.SetParent(this.transform); 
     }
 }
 

@@ -3,14 +3,24 @@ using UnityEngine;
 public class CharacterAttributes : MonoBehaviour
 {
 
- [Header("Diálogos iniciales")]
-    [SerializeField, TextArea(2, 4)] private string[] dialogueLinesInicio;
+  public enum TipoDePedido
+  {
+    BuscarLibro,
+    RepararLibro,
+    HacerPortada
+  }
 
-    [Header("Diálogos si la recomendación fue buena")]
-    [SerializeField, TextArea(2, 4)] private string[] dialogueLinesBuena;
+  [Header("Tipo de pedido de este personaje")]
+  public TipoDePedido tipoDePedido;
 
-    [Header("Diálogos si la recomendación fue mala")]
-    [SerializeField, TextArea(2, 4)] private string[] dialogueLinesMala;
+  [Header("Diálogos iniciales")]
+  [SerializeField, TextArea(2, 4)] private string[] dialogueLinesInicio;
+
+  [Header("Diálogos si la recomendación fue buena")]
+  [SerializeField, TextArea(2, 4)] private string[] dialogueLinesBuena;
+
+  [Header("Diálogos si la recomendación fue mala")]
+  [SerializeField, TextArea(2, 4)] private string[] dialogueLinesMala;
 
   [Header("Preferencias del personaje")]
   public int libroDeseadoID;
@@ -18,7 +28,7 @@ public class CharacterAttributes : MonoBehaviour
 
 
 
-    public string[] GetDialogueInicio() => dialogueLinesInicio;
-    public string[] GetDialogueBuena() => dialogueLinesBuena;
-    public string[] GetDialogueMala() => dialogueLinesMala;
+  public string[] GetDialogueInicio() => dialogueLinesInicio;
+  public string[] GetDialogueBuena() => dialogueLinesBuena;
+  public string[] GetDialogueMala() => dialogueLinesMala;
 }

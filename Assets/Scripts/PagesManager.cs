@@ -1,15 +1,34 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PagesManager : MonoBehaviour
 {
     public static PagesManager instance;
 
-  public PagesSlot[] slots;
+    public PagesSlot[] slots;
+
+    public Button botonEntregar;
+
+    private CharacterSpawn characterSpawn;
+
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        characterSpawn = FindFirstObjectByType<CharacterSpawn>();
+        if (characterSpawn == null)
+        {
+            Debug.LogError("CharacterSpawn no encontrado por BookManager.");
+        }
     }
 
     public void CheckOrder()
@@ -32,6 +51,24 @@ public class PagesManager : MonoBehaviour
 
         Debug.Log("¡Libro restaurado correctamente!");
 
+        //habilitar boton
+        botonEntregar.gameObject.SetActive(true);
     }
+
+
+
+    public void FinalizarRestauracion()
+    {
+        CameraManager.instance.DesactivarPanelReparacion();
+        GameManager.instance.CompletarRestauracion();
+
+        if (characterSpawn != null) 
+        {
+            characterSpawn.EndInteraction();
+        }
+
+    }
+
+
 
 }

@@ -6,7 +6,7 @@ public class PagesSlot : MonoBehaviour, IDropHandler
 
     public int expectedPageID;
 
- public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
         DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();

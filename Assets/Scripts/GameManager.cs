@@ -33,11 +33,8 @@ public class GameManager : MonoBehaviour
         public GameObject[] personajesDelNivel;
     }
 
-
     [Header("Niveles del juego")]
     public Nivel[] niveles;
-
-
 
     private void Awake()
     {
@@ -114,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
-            ReputationBar.instance.AplicarDecision("buena");
+            //ReputationBar.instance.AplicarDecision("buena");
         }
         /*   else if (esDelTipoPreferido)
            {
@@ -125,9 +122,35 @@ public class GameManager : MonoBehaviour
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
-            ReputationBar.instance.AplicarDecision("mala");
+            // ReputationBar.instance.AplicarDecision("mala");
         }
     }
+
+
+    public void CompletarRestauracion()
+    {
+        Debug.Log("Restauración completada.");
+
+        resultadoRecomendacion = ResultadoRecomendacion.Buena;
+
+    }
+
+    public void CompletarPortada()
+    {
+        Debug.Log("Portada completada.");
+        CameraManager.instance.DesctivarPanelPortada();
+
+        resultadoRecomendacion = ResultadoRecomendacion.Buena;
+
+          if (characterSpawn != null)
+        {
+            characterSpawn.EndInteraction();
+        }
+
+    }
+
+
+
 
     public void FinDeNivel()
     {
