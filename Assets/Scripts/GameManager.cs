@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         }
         else if (recomendacionesMalas > recomendacionesBuenas)
         {
-            mensajeFinal = "Hoy no fue el mejor día... Intenta mejorar tus recomendaciones.";
+            mensajeFinal = "Hoy no fue el mejor día... ¡Seguro mañana será mejor!";
         }
         else
         {
