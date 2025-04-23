@@ -1,11 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookCoverManager : MonoBehaviour
 {
     public GameObject portadaEditable;
     public GameObject portadaFinal;
+    public Button finalizarButton;
 
+    private void Start()
+    {
+        finalizarButton.interactable = false; 
+    }
 
+    public void VerificarElementosEnPortada()
+    {
+        if (portadaEditable.transform.childCount > 0)
+        {
+            finalizarButton.interactable = true;
+        }
+    }
 
     public void Finalizar()
     {

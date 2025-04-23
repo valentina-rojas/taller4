@@ -51,6 +51,17 @@ public class PagesManager : MonoBehaviour
 
         Debug.Log("¡Libro restaurado correctamente!");
 
+        foreach (PagesSlot slot in slots)
+        {
+            Transform page = slot.transform.GetChild(0);
+            DraggableItem draggable = page.GetComponent<DraggableItem>();
+            if (draggable != null)
+            {
+                draggable.enabled = false;
+            }
+        }
+
+
         //habilitar boton
         botonEntregar.gameObject.SetActive(true);
     }
@@ -62,7 +73,7 @@ public class PagesManager : MonoBehaviour
         CameraManager.instance.DesactivarPanelReparacion();
         GameManager.instance.CompletarRestauracion();
 
-        if (characterSpawn != null) 
+        if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }
