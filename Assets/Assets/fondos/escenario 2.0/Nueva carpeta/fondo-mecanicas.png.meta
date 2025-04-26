@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fondo-mecanicas_0: 5532136257390600658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      misterio_0: 5885371773148585709
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

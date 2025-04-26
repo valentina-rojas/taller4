@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      portadas-libro3.0_0: 685568095499186528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

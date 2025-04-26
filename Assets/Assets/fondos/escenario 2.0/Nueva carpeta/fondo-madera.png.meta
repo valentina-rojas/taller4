@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fondo-madera_0: 5079965101505616904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
