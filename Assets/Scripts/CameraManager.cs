@@ -1,11 +1,32 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager instance;
+
     public Camera[] cameras;
     public GameObject[] canvasObjects;
 
     private int currentCameraIndex = 0;
+
+    public Button botonCambiarCamara1;
+
+
+    public GameObject panelReparacion;
+    public GameObject panelPortada;
+    public GameObject panelPortada2;
+
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -18,25 +39,70 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void CambiarCamara(int cameraIndex)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (cameraIndex < 0 || cameraIndex >= cameras.Length)
         {
-            ChangeCamera();
+            Debug.LogWarning("Índice de cámara fuera de rango.");
+            return;
         }
-    }
 
-    void ChangeCamera()
-    {
         cameras[currentCameraIndex].enabled = false;
         if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
             canvasObjects[currentCameraIndex].SetActive(false);
 
-        currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
-
+        currentCameraIndex = cameraIndex;
 
         cameras[currentCameraIndex].enabled = true;
         if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
             canvasObjects[currentCameraIndex].SetActive(true);
     }
+
+
+    public void DesactivarBotonCamara()
+    {
+        botonCambiarCamara1.interactable = false;
+    }
+
+    public void ActivarBotonCamara()
+    {
+        botonCambiarCamara1.interactable = true;
+        Debug.Log("boton habilitado");
+    }
+
+
+
+    public void ActivarPanelReparacion()
+    {
+        panelReparacion.gameObject.SetActive(true);
+         Debug.Log("PANEL RESTAURACION HABILITADO");
+    }
+
+    public void DesactivarPanelReparacion()
+    {
+        panelReparacion.gameObject.SetActive(false);
+    }
+
+
+    public void ActivarPanelPortada()
+    {
+
+        panelPortada.gameObject.SetActive(true);
+    }
+
+    public void DesctivarPanelPortada()
+    {
+
+        panelPortada.gameObject.SetActive(false);
+        panelPortada2.gameObject.SetActive(false);
+    }
+
+
+
+    public void ActivarCamaraPrincipal()
+    {
+        CambiarCamara(0);
+    }
+
+
 }

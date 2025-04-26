@@ -38,14 +38,7 @@ public class DialogueManager : MonoBehaviour
 
 
         characterAttributes = GetComponent<CharacterAttributes>();
-        if (characterAttributes != null)
-        {
-            dialogueLines = characterAttributes.GetDialogueLines();
-        }
-        else
-        {
-            Debug.LogWarning("CharacterAttributes no está asignado en este GameObject.");
-        }
+
     }
 
 
@@ -69,16 +62,42 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
+    public void EmpezarDialogoResultado()
+    {
+        hasInteracted = false;
+        canStartDialogue = true;
+        StartDialogue();
+    }
+
+
     private void StartDialogue()
     {
+        if (characterAttributes == null) return;
+
+        switch (GameManager.instance.resultadoRecomendacion)
+        {
+            case GameManager.ResultadoRecomendacion.Buena:
+                dialogueLines = characterAttributes.GetDialogueBuena();
+                break;
+            case GameManager.ResultadoRecomendacion.Mala:
+                dialogueLines = characterAttributes.GetDialogueMala();
+                break;
+            default:
+                dialogueLines = characterAttributes.GetDialogueInicio();
+                break;
+        }
+
         if (dialogueLines == null || dialogueLines.Length == 0) return;
 
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
+        CameraManager.instance.DesactivarBotonCamara();
         lineIndex = 0;
         StartCoroutine(ShowLine());
     }
+
 
     private void NextDialogueLine()
     {
@@ -93,7 +112,14 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(false);
             hasInteracted = true;
-            BookManager.instance.HabilitarBotonConfirmacion();
+
+            // aca atender al personaje
+            CharacterManager characterManager = FindObjectOfType<CharacterManager>();
+            if (characterManager != null && characterAttributes != null)
+            {
+                characterManager.AtenderPersonaje(characterAttributes);
+            }
+
         }
     }
 
@@ -108,34 +134,19 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
-    {
-        if (!hasInteracted && canStartDialogue)
-        {
-            isMouseOver = true;
-            dialogueMark.SetActive(true);
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        isMouseOver = false;
-        if (!hasInteracted)
-        {
-            dialogueMark.SetActive(false);
-        }
-    }
-
     public void EnableDialogue()
     {
-
-
         if (!hasInteracted)
         {
             canStartDialogue = true;
             isMouseOver = true;
             dialogueMark.SetActive(true);
         }
+    }
+
+    public bool HaTerminadoElDialogo()
+    {
+        return !didDialogueStart;
     }
 
 

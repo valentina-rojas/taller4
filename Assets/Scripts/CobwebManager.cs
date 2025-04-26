@@ -48,6 +48,8 @@ public class CobwebManager : MonoBehaviour
     {
         Debug.Log("Podés avanzar al siguiente paso ✨");
 
-        gameManager.IniciarSpawnDePersonajes();
+       // gameManager.IniciarSpawnDePersonajes();
+      TaskManager.instance.CompletarTareaPorID(0);
+
     }
 }

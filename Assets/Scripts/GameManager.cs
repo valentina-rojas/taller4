@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,29 @@ public class GameManager : MonoBehaviour
 
     [Header("Estado del juego")]
     public CharacterAttributes personajeActual;
+
+    public GameObject panelInfoLibro;
+    public GameObject panelFinNivel;
+    public TMP_Text textoDia;
+    public int nivelActual = 1;
+
+    public enum ResultadoRecomendacion { Ninguna, Buena, Mala }
+    public ResultadoRecomendacion resultadoRecomendacion = ResultadoRecomendacion.Ninguna;
+
+    public int recomendacionesBuenas = 0;
+    public int recomendacionesMalas = 0;
+
+    public TMP_Text textoResultadoFinal;
+    public TMP_Text textoTituloFinDeDia;
+
+    [System.Serializable]
+    public class Nivel
+    {
+        public GameObject[] personajesDelNivel;
+    }
+
+    [Header("Niveles del juego")]
+    public Nivel[] niveles;
 
     private void Awake()
     {
@@ -29,13 +54,41 @@ public class GameManager : MonoBehaviour
 
         if (characterSpawn == null)
             Debug.LogError("CharacterSpawn no encontrado en la escena.");
+
+        StartCoroutine(MostrarCartelInicioDia());
     }
 
+    private IEnumerator MostrarCartelInicioDia()
+    {
 
+        panelInfoLibro.SetActive(true);
+        textoDia.text = $"Día {nivelActual}";
+
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        panelInfoLibro.SetActive(false);
+        Time.timeScale = 1f;
+
+        FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
+    }
 
     public void IniciarSpawnDePersonajes()
     {
-        characterSpawn.ComenzarSpawn();
+
+        TaskManager.instance.OcultarListaTareas();
+        CameraManager.instance.DesactivarBotonCamara();
+
+        if (nivelActual - 1 < niveles.Length)
+        {
+            characterSpawn.AsignarPersonajesDelNivel(niveles[nivelActual - 1].personajesDelNivel);
+            characterSpawn.ComenzarSpawn();
+        }
+        else
+        {
+            Debug.LogWarning("No hay más niveles definidos.");
+        }
     }
 
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
@@ -56,18 +109,85 @@ public class GameManager : MonoBehaviour
 
         if (esCorrecto)
         {
-            Debug.Log("¡Recomendación correcta! Era el libro exacto que quería.");
-            ReputationBar.instance.AplicarDecision("buena");
+            resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            recomendacionesBuenas++;
+            //ReputationBar.instance.AplicarDecision("buena");
         }
-        else if (personajeActual.tipoPreferido == libro.tipoLibro)
+        /*   else if (esDelTipoPreferido)
+           {
+               resultadoRecomendacion = ResultadoRecomendacion.Buena; // si querés que también sea buena, o poné "Neutra"
+               ReputationBar.instance.AplicarDecision("neutra");
+           }*/
+        else
         {
-            Debug.Log("Buena elección. Es del tipo que le gusta, aunque no era el libro exacto.");
-            ReputationBar.instance.AplicarDecision("neutra");
+            resultadoRecomendacion = ResultadoRecomendacion.Mala;
+            recomendacionesMalas++;
+            // ReputationBar.instance.AplicarDecision("mala");
+        }
+    }
+
+
+    public void CompletarRestauracion()
+    {
+        Debug.Log("Restauración completada.");
+
+        resultadoRecomendacion = ResultadoRecomendacion.Buena;
+
+    }
+
+    public void CompletarPortada()
+    {
+        Debug.Log("Portada completada.");
+        CameraManager.instance.DesctivarPanelPortada();
+
+        resultadoRecomendacion = ResultadoRecomendacion.Buena;
+
+          if (characterSpawn != null)
+        {
+            characterSpawn.EndInteraction();
+        }
+
+    }
+
+
+
+
+    public void FinDeNivel()
+    {
+        nivelActual++;
+
+        panelFinNivel.gameObject.SetActive(true);
+
+        textoTituloFinDeDia.text = $"Fin del Día {nivelActual - 1}";
+
+        string mensajeFinal = "";
+
+        if (recomendacionesBuenas > recomendacionesMalas)
+        {
+            mensajeFinal = "¡Buen trabajo! Tus recomendaciones ayudaron a muchos clientes.";
+        }
+        else if (recomendacionesMalas > recomendacionesBuenas)
+        {
+            mensajeFinal = "Hoy no fue el mejor día... ¡Seguro mañana será mejor!";
         }
         else
         {
-            Debug.Log("Mala recomendación. No coincide ni con el tipo ni el libro deseado.");
-            ReputationBar.instance.AplicarDecision("mala");
+            mensajeFinal = "Un día regular. ¡Seguro mañana será mejor!";
         }
+
+        textoResultadoFinal.text = mensajeFinal;
+
+        panelFinNivel.gameObject.SetActive(true);
+
+        recomendacionesBuenas = 0;
+        recomendacionesMalas = 0;
     }
+
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        nivelActual = 1;
+        SceneManager.LoadScene("MenuPrincipal");
+    }
+
 }
