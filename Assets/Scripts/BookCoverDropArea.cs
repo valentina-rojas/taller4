@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class BookCoverDropArea : MonoBehaviour, IDropHandler
 {
-    public BookCoverManager coverManager; // Asigna esto en el Inspector
+    public BookCoverManager coverManager; 
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -11,7 +11,7 @@ public class BookCoverDropArea : MonoBehaviour, IDropHandler
         if (droppedObject != null)
         {
             droppedObject.transform.SetParent(this.transform);
-            coverManager.VerificarElementosEnPortada(); // Verifica después del drop
+            coverManager.VerificarElementosEnPortada(); 
         }
     }
 }
