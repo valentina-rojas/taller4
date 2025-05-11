@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48361248}
   m_Layer: 0
-  m_Name: escena2
+  m_Name: Escena 2 (estanterias)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 141407676}
   - component: {fileID: 141407675}
   m_Layer: 5
-  m_Name: Fondo Acomodar Paginas
+  m_Name: Panel Acomodar Paginas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4633,7 +4633,7 @@ GameObject:
   - component: {fileID: 381347097}
   - component: {fileID: 381347096}
   m_Layer: 5
-  m_Name: PanelInicioDia
+  m_Name: Panel Inicio Dia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6536,7 +6536,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1257505224}
+  m_Father: {fileID: 1607826190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8564,7 +8564,7 @@ GameObject:
   - component: {fileID: 687817626}
   - component: {fileID: 687817625}
   m_Layer: 5
-  m_Name: Image
+  m_Name: paginas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10380,7 +10380,7 @@ GameObject:
   - component: {fileID: 861710966}
   - component: {fileID: 861710965}
   m_Layer: 5
-  m_Name: Image
+  m_Name: fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12279,7 +12279,7 @@ GameObject:
   - component: {fileID: 993897754}
   - component: {fileID: 993897753}
   m_Layer: 5
-  m_Name: "PanelConfirmaci\xF3n"
+  m_Name: "Panel Confirmaci\xF3n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15630,7 +15630,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45192336}
-  - {fileID: 508386933}
   m_Father: {fileID: 687817624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -17946,7 +17945,7 @@ GameObject:
   - component: {fileID: 1408956871}
   - component: {fileID: 1408956872}
   m_Layer: 5
-  m_Name: SliderReputacion
+  m_Name: Slider Reputacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18138,7 +18137,7 @@ GameObject:
   - component: {fileID: 1425223932}
   - component: {fileID: 1425223931}
   m_Layer: 5
-  m_Name: dialogosGato
+  m_Name: Dialogos Gato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19134,7 +19133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569878017}
   m_Layer: 0
-  m_Name: escena3
+  m_Name: Escena 3 (sala comun)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19470,7 +19469,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 508386933}
   m_Father: {fileID: 687817624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -20434,7 +20434,7 @@ GameObject:
   - component: {fileID: 1701651267}
   - component: {fileID: 1701651266}
   m_Layer: 5
-  m_Name: PanelFinDia
+  m_Name: Panel Fin Dia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22969,7 +22969,7 @@ GameObject:
   - component: {fileID: 1880652791}
   - component: {fileID: 1880652790}
   m_Layer: 5
-  m_Name: dialogo
+  m_Name: Dialogos Personajes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25327,7 +25327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133470337}
   m_Layer: 0
-  m_Name: escena1
+  m_Name: Escena 1 (mostrador)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
