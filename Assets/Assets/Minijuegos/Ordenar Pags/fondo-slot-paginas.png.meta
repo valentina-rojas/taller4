@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fondo-slot-paginas_0: 6039846511204557381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

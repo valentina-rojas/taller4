@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cruz boton_0: -2152539645342222091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
