@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDePedido: 0
   dialogueLinesInicio:
   - Escucha...
   - "Necesito ese Breviario de Elixires y Conjuros L\xEDquidos..."
@@ -168,6 +169,8 @@ MonoBehaviour:
   - Pero no era lo que buscaba...
   libroDeseadoID: 33
   tipoPreferido: herbologia
+  nombreDelCliente: Bruja
+  descripcionPedido: "Solicit\xF3 \"Breviario de Elixires y Conjuros L\xEDquidos\""
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

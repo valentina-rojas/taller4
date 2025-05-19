@@ -2,11 +2,13 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CatDialogues : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Button botonSiguiente;
 
     private float typingTime = 0.05f;
 
@@ -23,7 +25,7 @@ public class CatDialogues : MonoBehaviour
             "¡Hola! Soy Minino, tu asistente en esta librería mágica.",
             "Cada día vendrán criaturas distintas buscando libros.",
             "Recomiéndales libros según sus gustos o el que buscan exactamente.",
-            "Pero antes de recibir clientes deberias limpiar un poco este lugar...",
+            "Pero antes de recibir clientes deberías limpiar un poco este lugar...",
             "¡Suerte en tu primer día!" }
         },
         { 2, new string[] {
@@ -38,19 +40,10 @@ public class CatDialogues : MonoBehaviour
         }}
     };
 
-    void Update()
+    void Start()
     {
-        if (didDialogueStart && Input.GetMouseButtonDown(0))
-        {
-            if (isTyping)
-            {
-                MostrarLineaCompleta();
-            }
-            else
-            {
-                NextDialogueLine();
-            }
-        }
+        if (botonSiguiente != null)
+            botonSiguiente.onClick.AddListener(AvanzarDialogo);
     }
 
     public void IniciarDialogoDelDia(int dia)
@@ -74,6 +67,20 @@ public class CatDialogues : MonoBehaviour
         typingCoroutine = StartCoroutine(ShowLine());
     }
 
+    public void AvanzarDialogo()
+    {
+        if (!didDialogueStart) return;
+
+        if (isTyping)
+        {
+            MostrarLineaCompleta();
+        }
+        else
+        {
+            NextDialogueLine();
+        }
+    }
+
     private void NextDialogueLine()
     {
         lineIndex++;
@@ -86,9 +93,7 @@ public class CatDialogues : MonoBehaviour
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
             CameraManager.instance.ActivarBotonCamara();
-            //BookManager.instance.HabilitarBotonConfirmacion();
             TaskManager.instance.MostrarTareas();
-
         }
     }
 

@@ -175,6 +175,8 @@ MonoBehaviour:
   - Pero no era lo que buscaba...
   libroDeseadoID: 33
   tipoPreferido: herbologia
+  nombreDelCliente: Elfa
+  descripcionPedido: "Solicit\xF3 crear una portada para su libro de viajes y descubrimientos "
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

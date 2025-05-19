@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDePedido: 0
   dialogueLinesInicio:
   - Buen dia...
   - "necesito ese libro\u2026"
@@ -167,6 +168,9 @@ MonoBehaviour:
   - como me dejen un zapato bajo la cama esta noche, te maldigo las pantuflas.
   libroDeseadoID: 63
   tipoPreferido: terror
+  nombreDelCliente: Anciano
+  descripcionPedido: "Solicit\xF3 un cuento para asustar a los \"mocosos\" que se
+    esconden debajo de su cama"
 --- !u!114 &1136955672045997557
 MonoBehaviour:
   m_ObjectHideFlags: 0

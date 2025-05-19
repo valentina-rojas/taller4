@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDePedido: 0
   dialogueLinesInicio:
   - "Buenas\u2026 "
   - "o tal vez malas\u2026"
@@ -163,6 +164,8 @@ MonoBehaviour:
   - Ugh... no importa.
   libroDeseadoID: 12
   tipoPreferido: misterio
+  nombreDelCliente: 'Forastero '
+  descripcionPedido: "Solicit\xF3 \"La Dama de los Secretos Perdidos\""
 --- !u!114 &1177564428679998758
 MonoBehaviour:
   m_ObjectHideFlags: 0

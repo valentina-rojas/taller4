@@ -173,6 +173,8 @@ MonoBehaviour:
   - Pero no era lo que buscaba...
   libroDeseadoID: 33
   tipoPreferido: herbologia
+  nombreDelCliente: Aprendiz
+  descripcionPedido: "Solicit\xF3 reparar libro"
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

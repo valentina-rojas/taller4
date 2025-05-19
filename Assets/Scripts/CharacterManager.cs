@@ -6,7 +6,7 @@ public class CharacterManager : MonoBehaviour
 
      public static CharacterManager instance;
     private bool yaAtendido = false;
-
+    public CharacterAttributes UltimoPersonajeAtendido { get; private set; }
       private void Awake()
     {
         if (instance == null)
@@ -18,12 +18,13 @@ public class CharacterManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-  
+
     }
 
     public void AtenderPersonaje(CharacterAttributes personaje)
     {
         if (yaAtendido) return; 
+        UltimoPersonajeAtendido = personaje;
 
         switch (personaje.tipoDePedido)
         {
@@ -50,5 +51,6 @@ public class CharacterManager : MonoBehaviour
     public void ResetearAtencion()
     {
         yaAtendido = false; 
+        UltimoPersonajeAtendido = null;
     }
 }
