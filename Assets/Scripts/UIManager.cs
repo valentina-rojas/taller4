@@ -15,15 +15,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text textoNombreCliente;
     [SerializeField] private TMP_Text textoDescripcionPedido;
     [SerializeField] private Button botonCerrarHistorial;
-    [SerializeField] private Button botonAbrirHistorial; // botón con ícono de hoja
+    [SerializeField] private Button botonAbrirHistorial; 
 
-    // Getters para diálogo
     public GameObject GetDialogueMark() => dialogueMark;
     public GameObject GetDialoguePanel() => dialoguePanel;
     public TMP_Text GetDialogueText() => dialogueText;
     public Button GetBotonSiguiente() => botonSiguiente;
-
-    // Getters para historial
     public GameObject GetPanelHistorial() => panelHistorial;
     public TMP_Text GetTextoNombreCliente() => textoNombreCliente;
     public TMP_Text GetTextoDescripcionPedido() => textoDescripcionPedido;

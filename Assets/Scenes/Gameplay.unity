@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 45192339}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &45192339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 88635881}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &88635881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,6 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 104946632}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &104946632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 127565752}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &127565752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,6 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 230515623}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &230515623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,7 +3505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 779, y: 210}
+  m_AnchoredPosition: {x: 804, y: 208}
   m_SizeDelta: {x: 251, y: 301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256187194
@@ -3517,6 +3522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 256187195}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &256187195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 302911592}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &302911592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7026,6 +7033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 508386936}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &508386936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10393,6 +10401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 813123146}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &813123146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10775,6 +10784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 847853048}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &847853048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14222,6 +14232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1140089549}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &1140089549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15592,6 +15603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1214391288}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1214391288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16783,6 +16795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1269490781}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1269490781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17175,6 +17188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1315811210}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1315811210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17612,6 +17626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1340579726}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &1340579726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19291,6 +19306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1464876201}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &1464876201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19494,7 +19510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479853291
@@ -20528,6 +20544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1607153463}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1607153463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21505,7 +21522,7 @@ GameObject:
   - component: {fileID: 1694656889}
   - component: {fileID: 1694656888}
   m_Layer: 5
-  m_Name: Image
+  m_Name: LimitePortada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21527,7 +21544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000022888, y: -0.00098419}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694656888
@@ -22313,6 +22330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1721280901}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &1721280901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22977,6 +22995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1755575881}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1755575881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23086,6 +23105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1761832381}
+  limiteArrastre: {fileID: 0}
 --- !u!114 &1761832381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24955,6 +24975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1950936334}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1950936334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25045,6 +25066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 1951525159}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &1951525159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26815,6 +26837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 2088349358}
+  limiteArrastre: {fileID: 1694656887}
 --- !u!114 &2088349358
 MonoBehaviour:
   m_ObjectHideFlags: 0
