@@ -1,9 +1,10 @@
 using UnityEngine;
+using TMPro;
+using System.Collections.Generic;
 
 public class HistorialManager : MonoBehaviour
 {
     private UIManager uiManager;
-    private CharacterAttributes personajeActual;
 
     private void Start()
     {
@@ -21,32 +22,62 @@ public class HistorialManager : MonoBehaviour
         }
     }
 
-    public void MostrarHistorial(CharacterAttributes personaje)
-    {
-        if (uiManager == null || personaje == null) return;
-
-        personajeActual = personaje;
-
-        uiManager.GetTextoNombreCliente().text = personaje.nombreDelCliente;
-        uiManager.GetTextoDescripcionPedido().text = personaje.descripcionPedido;
-        uiManager.GetPanelHistorial().SetActive(true);
-    }
-
     public void AbrirHistorialDesdeBoton()
     {
-        CharacterManager characterManager = CharacterManager.instance;
+        if (uiManager == null) return;
 
-        if (characterManager == null || uiManager == null) return;
+        // Obtener la lista completa de personajes atendidos en el día
+        List<CharacterAttributes> personajes = CharacterManager.instance.GetPersonajesAtendidos();
 
-        personajeActual = characterManager.UltimoPersonajeAtendido;
+        LimpiarHistorialUI();
 
-        if (personajeActual == null) return;
+        if (personajes == null || personajes.Count == 0)
+        {
+            // Si no hay personajes atendidos, mostrar mensaje vacío
+            MostrarMensajeHistorialVacio("No hay historial para mostrar.");
+        }
+        else
+        {
+            // Instanciar una entrada para cada personaje en el historial
+            foreach (CharacterAttributes personaje in personajes)
+            {
+                GameObject entrada = Instantiate(uiManager.GetPrefabEntradaHistorial(), uiManager.GetHistorialContent());
+                TMP_Text[] textos = entrada.GetComponentsInChildren<TMP_Text>();
 
-        uiManager.GetTextoNombreCliente().text = personajeActual.nombreDelCliente;
-        uiManager.GetTextoDescripcionPedido().text = personajeActual.descripcionPedido;
+                if (textos.Length >= 2)
+                {
+                    textos[0].text = personaje.nombreDelCliente;
+                    textos[1].text = personaje.descripcionPedido;
+                }
+                else
+                {
+                    Debug.LogWarning("Prefab de entrada historial necesita al menos 2 TMP_Text");
+                }
+            }
+        }
+
         uiManager.GetPanelHistorial().SetActive(true);
     }
 
+    private void LimpiarHistorialUI()
+    {
+        foreach (Transform child in uiManager.GetHistorialContent())
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void MostrarMensajeHistorialVacio(string mensaje)
+    {
+        GameObject entradaVacia = Instantiate(uiManager.GetPrefabEntradaHistorial(), uiManager.GetHistorialContent());
+        TMP_Text[] textos = entradaVacia.GetComponentsInChildren<TMP_Text>();
+
+        if (textos.Length >= 2)
+        {
+            textos[0].text = mensaje;
+            textos[1].text = "";
+        }
+    }
 
     public void CerrarHistorial()
     {
@@ -56,4 +87,5 @@ public class HistorialManager : MonoBehaviour
         }
     }
 }
+
 

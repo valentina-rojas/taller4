@@ -8,7 +8,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    private Button botonSiguiente; 
+
+    private Button botonSiguiente;
+    private TMP_Text botonSiguienteTexto;
+    private Button botonRepetir;
 
     private float typingTime = 0.05f;
     private bool isMouseOver = false;
@@ -31,7 +34,9 @@ public class DialogueManager : MonoBehaviour
             dialogueMark = uiManager.GetDialogueMark();
             dialoguePanel = uiManager.GetDialoguePanel();
             dialogueText = uiManager.GetDialogueText();
-            botonSiguiente = uiManager.GetBotonSiguiente(); 
+            botonSiguiente = uiManager.GetBotonSiguiente();
+            botonSiguienteTexto = uiManager.GetBotonSiguienteTexto();
+            botonRepetir = uiManager.GetBotonRepetir();
         }
         else
         {
@@ -41,7 +46,13 @@ public class DialogueManager : MonoBehaviour
         if (botonSiguiente != null)
         {
             botonSiguiente.onClick.AddListener(NextDialogueLine);
-            botonSiguiente.gameObject.SetActive(false); 
+            botonSiguiente.gameObject.SetActive(false);
+        }
+
+        if (botonRepetir != null)
+        {
+            botonRepetir.onClick.AddListener(ReiniciarDialogo);
+            botonRepetir.gameObject.SetActive(false);
         }
 
         characterAttributes = GetComponent<CharacterAttributes>();
@@ -85,10 +96,13 @@ public class DialogueManager : MonoBehaviour
         dialogueMark.SetActive(false);
         CameraManager.instance.DesactivarBotonCamara();
         lineIndex = 0;
-        typingCoroutine = StartCoroutine(ShowLine());
 
         if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(true);
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false);
+
+        typingCoroutine = StartCoroutine(ShowLine());
     }
 
     public void NextDialogueLine()
@@ -100,6 +114,7 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             dialogueText.text = dialogueLines[lineIndex];
             isTyping = false;
+            ActualizarTextoBoton();
             return;
         }
 
@@ -112,12 +127,18 @@ public class DialogueManager : MonoBehaviour
         else
         {
             didDialogueStart = false;
+
+            ActualizarTextoBoton();
+
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(false);
             hasInteracted = true;
 
             if (botonSiguiente != null)
                 botonSiguiente.gameObject.SetActive(false);
+
+            if (botonRepetir != null)
+                botonRepetir.gameObject.SetActive(false);
 
             CharacterManager characterManager = FindObjectOfType<CharacterManager>();
             if (characterManager != null && characterAttributes != null)
@@ -139,7 +160,64 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
+        ActualizarTextoBoton();
     }
+
+    private void ActualizarTextoBoton()
+    {
+        if (botonSiguienteTexto == null) return;
+
+        bool esUltimaLinea = (lineIndex == dialogueLines.Length - 1);
+
+        if (esUltimaLinea && !isTyping)
+        {
+            botonSiguienteTexto.text = "Finalizar";
+            if (botonRepetir != null)
+                botonRepetir.gameObject.SetActive(true);
+        }
+        else
+        {
+            botonSiguienteTexto.text = "Siguiente";
+            if (botonRepetir != null)
+                botonRepetir.gameObject.SetActive(false);
+        }
+    }
+
+    private void ReiniciarDialogo()
+    {
+        if (characterAttributes == null) return;
+
+        switch (GameManager.instance.resultadoRecomendacion)
+        {
+            case GameManager.ResultadoRecomendacion.Buena:
+                dialogueLines = characterAttributes.GetDialogueBuena();
+                break;
+            case GameManager.ResultadoRecomendacion.Mala:
+                dialogueLines = characterAttributes.GetDialogueMala();
+                break;
+            default:
+                dialogueLines = characterAttributes.GetDialogueInicio();
+                break;
+        }
+
+        if (dialogueLines == null || dialogueLines.Length == 0) return;
+
+        lineIndex = 0;
+        hasInteracted = false;
+        didDialogueStart = true;
+        dialoguePanel.SetActive(true);
+        dialogueMark.SetActive(false);
+        CameraManager.instance.DesactivarBotonCamara();
+
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(true);
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false);
+
+        ActualizarTextoBoton();
+        typingCoroutine = StartCoroutine(ShowLine());
+    }
+
 
     public void EnableDialogue()
     {

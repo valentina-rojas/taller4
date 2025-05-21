@@ -9,15 +9,15 @@ public class CatDialogues : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Button botonSiguiente;
+    [SerializeField] private TMP_Text botonSiguienteTexto;
+    [SerializeField] private Button botonRepetir; 
 
     private float typingTime = 0.05f;
-
-    private bool didDialogueStart;
     private bool isTyping;
     private Coroutine typingCoroutine;
-
     private int lineIndex;
     private string[] dialogueLines;
+    private int diaActual;
 
     private Dictionary<int, string[]> dialoguesPorDia = new Dictionary<int, string[]>()
     {
@@ -43,37 +43,27 @@ public class CatDialogues : MonoBehaviour
     void Start()
     {
         if (botonSiguiente != null)
-            botonSiguiente.onClick.AddListener(AvanzarDialogo);
-    }
-
-    public void IniciarDialogoDelDia(int dia)
-    {
-        if (dialoguesPorDia.ContainsKey(dia))
         {
-            dialogueLines = dialoguesPorDia[dia];
-            StartDialogue();
+            botonSiguiente.onClick.AddListener(OnBotonSiguienteClick);
+            botonSiguiente.gameObject.SetActive(false);
         }
-        else
+
+        if (botonRepetir != null)
         {
-            Debug.LogWarning("No hay diálogo asignado para el día: " + dia);
+            botonRepetir.onClick.AddListener(OnBotonRepetirClick);
+            botonRepetir.gameObject.SetActive(false);
         }
     }
 
-    private void StartDialogue()
+    private void OnBotonSiguienteClick()
     {
-        didDialogueStart = true;
-        dialoguePanel.SetActive(true);
-        lineIndex = 0;
-        typingCoroutine = StartCoroutine(ShowLine());
-    }
-
-    public void AvanzarDialogo()
-    {
-        if (!didDialogueStart) return;
-
         if (isTyping)
         {
-            MostrarLineaCompleta();
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = dialogueLines[lineIndex];
+            isTyping = false;
+
+            ActualizarTextoBoton();
         }
         else
         {
@@ -81,20 +71,34 @@ public class CatDialogues : MonoBehaviour
         }
     }
 
-    private void NextDialogueLine()
+    private void OnBotonRepetirClick()
     {
-        lineIndex++;
-        if (lineIndex < dialogueLines.Length)
+        StartDialogue(); 
+    }
+
+    public void IniciarDialogoDelDia(int dia)
+    {
+        if (dialoguesPorDia.ContainsKey(dia))
         {
-            typingCoroutine = StartCoroutine(ShowLine());
+            diaActual = dia;
+            dialogueLines = dialoguesPorDia[dia];
+            StartDialogue();
         }
-        else
-        {
-            didDialogueStart = false;
-            dialoguePanel.SetActive(false);
-            CameraManager.instance.ActivarBotonCamara();
-            TaskManager.instance.MostrarTareas();
-        }
+    }
+
+    private void StartDialogue()
+    {
+        dialoguePanel.SetActive(true);
+        lineIndex = 0;
+
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(true);
+
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false); 
+
+        ActualizarTextoBoton();
+        typingCoroutine = StartCoroutine(ShowLine());
     }
 
     private IEnumerator ShowLine()
@@ -109,16 +113,56 @@ public class CatDialogues : MonoBehaviour
         }
 
         isTyping = false;
+        ActualizarTextoBoton();
     }
 
-    private void MostrarLineaCompleta()
+    private void NextDialogueLine()
     {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
+        lineIndex++;
 
-        dialogueText.text = dialogueLines[lineIndex];
-        isTyping = false;
+        if (lineIndex < dialogueLines.Length)
+        {
+            typingCoroutine = StartCoroutine(ShowLine());
+        }
+        else
+        {
+            FinalizarDialogo();
+        }
+    }
+
+    private void FinalizarDialogo()
+    {
+        dialoguePanel.SetActive(false);
+
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(false);
+
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false); 
+
+        CameraManager.instance?.ActivarBotonCamara();
+        TaskManager.instance?.MostrarTareas();
+    }
+
+    private void ActualizarTextoBoton()
+    {
+        if (botonSiguienteTexto == null) return;
+
+        bool esUltimaLinea = (lineIndex == dialogueLines.Length - 1);
+
+        if (esUltimaLinea && !isTyping)
+        {
+            botonSiguienteTexto.text = "Finalizar";
+
+            if (botonRepetir != null)
+                botonRepetir.gameObject.SetActive(true); 
+        }
+        else
+        {
+            botonSiguienteTexto.text = "Siguiente";
+
+            if (botonRepetir != null)
+                botonRepetir.gameObject.SetActive(false);
+        }
     }
 }
