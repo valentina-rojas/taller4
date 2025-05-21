@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: af9bf7bf2ea97814fb7439ec10ba4fc7
+guid: a29a798697a33d74bbf46036f82fd1eb
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -118,8 +118,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 329
-        height: 327
+        width: 340
+        height: 337
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      dragon_0: 3428391033546482049
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

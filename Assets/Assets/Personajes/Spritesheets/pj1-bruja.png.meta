@@ -3,8 +3,8 @@ guid: c541a975eb3eb174a8357aae45b9e412
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5431856803683344734
-    second: pj1_0
+      213: 690207381077084677
+    second: pj1-bruja_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pj1_0
+      name: pj1-bruja_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 528
-        height: 768
+        width: 416
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ae5aa9240b2e94b0800000000000000
-      internalID: -5431856803683344734
+      spriteID: 50ac37ac4fb149900800000000000000
+      internalID: 690207381077084677
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pj1_0: -5431856803683344734
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
