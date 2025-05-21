@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
+            libro.gameObject.SetActive(false);
             //ReputationBar.instance.AplicarDecision("buena");
         }
         /*   else if (esDelTipoPreferido)
