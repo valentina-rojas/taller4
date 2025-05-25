@@ -1,13 +1,17 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-
-     public static CharacterManager instance;
+    public static CharacterManager instance;
     private bool yaAtendido = false;
 
-      private void Awake()
+    public CharacterAttributes UltimoPersonajeAtendido { get; private set; }
+
+    // Nueva lista para guardar todos los personajes atendidos en el día
+    private List<CharacterAttributes> personajesAtendidos = new List<CharacterAttributes>();
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -17,13 +21,19 @@ public class CharacterManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-  
     }
 
     public void AtenderPersonaje(CharacterAttributes personaje)
     {
-        if (yaAtendido) return; 
+        if (yaAtendido) return;
+
+        UltimoPersonajeAtendido = personaje;
+
+        // Agregar el personaje a la lista si no está ya
+        if (!personajesAtendidos.Contains(personaje))
+        {
+            personajesAtendidos.Add(personaje);
+        }
 
         switch (personaje.tipoDePedido)
         {
@@ -44,11 +54,24 @@ public class CharacterManager : MonoBehaviour
                 break;
         }
 
-        yaAtendido = true; 
+        yaAtendido = true;
     }
 
     public void ResetearAtencion()
     {
-        yaAtendido = false; 
+        yaAtendido = false;
+        UltimoPersonajeAtendido = null;
+    }
+
+    // Nuevo método para obtener la lista completa de personajes atendidos
+    public List<CharacterAttributes> GetPersonajesAtendidos()
+    {
+        return personajesAtendidos;
+    }
+
+    // Opcional: Método para resetear el historial (ej: al final del día)
+    public void ResetearHistorial()
+    {
+        personajesAtendidos.Clear();
     }
 }

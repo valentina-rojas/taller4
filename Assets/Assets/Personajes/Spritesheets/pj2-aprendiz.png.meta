@@ -3,8 +3,8 @@ guid: 5b4427591704bb947ba4bf69f702834b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3469433196017857654
-    second: pj5_0
+      213: -8965315051571284603
+    second: pj2-aprendiz_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pj5_0
+      name: pj2-aprendiz_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 585
-        height: 779
+        width: 557
+        height: 784
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8b486bd3e81adfc0800000000000000
-      internalID: -3469433196017857654
+      spriteID: 58571abf57dc49380800000000000000
+      internalID: -8965315051571284603
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pj5_0: -3469433196017857654
+      pj2-aprendiz_0: -8965315051571284603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

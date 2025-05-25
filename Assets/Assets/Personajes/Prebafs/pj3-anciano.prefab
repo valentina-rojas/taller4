@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 8876912061953492999, guid: 8c9ff1d8b036ef64bacccd5a5d90994b, type: 3}
+  m_Sprite: {fileID: 6457913801384220289, guid: 8c9ff1d8b036ef64bacccd5a5d90994b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.46, y: 7.84}
+  m_Size: {x: 5.83, y: 7.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.46, y: 7.84}
-    newSize: {x: 6.46, y: 7.84}
+    oldSize: {x: 5.83, y: 7.68}
+    newSize: {x: 5.83, y: 7.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2f3b74621b28f49a0a8e3505329b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoDePedido: 0
   dialogueLinesInicio:
   - Buen dia...
   - "necesito ese libro\u2026"
@@ -167,6 +168,9 @@ MonoBehaviour:
   - como me dejen un zapato bajo la cama esta noche, te maldigo las pantuflas.
   libroDeseadoID: 63
   tipoPreferido: terror
+  nombreDelCliente: Anciano
+  descripcionPedido: "Solicit\xF3 un cuento para asustar a los \"mocosos\" que se
+    esconden debajo de su cama"
 --- !u!114 &1136955672045997557
 MonoBehaviour:
   m_ObjectHideFlags: 0

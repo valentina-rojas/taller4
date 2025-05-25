@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: -3469433196017857654, guid: 5b4427591704bb947ba4bf69f702834b, type: 3}
+  m_Sprite: {fileID: -8965315051571284603, guid: 5b4427591704bb947ba4bf69f702834b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.11, y: 8.25}
+  m_Size: {x: 5.57, y: 7.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.85, y: 7.79}
-    newSize: {x: 5.11, y: 8.25}
+    oldSize: {x: 5.57, y: 7.84}
+    newSize: {x: 5.57, y: 7.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -173,6 +173,8 @@ MonoBehaviour:
   - Pero no era lo que buscaba...
   libroDeseadoID: 33
   tipoPreferido: herbologia
+  nombreDelCliente: Aprendiz
+  descripcionPedido: "Solicit\xF3 reparar libro"
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0
