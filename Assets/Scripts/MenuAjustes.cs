@@ -3,25 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio;
-
 
 public class MenuAjustes : MonoBehaviour
 {
-    public Slider musicSlider;
-    public AudioMixer audioMixer;
+    [SerializeField] private GameObject botonAjustes;
+    [SerializeField] private GameObject botonSalir;
+    [SerializeField] private GameObject menuAjustes;
+
+    public void Ajustes()
+    {
+        Time.timeScale = 0f;
+        botonAjustes.SetActive(false);
+        menuAjustes.SetActive(true);
+    }
+
+    public void Salir()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MenuPrincipal"); // O Application.Quit();
+    }
+    
+    public Slider slider;
+    public float sliderValue;
+   
 
     void Start()
     {
-        musicSlider.value = 0.5f;
-        SetMusicVolume(musicSlider.value);
-        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        if (slider == null)
+        {
+            Debug.LogError("Faltan referencias en el inspector.");
+            return;
+        }
+
+        sliderValue = PlayerPrefs.GetFloat("volumenAudio", 0.5f);
+        slider.value = sliderValue;
+        AudioListener.volume = sliderValue;
+       
     }
 
 
-    public void SetMusicVolume(float volume)
+    public void ChangeSlider(float valor)
     {
-        float minVolume = 0.0001f;
-      audioMixer.SetFloat("MusicVolume", Mathf.Log10(Mathf.Max(volume, minVolume)) * 20);
+        sliderValue = valor;
+        PlayerPrefs.SetFloat("volumenAudio", sliderValue);
+        AudioListener.volume = sliderValue;
+       
     }
+
+   
 }

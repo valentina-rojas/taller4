@@ -18,9 +18,29 @@ public class CharacterSpawn : MonoBehaviour
     }
 
 
+
+
+
+       private void MezclarPersonajes()
+    {
+        for (int i = 0; i < characters.Length; i++)
+        {
+            GameObject temp = characters[i];
+            int randomIndex = Random.Range(i, characters.Length);
+            characters[i] = characters[randomIndex];
+            characters[randomIndex] = temp;
+        }
+    }
+
+  
+    
+    
+
+    
     public void ComenzarSpawn()
     {
         currentIndex = 0;
+        MezclarPersonajes(); // ← Esto aleatoriza el orden
         StartCoroutine(SpawnCharacters());
     }
 
