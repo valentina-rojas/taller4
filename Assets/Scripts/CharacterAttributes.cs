@@ -29,6 +29,9 @@ public class CharacterAttributes : MonoBehaviour
     public string nombreDelCliente;      
     [TextArea(1, 3)]
     public string descripcionPedido;     
+        
+    [Header("Libro prestado (opcional)")]
+    public string tituloLibroPrestado = ""; 
 
     public string[] GetDialogueInicio() => dialogueLinesInicio;
     public string[] GetDialogueBuena() => dialogueLinesBuena;

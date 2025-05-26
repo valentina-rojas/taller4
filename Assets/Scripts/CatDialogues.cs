@@ -10,7 +10,7 @@ public class CatDialogues : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Button botonSiguiente;
     [SerializeField] private TMP_Text botonSiguienteTexto;
-    [SerializeField] private Button botonRepetir; 
+    [SerializeField] private Button botonRepetir;
 
     private float typingTime = 0.05f;
     private bool isTyping;
@@ -73,7 +73,7 @@ public class CatDialogues : MonoBehaviour
 
     private void OnBotonRepetirClick()
     {
-        StartDialogue(); 
+        StartDialogue();
     }
 
     public void IniciarDialogoDelDia(int dia)
@@ -95,7 +95,7 @@ public class CatDialogues : MonoBehaviour
             botonSiguiente.gameObject.SetActive(true);
 
         if (botonRepetir != null)
-            botonRepetir.gameObject.SetActive(false); 
+            botonRepetir.gameObject.SetActive(false);
 
         ActualizarTextoBoton();
         typingCoroutine = StartCoroutine(ShowLine());
@@ -138,7 +138,7 @@ public class CatDialogues : MonoBehaviour
             botonSiguiente.gameObject.SetActive(false);
 
         if (botonRepetir != null)
-            botonRepetir.gameObject.SetActive(false); 
+            botonRepetir.gameObject.SetActive(false);
 
         CameraManager.instance?.ActivarBotonCamara();
         TaskManager.instance?.MostrarTareas();
@@ -155,7 +155,7 @@ public class CatDialogues : MonoBehaviour
             botonSiguienteTexto.text = "Finalizar";
 
             if (botonRepetir != null)
-                botonRepetir.gameObject.SetActive(true); 
+                botonRepetir.gameObject.SetActive(true);
         }
         else
         {
@@ -165,4 +165,11 @@ public class CatDialogues : MonoBehaviour
                 botonRepetir.gameObject.SetActive(false);
         }
     }
+    
+    public void IniciarDialogoExtra(string mensaje)
+    {
+        dialogueLines = new string[] { mensaje };
+        StartDialogue();
+    }
+
 }

@@ -108,37 +108,34 @@ public class CharacterSpawn : MonoBehaviour
     }
 
    public void EndInteraction()
-{
-    if (!interactionFinished)
     {
-        StartCoroutine(MostrarDialogoDeResultado());
-    }
-}
-
-private IEnumerator MostrarDialogoDeResultado()
-{
-    // Verifica si el DialogueManager está listo
-    DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>().gameObject.GetComponent<DialogueManager>();
-
-    if (dialogueManager != null)
-    {
-        dialogueManager.EmpezarDialogoResultado();
-        yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
-    }
-    else
-    {
-        Debug.LogError("DialogueManager no encontrado.");
+        if (!interactionFinished)
+        {
+            StartCoroutine(MostrarDialogoDeResultado());
+        }
     }
 
-    interactionFinished = true; // Marca la interacción como terminada
-}
+    private IEnumerator MostrarDialogoDeResultado()
+    {
+        DialogueManager dialogueManager = FindObjectOfType<CharacterAttributes>().gameObject.GetComponent<DialogueManager>();
 
+        if (dialogueManager != null)
+        {
+            dialogueManager.EmpezarDialogoResultado();
+            yield return new WaitUntil(() => dialogueManager.HaTerminadoElDialogo());
+        }
+        else
+        {
+            Debug.LogError("DialogueManager no encontrado.");
+        }
 
-public void FinalizarInteraccion()
-{
-    interactionFinished = true;
-}
+        interactionFinished = true; 
+    }
 
+    public void FinalizarInteraccion()
+    {
+        interactionFinished = true;
+    }
 
     private void HabilitarDialogo()
     {

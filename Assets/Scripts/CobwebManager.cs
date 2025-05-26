@@ -4,9 +4,7 @@ using UnityEngine;
 public class CobwebManager : MonoBehaviour
 {
     public static CobwebManager instance;
-
     private GameManager gameManager;
-
     private List<CobwebCleaning> telarañasActivas = new List<CobwebCleaning>();
 
     private void Awake()
@@ -19,15 +17,10 @@ public class CobwebManager : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
 
-
         if (gameManager == null)
             Debug.LogError("GameManager no encontrado en la escena.");
 
-
     }
-
-
-
     public void RegistrarTelaraña(CobwebCleaning telaraña)
     {
         telarañasActivas.Add(telaraña);
@@ -47,9 +40,6 @@ public class CobwebManager : MonoBehaviour
     private void AccionFinal()
     {
         Debug.Log("Podés avanzar al siguiente paso ✨");
-
-       // gameManager.IniciarSpawnDePersonajes();
-      TaskManager.instance.CompletarTareaPorID(0);
-
+        TaskManager.instance.CompletarTareaPorID(0);
     }
 }

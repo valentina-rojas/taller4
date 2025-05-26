@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text textoResultadoFinal;
     public TMP_Text textoTituloFinDeDia;
 
+    private bool intentoFinPendiente = false;
+    private bool revisandoIntento = false;
+
     [System.Serializable]
     public class Nivel
     {
@@ -60,14 +63,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MostrarCartelInicioDia()
     {
-
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
 
         Time.timeScale = 0f;
-
         yield return new WaitForSecondsRealtime(3f);
-
         panelInfoLibro.SetActive(false);
         Time.timeScale = 1f;
 
@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void IniciarSpawnDePersonajes()
     {
-
         TaskManager.instance.OcultarListaTareas();
         CameraManager.instance.DesactivarBotonCamara();
 
@@ -112,53 +111,49 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
             libro.gameObject.SetActive(false);
-            //ReputationBar.instance.AplicarDecision("buena");
         }
-        /*   else if (esDelTipoPreferido)
-           {
-               resultadoRecomendacion = ResultadoRecomendacion.Buena; // si querés que también sea buena, o poné "Neutra"
-               ReputationBar.instance.AplicarDecision("neutra");
-           }*/
         else
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
-            // ReputationBar.instance.AplicarDecision("mala");
         }
     }
-
 
     public void CompletarRestauracion()
     {
         Debug.Log("Restauración completada.");
-
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
-
     }
 
     public void CompletarPortada()
     {
         Debug.Log("Portada completada.");
         CameraManager.instance.DesctivarPanelPortada();
-
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
 
-          if (characterSpawn != null)
+        if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }
-
     }
-
-
-
 
     public void FinDeNivel()
     {
+        if (!TaskManager.instance.TodasLasTareasCompletadas())
+        {
+            FindFirstObjectByType<CatDialogues>()?.IniciarDialogoExtra("Aún quedan cosas por hacer... mejor termina tu lista de tareas.");
+            intentoFinPendiente = true;
+
+            if (!revisandoIntento)
+                StartCoroutine(RevisarIntentoFinPendiente());
+
+            return;
+        }
+
+        intentoFinPendiente = false;
+
         nivelActual++;
-
         panelFinNivel.gameObject.SetActive(true);
-
         textoTituloFinDeDia.text = $"Fin del Día {nivelActual - 1}";
 
         string mensajeFinal = "";
@@ -178,10 +173,26 @@ public class GameManager : MonoBehaviour
 
         textoResultadoFinal.text = mensajeFinal;
 
-        panelFinNivel.gameObject.SetActive(true);
-
         recomendacionesBuenas = 0;
         recomendacionesMalas = 0;
+    }
+
+    private IEnumerator RevisarIntentoFinPendiente()
+    {
+        revisandoIntento = true;
+
+        while (intentoFinPendiente)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (TaskManager.instance.TodasLasTareasCompletadas())
+            {
+                FinDeNivel(); 
+                break;
+            }
+        }
+
+        revisandoIntento = false;
     }
 
     public void ReturnToMenu()
@@ -190,5 +201,4 @@ public class GameManager : MonoBehaviour
         nivelActual = 1;
         SceneManager.LoadScene("MenuPrincipal");
     }
-
 }

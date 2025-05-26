@@ -8,6 +8,8 @@ public class TaskManager : MonoBehaviour
     public static TaskManager instance;
 
     public GameObject panelTareas;
+    public Button botonAbrirLista;
+    public Button botonCerrarLista;
     public Button botonAbrirTienda;
 
     public List<TMP_Text> textosTareas;
@@ -21,25 +23,39 @@ public class TaskManager : MonoBehaviour
     private void Start()
     {
         panelTareas.SetActive(false);
+        botonAbrirLista.gameObject.SetActive(false);
+        botonCerrarLista.gameObject.SetActive(false);
 
         tareasCompletadas = new List<bool>();
         for (int i = 0; i < textosTareas.Count; i++)
         {
             tareasCompletadas.Add(false);
         }
+
+        botonAbrirLista.onClick.AddListener(MostrarTareas);
+        botonCerrarLista.onClick.AddListener(OcultarListaTareas);
+        botonAbrirTienda.onClick.AddListener(OnClickAbrirTienda);
     }
 
     public void MostrarTareas()
     {
         panelTareas.SetActive(true);
+        botonAbrirLista.gameObject.SetActive(false);
+        botonCerrarLista.gameObject.SetActive(true);
     }
 
-
-   public void OcultarListaTareas()
+    public void OcultarListaTareas()
     {
         panelTareas.SetActive(false);
+        botonAbrirLista.gameObject.SetActive(true);
+        botonCerrarLista.gameObject.SetActive(false);
     }
 
+    private void OnClickAbrirTienda()
+    {
+        Debug.Log("Tienda abierta");
+        botonAbrirTienda.gameObject.SetActive(false);
+    }
 
     public void CompletarTareaPorID(int id)
     {
@@ -58,7 +74,7 @@ public class TaskManager : MonoBehaviour
 
         RevisarTareas();
     }
- 
+
     private void RevisarTareas()
     {
         for (int i = 0; i < tareasCompletadas.Count; i++)
@@ -66,8 +82,15 @@ public class TaskManager : MonoBehaviour
             if (!tareasCompletadas[i])
                 return;
         }
-
-       botonAbrirTienda.gameObject.SetActive(true);
-
     }
+    public bool TodasLasTareasCompletadas()
+    {
+        foreach (bool tarea in tareasCompletadas)
+        {
+            if (!tarea)
+                return false;
+        }
+        return true;
+    }
+
 }

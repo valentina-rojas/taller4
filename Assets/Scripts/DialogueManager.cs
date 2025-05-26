@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
             if (botonRepetir != null)
                 botonRepetir.gameObject.SetActive(false);
 
-            CharacterManager characterManager = FindObjectOfType<CharacterManager>();
+            CharacterManager characterManager = FindObjectsByType<CharacterManager>(FindObjectsSortMode.None)[0];
             if (characterManager != null && characterAttributes != null)
             {
                 characterManager.AtenderPersonaje(characterAttributes);
