@@ -5,7 +5,7 @@ public class TendCat : MonoBehaviour
 {
     [Header("Cepillado")]
     public RectTransform cepilloUI;
-    public Transform gatoTransform;
+    public RectTransform areaCepilladoUI;  // Zona más amplia para detectar el cepillado
     public float tiempoNecesario = 2f;
 
     [Header("Alimentar")]
@@ -13,7 +13,7 @@ public class TendCat : MonoBehaviour
     public RectTransform platitoUI;
     public Sprite platitoLlenoSprite; 
 
-    private float tiempoSobreGato = 0f;
+    private float tiempoSobreAreaCepillado = 0f;
     private bool tareaCepillarCompletada = false;
     private bool tareaAlimentarCompletada = false;
 
@@ -34,14 +34,16 @@ public class TendCat : MonoBehaviour
     {
         if (tareaCepillarCompletada) return;
 
-        Vector3 gatoScreenPos = camara.WorldToScreenPoint(gatoTransform.position);
+        // Obtenemos la posición del cepillo en pantalla
+        Vector2 posicionCepillo = RectTransformUtility.WorldToScreenPoint(camara, cepilloUI.position);
 
-        if (RectTransformUtility.RectangleContainsScreenPoint(cepilloUI, gatoScreenPos, camara))
+        // Chequeamos si el punto del cepillo está dentro del área de cepillado
+        if (RectTransformUtility.RectangleContainsScreenPoint(areaCepilladoUI, posicionCepillo, camara))
         {
-            tiempoSobreGato += Time.deltaTime;
-            Debug.Log($"Cepillando al gato: {tiempoSobreGato:F2}s");
+            tiempoSobreAreaCepillado += Time.deltaTime;
+            Debug.Log($"Cepillando al gato: {tiempoSobreAreaCepillado:F2}s");
 
-            if (tiempoSobreGato >= tiempoNecesario)
+            if (tiempoSobreAreaCepillado >= tiempoNecesario)
             {
                 tareaCepillarCompletada = true;
                 Debug.Log("Gato cepillado correctamente");
@@ -50,7 +52,7 @@ public class TendCat : MonoBehaviour
         }
         else
         {
-            tiempoSobreGato = 0f;
+            tiempoSobreAreaCepillado = 0f;
         }
     }
 

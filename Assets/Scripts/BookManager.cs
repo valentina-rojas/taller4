@@ -134,7 +134,7 @@ public class BookManager : MonoBehaviour
 
         Debug.Log("Libro seleccionado: " + libroActual.titulo);
         panelInfoLibro.SetActive(false);
-
+        TaskManager.instance.OcultarListaTareas();
         panelConfirmarSeleccion.SetActive(true);
         imagenConfirmarSeleccion.sprite = libroActual.imagenLibro;
         tituloConfirmarSeleccion.text = libroActual.titulo;

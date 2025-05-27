@@ -18,7 +18,7 @@ public class CameraManager : MonoBehaviour
     public GameObject panelReparacion;
     public GameObject panelPortada;
     public GameObject panelPortada2;
-
+    public GameObject panelHechizo;
 
     void Awake()
     {
@@ -97,7 +97,17 @@ public class CameraManager : MonoBehaviour
         panelPortada2.gameObject.SetActive(false);
     }
 
+    public void ActivarPanelHechizo()
+    {
 
+        panelHechizo.gameObject.SetActive(true);
+    }
+
+    public void DesctivarPanelHechizo()
+    {
+
+        panelHechizo.gameObject.SetActive(false);
+    }
 
     public void ActivarCamaraPrincipal()
     {

@@ -50,6 +50,11 @@ public class CharacterManager : MonoBehaviour
                 Debug.Log("Este personaje quiere que le hagas una portada.");
                 CameraManager.instance.ActivarPanelPortada();
                 break;
+            case CharacterAttributes.TipoDePedido.HechizarLibro:
+                Debug.Log("Este personaje quiere que le hechices un libro.");
+                CameraManager.instance.ActivarPanelHechizo(); 
+                break;
+
         }
 
         yaAtendido = true;

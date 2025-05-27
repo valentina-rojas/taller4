@@ -92,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogueLines == null || dialogueLines.Length == 0) return;
 
         didDialogueStart = true;
+        TaskManager.instance.OcultarListaTareas();
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
         CameraManager.instance.DesactivarBotonCamara();

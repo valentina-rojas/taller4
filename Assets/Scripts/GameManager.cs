@@ -137,6 +137,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CompletarHechizo(CharacterAttributes.Hechizo hechizoRealizado)
+    {
+        if (personajeActual == null)
+        {
+            Debug.LogError("No hay personaje actual asignado.");
+            return;
+        }
+
+        if (hechizoRealizado == personajeActual.hechizoSolicitado)
+        {
+            resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            Debug.Log($"Hechizo completado correctamente: {hechizoRealizado}");
+        }
+        else
+        {
+            resultadoRecomendacion = ResultadoRecomendacion.Mala;
+            Debug.LogWarning($"Hechizo incorrecto. Realizado: {hechizoRealizado}, Solicitado: {personajeActual.hechizoSolicitado}");
+        }
+
+        CameraManager.instance.DesctivarPanelHechizo();
+
+        if (characterSpawn != null)
+        {
+            characterSpawn.EndInteraction();
+        }
+
+    }
+
+
     public void FinDeNivel()
     {
         if (!TaskManager.instance.TodasLasTareasCompletadas())
@@ -151,7 +180,7 @@ public class GameManager : MonoBehaviour
         }
 
         intentoFinPendiente = false;
-
+        TaskManager.instance.OcultarListaTareas();
         nivelActual++;
         panelFinNivel.gameObject.SetActive(true);
         textoTituloFinDeDia.text = $"Fin del Día {nivelActual - 1}";

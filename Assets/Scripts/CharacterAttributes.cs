@@ -6,7 +6,18 @@ public class CharacterAttributes : MonoBehaviour
     {
         BuscarLibro,
         RepararLibro,
-        HacerPortada
+        HacerPortada,
+        HechizarLibro 
+    }
+
+    public enum Hechizo
+    {
+        Ninguno,        // para cuando no hay hechizo asignado
+        Sellado,
+        Proteccion,
+        Traduccion,
+        Restauracion,
+        Comunicacion
     }
 
     [Header("Tipo de pedido de este personaje")]
@@ -33,7 +44,11 @@ public class CharacterAttributes : MonoBehaviour
     [Header("Libro prestado (opcional)")]
     public string tituloLibroPrestado = ""; 
 
+    [Header("Hechizo solicitado (opcional)")]
+    public Hechizo hechizoSolicitado = Hechizo.Ninguno;
+
     public string[] GetDialogueInicio() => dialogueLinesInicio;
     public string[] GetDialogueBuena() => dialogueLinesBuena;
     public string[] GetDialogueMala() => dialogueLinesMala;
 }
+
