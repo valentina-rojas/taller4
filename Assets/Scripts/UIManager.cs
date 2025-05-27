@@ -11,12 +11,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button botonSiguiente;
     [SerializeField] private TMP_Text botonSiguienteTexto;
     [SerializeField] private Button botonRepetir;
+    [SerializeField] private Button botonFinalizar;
     public GameObject GetDialogueMark() => dialogueMark;
     public GameObject GetDialoguePanel() => dialoguePanel;
     public TMP_Text GetDialogueText() => dialogueText;
     public Button GetBotonSiguiente() => botonSiguiente;
     public TMP_Text GetBotonSiguienteTexto() => botonSiguienteTexto;
     public Button GetBotonRepetir() => botonRepetir;
+    public Button GetBotonFinalizar() => botonFinalizar;
 
     [Header("Historial de Pedido")]
     [SerializeField] private Transform historialContent;

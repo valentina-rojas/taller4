@@ -8,9 +8,10 @@ public class CatDialogues : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private Button botonSiguiente;
     [SerializeField] private TMP_Text botonSiguienteTexto;
+    [SerializeField] private Button botonSiguiente;
     [SerializeField] private Button botonRepetir;
+    [SerializeField] private Button botonFinalizar;
 
     private float typingTime = 0.05f;
     private bool isTyping;
@@ -53,6 +54,13 @@ public class CatDialogues : MonoBehaviour
             botonRepetir.onClick.AddListener(OnBotonRepetirClick);
             botonRepetir.gameObject.SetActive(false);
         }
+
+        if (botonFinalizar != null)
+        {
+            botonFinalizar.onClick.AddListener(FinalizarDialogo);
+            botonFinalizar.gameObject.SetActive(false);
+        }
+
     }
 
     private void OnBotonSiguienteClick()
@@ -137,6 +145,9 @@ public class CatDialogues : MonoBehaviour
         if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(false);
 
+        if (botonFinalizar != null)
+            botonFinalizar.gameObject.SetActive(false);
+
         if (botonRepetir != null)
             botonRepetir.gameObject.SetActive(false);
 
@@ -144,28 +155,36 @@ public class CatDialogues : MonoBehaviour
         TaskManager.instance?.MostrarTareas();
     }
 
+
     private void ActualizarTextoBoton()
     {
-        if (botonSiguienteTexto == null) return;
-
         bool esUltimaLinea = (lineIndex == dialogueLines.Length - 1);
 
         if (esUltimaLinea && !isTyping)
         {
-            botonSiguienteTexto.text = "Finalizar";
+            if (botonSiguiente != null)
+                botonSiguiente.gameObject.SetActive(false);
+
+            if (botonFinalizar != null)
+                botonFinalizar.gameObject.SetActive(true);
 
             if (botonRepetir != null)
                 botonRepetir.gameObject.SetActive(true);
         }
         else
         {
-            botonSiguienteTexto.text = "Siguiente";
+            if (botonSiguiente != null)
+                botonSiguiente.gameObject.SetActive(true);
+
+            if (botonFinalizar != null)
+                botonFinalizar.gameObject.SetActive(false);
 
             if (botonRepetir != null)
                 botonRepetir.gameObject.SetActive(false);
         }
     }
-    
+
+   
     public void IniciarDialogoExtra(string mensaje)
     {
         dialogueLines = new string[] { mensaje };
