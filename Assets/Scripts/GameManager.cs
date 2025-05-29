@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Restauración completada.");
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
+        recomendacionesBuenas++;
     }
     public void CompletarPortada(List<StickerID> stickersUsados)
     {
@@ -158,6 +159,11 @@ public class GameManager : MonoBehaviour
 
         resultadoRecomendacion = tieneTodos ? ResultadoRecomendacion.Buena : ResultadoRecomendacion.Mala;
 
+        if (tieneTodos)
+            recomendacionesBuenas++;
+        else
+            recomendacionesMalas++;
+
         Debug.Log("Resultado recomendación: " + resultadoRecomendacion);
 
         CameraManager.instance.DesctivarPanelPortada();
@@ -167,6 +173,7 @@ public class GameManager : MonoBehaviour
             characterSpawn.EndInteraction();
         }
     }
+
 
     public void CompletarHechizo(CharacterAttributes.Hechizo hechizoRealizado)
     {
@@ -179,11 +186,13 @@ public class GameManager : MonoBehaviour
         if (hechizoRealizado == personajeActual.hechizoSolicitado)
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            recomendacionesBuenas++;
             Debug.Log($"Hechizo completado correctamente: {hechizoRealizado}");
         }
         else
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
+            recomendacionesMalas++;
             Debug.LogWarning($"Hechizo incorrecto. Realizado: {hechizoRealizado}, Solicitado: {personajeActual.hechizoSolicitado}");
         }
 
@@ -217,18 +226,21 @@ public class GameManager : MonoBehaviour
 
         string mensajeFinal = "";
 
+        string resumenClientes = $"Clientes satisfechos: {recomendacionesBuenas}\nClientes insatisfechos: {recomendacionesMalas}\n";
+
         if (recomendacionesBuenas > recomendacionesMalas)
         {
-            mensajeFinal = "¡Buen trabajo! Tus recomendaciones ayudaron a muchos clientes.";
+            mensajeFinal = "¡Buen trabajo! Tus recomendaciones ayudaron a muchos clientes.\n\n" + resumenClientes;
         }
         else if (recomendacionesMalas > recomendacionesBuenas)
         {
-            mensajeFinal = "Hoy no fue el mejor día... ¡Seguro mañana será mejor!";
+            mensajeFinal = "Hoy no fue el mejor día... ¡Seguro mañana será mejor!\n\n" + resumenClientes;
         }
         else
         {
-            mensajeFinal = "Un día regular. ¡Seguro mañana será mejor!";
+            mensajeFinal = "Un día regular. ¡Seguro mañana será mejor!\n\n" + resumenClientes;
         }
+
 
         textoResultadoFinal.text = mensajeFinal;
 
