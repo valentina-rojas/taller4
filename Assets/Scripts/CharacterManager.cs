@@ -54,6 +54,10 @@ public class CharacterManager : MonoBehaviour
                 Debug.Log("Este personaje quiere que le hechices un libro.");
                 CameraManager.instance.ActivarPanelHechizo(); 
                 break;
+            case CharacterAttributes.TipoDePedido.JuegoTrivia:
+                Debug.Log("Este personaje quiere hacerte preguntas");
+                QuizManager.instance.StartQuiz();
+                break;
 
         }
 

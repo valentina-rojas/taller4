@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
         recomendacionesBuenas++;
     }
+
     public void CompletarPortada(List<StickerID> stickersUsados)
     {
         Debug.Log("Portada completada.");
@@ -204,6 +205,29 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+
+     public void CompletarTrivia(int correctas, int incorrectas)
+    {
+        if (correctas > incorrectas)
+        {
+            resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            recomendacionesBuenas++;
+        }
+        else if (incorrectas > correctas)
+        {
+            resultadoRecomendacion = ResultadoRecomendacion.Mala;
+            recomendacionesMalas++;
+        }       
+
+
+            if (characterSpawn != null)
+        {
+            characterSpawn.EndInteraction();
+        }
+     
+    } 
+
 
     public void FinDeNivel()
     {
