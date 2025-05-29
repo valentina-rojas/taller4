@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 8500209152588930733, guid: 1b3ab332f57be4f40a6fbfe606ee46e1, type: 3}
+  m_Sprite: {fileID: 8940196389654725227, guid: 28cffb02ed5b948429c1357294dfd960, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.67, y: 7.68}
+  m_Size: {x: 4.87, y: 7.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.7, y: 6.56}
-    newSize: {x: 5.67, y: 7.68}
+    oldSize: {x: 4.87, y: 7.09}
+    newSize: {x: 4.87, y: 7.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -177,6 +177,8 @@ MonoBehaviour:
   nombreDelCliente: Bruja Mayor
   descripcionPedido: "Solicit\xF3 hechizar un libro"
   tituloLibroPrestado: 
+  stickersRequeridos: 
+  tituloLibroPortada: 
   hechizoSolicitado: 1
 --- !u!114 &1177564428679998758
 MonoBehaviour:
