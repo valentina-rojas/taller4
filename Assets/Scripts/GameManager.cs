@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
             characterSpawn.EndInteraction();
         }
      
-    }
+    } 
 
 
     public void FinDeNivel()

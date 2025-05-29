@@ -146,7 +146,7 @@ public class HechizoManager : MonoBehaviour
 
         ResetearSecuencia();
         CameraManager.instance.DesctivarPanelHechizo();
-        FindFirstObjectByType<CharacterSpawn>()?.EndInteraction();
+       
 
         hechizoFormado = null;
     }
