@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.79, y: 7.24}
+    oldSize: {x: 4.79, y: 7.79}
     newSize: {x: 4.79, y: 7.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -169,14 +169,15 @@ MonoBehaviour:
   - "Cada detalle\u2026 es justo lo que imaginaba"
   - " Gracias\u2026 de verdad. \xA1Eres incre\xEDble!\r\n"
   dialogueLinesMala:
-  - "\xBFQu\xE9 es esto?"
-  - "\xA1No, no, no! Yo quiero hongos. "
-  - "Bah, me llevo esto igual\u2026"
-  - Pero no era lo que buscaba...
+  - "\xBFQu\xE9...?"
+  - Esto no es lo que me imaginaba...
   libroDeseadoID: 33
   tipoPreferido: herbologia
   nombreDelCliente: Elfa
   descripcionPedido: "Solicit\xF3 crear una portada para su libro de viajes y descubrimientos "
+  tituloLibroPrestado: 
+  stickersRequeridos: 0e000000
+  hechizoSolicitado: 0
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

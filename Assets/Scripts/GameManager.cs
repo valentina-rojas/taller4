@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -124,12 +125,42 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restauración completada.");
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
     }
-
-    public void CompletarPortada()
+    public void CompletarPortada(List<StickerID> stickersUsados)
     {
         Debug.Log("Portada completada.");
+
+        if (personajeActual == null)
+        {
+            Debug.LogError("No hay personaje actual asignado para comparar stickers.");
+            return;
+        }
+
+        List<StickerID> stickersRequeridos = personajeActual.stickersRequeridos;
+
+        Debug.Log($"Stickers requeridos ({stickersRequeridos.Count}): {string.Join(", ", stickersRequeridos)}");
+        Debug.Log($"Stickers usados ({stickersUsados.Count}): {string.Join(", ", stickersUsados)}");
+
+        bool tieneTodos = true;
+
+        foreach (StickerID requerido in stickersRequeridos)
+        {
+            if (!stickersUsados.Contains(requerido))
+            {
+                Debug.LogWarning($"Falta sticker requerido: {requerido}");
+                tieneTodos = false;
+                break;
+            }
+            else
+            {
+                Debug.Log($"Sticker requerido presente: {requerido}");
+            }
+        }
+
+        resultadoRecomendacion = tieneTodos ? ResultadoRecomendacion.Buena : ResultadoRecomendacion.Mala;
+
+        Debug.Log("Resultado recomendación: " + resultadoRecomendacion);
+
         CameraManager.instance.DesctivarPanelPortada();
-        resultadoRecomendacion = ResultadoRecomendacion.Buena;
 
         if (characterSpawn != null)
         {
@@ -164,7 +195,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
 
     public void FinDeNivel()
     {

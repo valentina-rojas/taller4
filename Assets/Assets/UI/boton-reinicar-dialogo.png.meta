@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boton-reinicar-dialogo_0: 8824704997090978261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

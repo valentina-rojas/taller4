@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CharacterAttributes : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class CharacterAttributes : MonoBehaviour
 
     public enum Hechizo
     {
-        Ninguno,        // para cuando no hay hechizo asignado
+        Ninguno,      
         Sellado,
         Proteccion,
         Traduccion,
@@ -43,6 +44,8 @@ public class CharacterAttributes : MonoBehaviour
         
     [Header("Libro prestado (opcional)")]
     public string tituloLibroPrestado = ""; 
+    [Header("Stickers requeridos (opcional)")]
+    public List<StickerID> stickersRequeridos = new List<StickerID>();
 
     [Header("Hechizo solicitado (opcional)")]
     public Hechizo hechizoSolicitado = Hechizo.Ninguno;

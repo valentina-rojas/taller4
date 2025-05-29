@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      caja-dialogo 1_0: -4869676879850068324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
