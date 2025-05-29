@@ -46,6 +46,8 @@ public class CharacterAttributes : MonoBehaviour
     public string tituloLibroPrestado = ""; 
     [Header("Stickers requeridos (opcional)")]
     public List<StickerID> stickersRequeridos = new List<StickerID>();
+    [Header("Título del libro para portada (opcional)")]
+    public string tituloLibroPortada = "";
 
     [Header("Hechizo solicitado (opcional)")]
     public Hechizo hechizoSolicitado = Hechizo.Ninguno;

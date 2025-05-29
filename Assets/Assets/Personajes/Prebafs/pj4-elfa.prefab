@@ -177,6 +177,7 @@ MonoBehaviour:
   descripcionPedido: "Solicit\xF3 crear una portada para su libro de viajes y descubrimientos "
   tituloLibroPrestado: 
   stickersRequeridos: 0e000000
+  tituloLibroPortada: Cartas sobre el camino
   hechizoSolicitado: 0
 --- !u!114 &4978074495582524776
 MonoBehaviour:

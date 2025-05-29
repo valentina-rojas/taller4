@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class BookCoverManager : MonoBehaviour
 {
@@ -8,10 +9,19 @@ public class BookCoverManager : MonoBehaviour
     public GameObject portadaFinal;
     public Button finalizarButton;
     public RectTransform areaPortada;
+    public TMP_Text textoTituloLibro;
 
-    private void Start()
+    public void ActualizarTituloLibro()
     {
-        finalizarButton.interactable = false;
+        var personaje = GameManager.instance.personajeActual;
+        if (personaje != null && textoTituloLibro != null)
+        {
+            textoTituloLibro.text = personaje.tituloLibroPortada;
+        }
+        else
+        {
+            textoTituloLibro.text = "";
+        }
     }
 
     public void VerificarElementosEnPortada()
@@ -19,32 +29,32 @@ public class BookCoverManager : MonoBehaviour
         finalizarButton.interactable = portadaEditable.transform.childCount > 0;
     }
 
-public void Finalizar()
-{
-    portadaFinal.SetActive(true);
-
-    List<StickerID> stickersUsados = new List<StickerID>();
-
-    foreach (Transform child in portadaEditable.transform)
+    public void Finalizar()
     {
-        if (RectTransformUtility.RectangleContainsScreenPoint(areaPortada, RectTransformUtility.WorldToScreenPoint(null, child.position)))
+        portadaFinal.SetActive(true);
+
+        List<StickerID> stickersUsados = new List<StickerID>();
+
+        foreach (Transform child in portadaEditable.transform)
         {
-            StickerData data = child.GetComponent<StickerData>();
-            if (data != null && !stickersUsados.Contains(data.stickerID))
+            if (RectTransformUtility.RectangleContainsScreenPoint(areaPortada, RectTransformUtility.WorldToScreenPoint(null, child.position)))
             {
-                stickersUsados.Add(data.stickerID);
+                StickerData data = child.GetComponent<StickerData>();
+                if (data != null && !stickersUsados.Contains(data.stickerID))
+                {
+                    stickersUsados.Add(data.stickerID);
+                }
+
+                DraggableItem draggable = child.GetComponent<DraggableItem>();
+                if (draggable != null)
+                    draggable.enabled = false;
             }
+            else
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
 
-            DraggableItem draggable = child.GetComponent<DraggableItem>();
-            if (draggable != null)
-                draggable.enabled = false;
-        }
-        else
-        {
-            child.gameObject.SetActive(false);
-        }
+        GameManager.instance.CompletarPortada(stickersUsados);
     }
-
-    GameManager.instance.CompletarPortada(stickersUsados);
-}
 }

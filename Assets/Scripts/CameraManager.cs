@@ -6,18 +6,14 @@ using TMPro;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
-
     public Camera[] cameras;
     public GameObject[] canvasObjects;
-
     private int currentCameraIndex = 0;
-
     public Button botonCambiarCamara1;
-
-
     public GameObject panelReparacion;
     public GameObject panelPortada;
     public GameObject panelPortada2;
+    public BookCoverManager bookCoverManager;
     public GameObject panelHechizo;
 
     void Awake()
@@ -58,7 +54,6 @@ public class CameraManager : MonoBehaviour
             canvasObjects[currentCameraIndex].SetActive(true);
     }
 
-
     public void DesactivarBotonCamara()
     {
         botonCambiarCamara1.interactable = false;
@@ -70,49 +65,42 @@ public class CameraManager : MonoBehaviour
         Debug.Log("boton habilitado");
     }
 
-
-
     public void ActivarPanelReparacion()
     {
         panelReparacion.gameObject.SetActive(true);
          Debug.Log("PANEL RESTAURACION HABILITADO");
     }
-
     public void DesactivarPanelReparacion()
     {
         panelReparacion.gameObject.SetActive(false);
     }
 
-
     public void ActivarPanelPortada()
     {
-
         panelPortada.gameObject.SetActive(true);
+        if (bookCoverManager != null)
+        {
+            bookCoverManager.ActualizarTituloLibro();
+        }
     }
 
     public void DesctivarPanelPortada()
     {
-
         panelPortada.gameObject.SetActive(false);
         panelPortada2.gameObject.SetActive(false);
     }
-
     public void ActivarPanelHechizo()
     {
 
         panelHechizo.gameObject.SetActive(true);
     }
-
     public void DesctivarPanelHechizo()
     {
 
         panelHechizo.gameObject.SetActive(false);
     }
-
     public void ActivarCamaraPrincipal()
     {
         CambiarCamara(0);
     }
-
-
 }
