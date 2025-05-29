@@ -8,7 +8,8 @@ public class CharacterAttributes : MonoBehaviour
         BuscarLibro,
         RepararLibro,
         HacerPortada,
-        HechizarLibro 
+        HechizarLibro,
+        JuegoTrivia
     }
 
     public enum Hechizo

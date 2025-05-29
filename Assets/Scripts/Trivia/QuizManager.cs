@@ -8,6 +8,9 @@ using TMPro;
 [RequireComponent(typeof(AudioSource))]
 public class QuizManager : MonoBehaviour
 {
+    public static QuizManager instance;
+
+
     [Header("Audio y Colores")]
     [SerializeField] private AudioClip m_correctSound = null;
     [SerializeField] private AudioClip m_incorrectSound = null;
@@ -31,6 +34,22 @@ public class QuizManager : MonoBehaviour
     private int incorrectCount = 0;
     private int currentQuestionIndex = 0;
     private bool isWaiting = false;
+
+
+     private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            // Opcional: si quieres que persista entre escenas
+            // DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
      private void Start()
     {
@@ -110,7 +129,14 @@ public class QuizManager : MonoBehaviour
     private void CloseResults()
     {
         resultsPanel.SetActive(false);
-        //llamar a dialogo de personaje
+        //llamar a dialogo de personaje o funcion en gamemanager
+
+        if (GameManager.instance != null)
+        {
+        GameManager.instance.CompletarTrivia(correctCount, incorrectCount);
+        }
+
+       
        
     }
 }
