@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 [RequireComponent(typeof(Button))]
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 public class OptionButton : MonoBehaviour
 {
     
-    private Text m_text = null;
+    private TextMeshProUGUI m_text = null;
     private Button m_button = null;
     private Image m_image = null;
     private Color m_originalColor = Color.black;
@@ -20,7 +21,7 @@ public class OptionButton : MonoBehaviour
     {
         m_button = GetComponent<Button>();
         m_image = GetComponent<Image>();
-        m_text = transform.GetChild(0).GetComponent<Text>();
+        m_text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         m_originalColor = m_image.color;
     }

@@ -2,60 +2,115 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
 public class QuizManager : MonoBehaviour
 {
+    [Header("Audio y Colores")]
     [SerializeField] private AudioClip m_correctSound = null;
     [SerializeField] private AudioClip m_incorrectSound = null;
-    [SerializeField] private Color m_correctColor = Color.black;
-    [SerializeField] private Color m_incorrectColor = Color.black;
-    [SerializeField] private float m_waitTime = 0.0f;
+    [SerializeField] private Color m_correctColor = Color.green;
+    [SerializeField] private Color m_incorrectColor = Color.red;
+    [SerializeField] private float m_waitTime = 1.0f;
+    [SerializeField] private int totalQuestions = 5;
     
+    [Header("UI")]
+    [SerializeField] private GameObject quizPanel;
+    [SerializeField] private GameObject resultsPanel;
+    [SerializeField] private TextMeshProUGUI resultsText;
+    [SerializeField] private Button closeButton;
+
+
     private QuizDB m_quizDB = null;
     private QuizUI m_quizUI = null;
     private AudioSource m_audioSource = null;
 
-    private void Start()
+    private int correctCount = 0;
+    private int incorrectCount = 0;
+    private int currentQuestionIndex = 0;
+    private bool isWaiting = false;
+
+     private void Start()
     {
-        m_quizDB = GameObject.FindObjectOfType<QuizDB>();
-        m_quizUI = GameObject.FindObjectOfType<QuizUI>();
+        m_quizDB = FindObjectOfType<QuizDB>();
+        m_quizUI = FindObjectOfType<QuizUI>();
         m_audioSource = GetComponent<AudioSource>();
+
+        quizPanel.SetActive(false);
+        resultsPanel.SetActive(false);
+
+        closeButton.onClick.AddListener(CloseResults);
+
+        // llamar a StartQuiz() luego de los dialogos del personaje que correspondan
+    }
+
+     public void StartQuiz()
+    {
+        correctCount = 0;
+        incorrectCount = 0;
+        currentQuestionIndex = 0;
+
+        quizPanel.SetActive(true);
+        resultsPanel.SetActive(false);
 
         NextQuestion();
     }
 
+
     private void NextQuestion()
     {
+        isWaiting = false;
         m_quizUI.Construct(m_quizDB.GetRandom(), GiveAnswer);
     }
 
     private void GiveAnswer(OptionButton optionButton)
     {
+        if (isWaiting) return;
+        isWaiting = true;
+
+        if (optionButton.Option.correct)
+            correctCount++;
+        else
+            incorrectCount++;
+
         StartCoroutine(GiveAnswerRoutine(optionButton));
     }
 
     private IEnumerator GiveAnswerRoutine(OptionButton optionButton)
     {
-        if(m_audioSource.isPlaying)
+        if (m_audioSource.isPlaying)
             m_audioSource.Stop();
 
-        m_audioSource.clip = optionButton.Option.correct ? m_correctSound : m_incorrectSound;
-        optionButton.SetColor(optionButton.Option.correct ? m_correctColor : m_incorrectColor);
+        bool isCorrect = optionButton.Option.correct;
+        m_audioSource.clip = isCorrect ? m_correctSound : m_incorrectSound;
+        optionButton.SetColor(isCorrect ? m_correctColor : m_incorrectColor);
 
         m_audioSource.Play();
 
-        yield return new WaitForSeconds ( m_waitTime);
+        yield return new WaitForSeconds(m_waitTime);
 
-        if(optionButton.Option.correct)
-            NextQuestion();
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex >= totalQuestions)
+            ShowResults();
         else
-            GameOver();
+            NextQuestion();
     }
 
-    private void GameOver()
+    private void ShowResults()
     {
-        //SceneManager.LoadScene();
+        quizPanel.SetActive(false);
+        resultsPanel.SetActive(true);
+
+        resultsText.text = $" Correctas: {correctCount}\n Incorrectas: {incorrectCount}";
+    }
+
+    private void CloseResults()
+    {
+        resultsPanel.SetActive(false);
+        //llamar a dialogo de personaje
+       
     }
 }
-
