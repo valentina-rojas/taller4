@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 4104eaba6728e584a91b58c8eb921707
+guid: bfb5e1b1690a48b4f97a962ba2f2fb5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8627316591167738649
-    second: cepillo_0
+      213: -4158041562670202116
+    second: planta2-214x295_0
+  - first:
+      213: 5114853735191617908
+    second: planta2-214x295_1
+  - first:
+      213: 8835217265702059298
+    second: planta2-214x295_2
+  - first:
+      213: -4008104539460882125
+    second: planta2-214x295_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cepillo_0
+      name: planta2-214x295_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 145
-        height: 117
+        width: 214
+        height: 295
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ecec92154d954880800000000000000
-      internalID: -8627316591167738649
+      spriteID: 79ef15a6c8b40344d83b8fe3eb49628b
+      internalID: -1552092096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planta2-214x295_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 214
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5791d74d8b75143bf2c1ded2bd0dee
+      internalID: -1212508434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planta2-214x295_2
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 0
+        width: 214
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272fa814b0a054c4faaa5b82daf6fcfc
+      internalID: -942377769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planta2-214x295_3
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 0
+        width: 214
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ed379887453054e880e4d1553ecd51
+      internalID: -929984635
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8c8f5a983b9a5c543b32d28cc9e4f06b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cepillo_0: -8627316591167738649
+      planta2-214x295_0: -1552092096
+      planta2-214x295_1: -1212508434
+      planta2-214x295_2: -942377769
+      planta2-214x295_3: -929984635
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
