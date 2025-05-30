@@ -30,6 +30,6 @@ public class ShelfSlots : MonoBehaviour, IDropHandler
         {
             Debug.Log("Este libro no corresponde a este estante.");
         }
-        ShelfManager.instance.RevisarOrganizacion();
+    ShelfManager.instance.RevisarOrganizacionConDelay();
     }
 }
