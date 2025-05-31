@@ -64,14 +64,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MostrarCartelInicioDia()
     {
+        MenuPausa.instance.OcultarBotonPausa();
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
-
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(3f);
         panelInfoLibro.SetActive(false);
         Time.timeScale = 1f;
-
+        MenuPausa.instance.MostrarBotonPausa();
         FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
     }
 
@@ -244,6 +244,8 @@ public class GameManager : MonoBehaviour
 
         intentoFinPendiente = false;
         TaskManager.instance.OcultarListaTareas();
+        TaskManager.instance.OcultarBotonTareas();
+        MenuPausa.instance.OcultarBotonPausa();
         nivelActual++;
         panelFinNivel.gameObject.SetActive(true);
         textoTituloFinDeDia.text = $"Fin del Día {nivelActual - 1}";

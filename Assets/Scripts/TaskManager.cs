@@ -51,6 +51,12 @@ public class TaskManager : MonoBehaviour
         botonCerrarLista.gameObject.SetActive(false);
     }
 
+    public void OcultarBotonTareas()
+    {
+        panelTareas.SetActive(false);
+        botonAbrirLista.gameObject.SetActive(false);
+    }
+
     private void OnClickAbrirTienda()
     {
         Debug.Log("Tienda abierta");

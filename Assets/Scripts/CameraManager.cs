@@ -68,6 +68,7 @@ public class CameraManager : MonoBehaviour
     public void ActivarPanelReparacion()
     {
         panelReparacion.gameObject.SetActive(true);
+        TaskManager.instance.OcultarBotonTareas();
          Debug.Log("PANEL RESTAURACION HABILITADO");
     }
     public void DesactivarPanelReparacion()
@@ -78,6 +79,7 @@ public class CameraManager : MonoBehaviour
     public void ActivarPanelPortada()
     {
         panelPortada.gameObject.SetActive(true);
+        TaskManager.instance.OcultarBotonTareas();
         if (bookCoverManager != null)
         {
             bookCoverManager.ActualizarTituloLibro();
@@ -91,8 +93,8 @@ public class CameraManager : MonoBehaviour
     }
     public void ActivarPanelHechizo()
     {
-
         panelHechizo.gameObject.SetActive(true);
+        TaskManager.instance.OcultarBotonTareas();
     }
     public void DesctivarPanelHechizo()
     {
