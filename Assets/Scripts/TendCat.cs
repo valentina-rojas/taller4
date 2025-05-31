@@ -5,8 +5,10 @@ public class TendCat : MonoBehaviour
 {
     [Header("Cepillado")]
     public RectTransform cepilloUI;
-    public RectTransform areaCepilladoUI;  // Zona más amplia para detectar el cepillado
+    public RectTransform areaCepilladoUI;  
     public float tiempoNecesario = 2f;
+    public Slider barraCepilladoUI;
+
 
     [Header("Alimentar")]
     public RectTransform bolsaComidaUI;
@@ -22,6 +24,8 @@ public class TendCat : MonoBehaviour
     private void Start()
     {
         camara = Camera.main;
+        if (barraCepilladoUI != null)
+        barraCepilladoUI.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -34,25 +38,43 @@ public class TendCat : MonoBehaviour
     {
         if (tareaCepillarCompletada) return;
 
-        // Obtenemos la posición del cepillo en pantalla
         Vector2 posicionCepillo = RectTransformUtility.WorldToScreenPoint(camara, cepilloUI.position);
 
-        // Chequeamos si el punto del cepillo está dentro del área de cepillado
         if (RectTransformUtility.RectangleContainsScreenPoint(areaCepilladoUI, posicionCepillo, camara))
         {
+            if (barraCepilladoUI != null && !barraCepilladoUI.gameObject.activeSelf)
+                barraCepilladoUI.gameObject.SetActive(true);
+
             tiempoSobreAreaCepillado += Time.deltaTime;
+
+            if (barraCepilladoUI != null)
+                barraCepilladoUI.value = tiempoSobreAreaCepillado / tiempoNecesario;
+
             Debug.Log($"Cepillando al gato: {tiempoSobreAreaCepillado:F2}s");
 
             if (tiempoSobreAreaCepillado >= tiempoNecesario)
             {
                 tareaCepillarCompletada = true;
                 Debug.Log("Gato cepillado correctamente");
+
+                if (barraCepilladoUI != null)
+                {
+                    barraCepilladoUI.value = 1f;
+                    barraCepilladoUI.gameObject.SetActive(false); 
+                }
+
                 TaskManager.instance.CompletarTareaPorID(2);
             }
         }
         else
         {
             tiempoSobreAreaCepillado = 0f;
+
+            if (barraCepilladoUI != null)
+            {
+                barraCepilladoUI.value = 0f;
+                barraCepilladoUI.gameObject.SetActive(false); 
+            }
         }
     }
 

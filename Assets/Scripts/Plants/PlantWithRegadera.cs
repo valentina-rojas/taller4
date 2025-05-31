@@ -1,101 +1,113 @@
 using UnityEngine;
+using UnityEngine.UI; 
 using System.Collections;
-
 
 public class PlantWithRegadera : MonoBehaviour
 {
-    public Sprite[] growthStages;         // 4 estados de la planta (desde el sprite sheet)
-    public SpriteRenderer plantRenderer;  // Renderer de la planta
-    public GameObject regadera;           // Objeto visual de la regadera
+    public Sprite[] growthStages;
+    public SpriteRenderer plantRenderer;
+    public GameObject regadera;
+    public Slider barraRiegoUI; 
+
     private int waterClicks = 0;
     private int maxWater = 3;
     private bool regaderaVisible = false;
-    private bool isFullyWatered = false; // 🔒 Nueva variable de bloqueo
+    private bool isFullyWatered = false;
 
     public static PlantWithRegadera instance;
 
     private Coroutine wateringCoroutine;
 
-
-     private void Awake()
+    private void Awake()
     {
         instance = this;
     }
-    
+
     private void Start()
     {
         if (growthStages != null && growthStages.Length > 0)
         {
             plantRenderer.sprite = growthStages[0];
         }
-        else
-        {
-            Debug.LogError("No se han asignado sprites a growthStages.");
-        }
-        
+
         if (regadera != null)
-            regadera.SetActive(false);         // Regadera oculta
+            regadera.SetActive(false);
 
+        if (barraRiegoUI != null)
+        {
+            barraRiegoUI.gameObject.SetActive(false); 
+            barraRiegoUI.maxValue = maxWater;
+            barraRiegoUI.value = 0;
+        }
 
-             if (PlantManager.instance != null)
-        PlantManager.instance.RegisterPlant();
+        if (PlantManager.instance != null)
+            PlantManager.instance.RegisterPlant();
     }
 
     private void OnMouseDown()
-{
-    if (isFullyWatered)
-        return;
-
-    ShowRegadera();
-
-    if (wateringCoroutine == null)
-        wateringCoroutine = StartCoroutine(WateringRoutine());
-}
-private void OnMouseUp()
-{
-    if (wateringCoroutine != null)
     {
-        StopCoroutine(wateringCoroutine);
-        wateringCoroutine = null;
+        if (isFullyWatered) return;
+
+        ShowRegadera();
+
+        if (wateringCoroutine == null)
+            wateringCoroutine = StartCoroutine(WateringRoutine());
     }
 
-    if (!isFullyWatered)
+    private void OnMouseUp()
     {
-        waterClicks = 0; // 🔁 Reinicia el progreso de riego
-        UpdatePlantAppearance(); // 🔄 Vuelve al sprite inicial
+        if (wateringCoroutine != null)
+        {
+            StopCoroutine(wateringCoroutine);
+            wateringCoroutine = null;
+        }
+
+        if (!isFullyWatered)
+        {
+            waterClicks = 0;
+            UpdatePlantAppearance();
+
+            if (barraRiegoUI != null)
+            {
+                barraRiegoUI.value = 0;
+                barraRiegoUI.gameObject.SetActive(false);
+            }
+        }
+
+        if (regaderaVisible)
+        {
+            regaderaVisible = false;
+            if (regadera != null)
+                regadera.SetActive(false);
+        }
     }
 
-    if (regaderaVisible)
+    private IEnumerator WateringRoutine()
     {
-        regaderaVisible = false;
-        if (regadera != null)
-            regadera.SetActive(false);
+        while (!isFullyWatered)
+        {
+            WaterPlant();
+            yield return new WaitForSeconds(2f);
+        }
     }
-}
-
-
-private IEnumerator WateringRoutine()
-{
-    while (!isFullyWatered)
-    {
-        WaterPlant();
-        yield return new WaitForSeconds(2f); // espera 1 segundo entre riegos
-    }
-}
-
-
 
     void ShowRegadera()
     {
         regaderaVisible = true;
         if (regadera != null)
             regadera.SetActive(true);
+
+        if (barraRiegoUI != null)
+            barraRiegoUI.gameObject.SetActive(true); 
     }
 
     void WaterPlant()
     {
         waterClicks++;
         UpdatePlantAppearance();
+
+        if (barraRiegoUI != null)
+            barraRiegoUI.value = waterClicks;
 
         if (waterClicks >= maxWater)
         {
@@ -111,21 +123,22 @@ private IEnumerator WateringRoutine()
 
     void FinishWatering()
     {
-        // Planta completamente regada, podrías agregar una animación o partículas aquí
         Debug.Log("¡La planta está florecida!");
 
         regaderaVisible = false;
-         isFullyWatered = true; // ✅ Bloquear futuros clics
+        isFullyWatered = true;
 
         if (regadera != null)
-            regadera.SetActive(false); // 🚿 Ocultamos la regadera
+            regadera.SetActive(false);
 
-            if (PlantManager.instance != null)
-    PlantManager.instance.NotifyPlantFullyWatered();
+        if (barraRiegoUI != null)
+            barraRiegoUI.gameObject.SetActive(false); 
 
+        if (PlantManager.instance != null)
+            PlantManager.instance.NotifyPlantFullyWatered();
     }
 
-     private void AccionFinal()
+    private void AccionFinal()
     {
         Debug.Log("Plantas regadas");
         TaskManager.instance.CompletarTareaPorID(4);
