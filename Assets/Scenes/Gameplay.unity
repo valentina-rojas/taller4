@@ -731,6 +731,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
       objectReference: {fileID: 0}
@@ -831,6 +835,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
@@ -1770,6 +1778,7 @@ GameObject:
   - component: {fileID: 101764134}
   - component: {fileID: 101764133}
   - component: {fileID: 101764132}
+  - component: {fileID: 101764135}
   m_Layer: 5
   m_Name: historia
   m_TagString: Untagged
@@ -1867,6 +1876,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101764130}
   m_CullTransparentMesh: 1
+--- !u!114 &101764135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101764130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: historia
+  cantidadLibrosEsperados: 2
+  cartelGenero: {fileID: 1982164396}
 --- !u!1 &104946628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,6 +2137,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
@@ -2544,6 +2572,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
       objectReference: {fileID: 0}
@@ -2755,6 +2787,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
@@ -3027,6 +3063,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
       objectReference: {fileID: 0}
@@ -3132,6 +3172,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
@@ -3506,6 +3550,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
       objectReference: {fileID: 0}
@@ -3650,6 +3698,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
@@ -3981,6 +4033,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -4512,6 +4568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -5382,6 +5442,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
       objectReference: {fileID: 0}
@@ -5809,6 +5873,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -5917,6 +5985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -6027,6 +6099,7 @@ GameObject:
   - component: {fileID: 295475882}
   - component: {fileID: 295475881}
   - component: {fileID: 295475880}
+  - component: {fileID: 295475883}
   m_Layer: 5
   m_Name: recetas
   m_TagString: Untagged
@@ -6123,6 +6196,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295475878}
   m_CullTransparentMesh: 1
+--- !u!114 &295475883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295475878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: recetas
+  cantidadLibrosEsperados: 2
+  cartelGenero: {fileID: 861946251}
 --- !u!1 &296093484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,6 +6404,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
@@ -7901,6 +7993,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
       objectReference: {fileID: 0}
@@ -8658,6 +8754,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
       objectReference: {fileID: 0}
@@ -9285,6 +9385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
@@ -10885,6 +10989,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -11301,6 +11409,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -11409,6 +11521,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
@@ -11873,6 +11989,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
@@ -12945,6 +13065,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
       objectReference: {fileID: 0}
@@ -13360,6 +13484,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -13774,6 +13902,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -13950,6 +14082,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
       objectReference: {fileID: 0}
@@ -14050,6 +14186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
@@ -14291,6 +14431,7 @@ GameObject:
   - component: {fileID: 713230830}
   - component: {fileID: 713230829}
   - component: {fileID: 713230828}
+  - component: {fileID: 713230831}
   m_Layer: 5
   m_Name: "herbolog\xEDa"
   m_TagString: Untagged
@@ -14388,6 +14529,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713230826}
   m_CullTransparentMesh: 1
+--- !u!114 &713230831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713230826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: herbologia
+  cantidadLibrosEsperados: 3
+  cartelGenero: {fileID: 1223050789}
 --- !u!1 &722080023
 GameObject:
   m_ObjectHideFlags: 0
@@ -14699,6 +14855,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -14974,6 +15134,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -15156,6 +15320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
@@ -16383,6 +16551,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
       objectReference: {fileID: 0}
@@ -16864,7 +17036,7 @@ GameObject:
   - component: {fileID: 851621023}
   - component: {fileID: 851621022}
   m_Layer: 5
-  m_Name: Image
+  m_Name: "FANTAS\xCDA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16940,7 +17112,7 @@ GameObject:
   - component: {fileID: 852842946}
   - component: {fileID: 852842945}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: TERROR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17964,6 +18136,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -18069,6 +18245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -18201,7 +18381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 1.6943216}
+  m_AnchoredPosition: {x: 0, y: 1.6943216}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911547195
@@ -18974,6 +19154,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -19492,6 +19676,7 @@ GameObject:
   - component: {fileID: 974170255}
   - component: {fileID: 974170254}
   - component: {fileID: 974170253}
+  - component: {fileID: 974170256}
   m_Layer: 5
   m_Name: pociones
   m_TagString: Untagged
@@ -19592,6 +19777,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974170251}
   m_CullTransparentMesh: 1
+--- !u!114 &974170256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974170251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: pociones
+  cantidadLibrosEsperados: 3
+  cartelGenero: {fileID: 799165594}
 --- !u!1 &977227096
 GameObject:
   m_ObjectHideFlags: 0
@@ -19649,6 +19849,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
@@ -19950,6 +20154,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
       objectReference: {fileID: 0}
@@ -20115,10 +20323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -20725,6 +20933,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
       objectReference: {fileID: 0}
@@ -20988,6 +21200,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
       objectReference: {fileID: 0}
@@ -21164,6 +21380,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -21264,6 +21484,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
@@ -21374,7 +21598,7 @@ GameObject:
   - component: {fileID: 1117162455}
   - component: {fileID: 1117162454}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: RECETAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22309,7 +22533,7 @@ GameObject:
   - component: {fileID: 1149001711}
   - component: {fileID: 1149001710}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: MISTERIO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22328,7 +22552,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1139431214}
-  - {fileID: 1924611324}
   m_Father: {fileID: 488156714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -22632,6 +22855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
@@ -24025,7 +24252,7 @@ GameObject:
   - component: {fileID: 1219696703}
   - component: {fileID: 1219696702}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: "HERBOLOG\xCDA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24234,6 +24461,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -24341,6 +24572,7 @@ GameObject:
   - component: {fileID: 1227058706}
   - component: {fileID: 1227058705}
   - component: {fileID: 1227058704}
+  - component: {fileID: 1227058707}
   m_Layer: 5
   m_Name: misterio
   m_TagString: Untagged
@@ -24437,6 +24669,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227058702}
   m_CullTransparentMesh: 1
+--- !u!114 &1227058707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227058702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: misterio
+  cantidadLibrosEsperados: 3
+  cartelGenero: {fileID: 1139431215}
 --- !u!1001 &1230415080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24694,6 +24941,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -24914,6 +25165,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -25292,6 +25547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -26324,6 +26583,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -26661,7 +26924,7 @@ GameObject:
   - component: {fileID: 1345566775}
   - component: {fileID: 1345566774}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: POCIONES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26733,6 +26996,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -27080,6 +27347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
@@ -27715,6 +27986,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -27899,7 +28174,7 @@ GameObject:
   - component: {fileID: 1407776363}
   - component: {fileID: 1407776362}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: HISTORIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28061,6 +28336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 295475879}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 861946251}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: recetas
@@ -29203,6 +29482,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -29616,6 +29899,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -29716,6 +30003,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
@@ -30297,6 +30588,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
@@ -31580,6 +31875,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
       objectReference: {fileID: 0}
@@ -32773,6 +33072,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -33123,6 +33426,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
       objectReference: {fileID: 0}
@@ -33231,6 +33538,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
@@ -34723,6 +35034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1800791277}
   - component: {fileID: 1800791276}
+  - component: {fileID: 1800791278}
   m_Layer: 0
   m_Name: ShelfManager
   m_TagString: Untagged
@@ -34742,7 +35054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f295045fec0223c41817c712958b626c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  estantes: []
+  audioLibroCorrecto: {fileID: 0}
 --- !u!4 &1800791277
 Transform:
   m_ObjectHideFlags: 0
@@ -34758,6 +35070,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1593798991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1800791278
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800791275}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1807244435
 GameObject:
   m_ObjectHideFlags: 0
@@ -35184,6 +35593,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -35488,6 +35901,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1896921133}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 969397807}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: fantasia
       objectReference: {fileID: 0}
@@ -35731,6 +36148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227058703}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1139431215}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: misterio
@@ -36764,6 +37185,7 @@ GameObject:
   - component: {fileID: 1896921136}
   - component: {fileID: 1896921135}
   - component: {fileID: 1896921134}
+  - component: {fileID: 1896921137}
   m_Layer: 5
   m_Name: fantasia
   m_TagString: Untagged
@@ -36863,6 +37285,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896921132}
   m_CullTransparentMesh: 1
+--- !u!114 &1896921137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896921132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: fantasia
+  cantidadLibrosEsperados: 3
+  cartelGenero: {fileID: 969397807}
 --- !u!1 &1918575313
 GameObject:
   m_ObjectHideFlags: 0
@@ -36983,142 +37420,6 @@ RectTransform:
   m_AnchoredPosition: {x: 770.9999, y: -369.54}
   m_SizeDelta: {x: 180.98, y: 158.49}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1924611323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1924611324}
-  - component: {fileID: 1924611326}
-  - component: {fileID: 1924611325}
-  m_Layer: 5
-  m_Name: Text (TMP) (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1924611324
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924611323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1149001709}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3, y: -1.6}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1924611325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924611323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: MISTERIO
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b5d33c808ddf0044caaa5e1f1f8b5cf9, type: 2}
-  m_sharedMaterial: {fileID: 8037698356388516902, guid: b5d33c808ddf0044caaa5e1f1f8b5cf9, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190107
-  m_fontColor: {r: 0.105882354, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1924611326
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924611323}
-  m_CullTransparentMesh: 1
 --- !u!1 &1950936331
 GameObject:
   m_ObjectHideFlags: 0
@@ -37232,6 +37533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 713230827}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1223050789}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: herbologia
@@ -37448,6 +37753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
@@ -37823,6 +38132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
@@ -38571,6 +38884,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
@@ -39527,6 +39844,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2143255588}
     m_Modifications:
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 2145585177}
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: terror
       objectReference: {fileID: 0}
@@ -39630,6 +39951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 101764131}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 1982164396}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: historia
@@ -40525,6 +40850,7 @@ GameObject:
   - component: {fileID: 2143255591}
   - component: {fileID: 2143255590}
   - component: {fileID: 2143255589}
+  - component: {fileID: 2143255592}
   m_Layer: 5
   m_Name: terror
   m_TagString: Untagged
@@ -40624,6 +40950,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143255587}
   m_CullTransparentMesh: 1
+--- !u!114 &2143255592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143255587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03b8830a87afde4b828f20143a39f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genero: terror
+  cantidadLibrosEsperados: 3
+  cartelGenero: {fileID: 2145585177}
 --- !u!1 &2145585175
 GameObject:
   m_ObjectHideFlags: 0
@@ -40768,6 +41109,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974170252}
     m_Modifications:
+    - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
+      propertyPath: cartelGenero
+      value: 
+      objectReference: {fileID: 799165594}
     - target: {fileID: 4154688734647776324, guid: 9c7be9a11cc43034a838897aa6669729, type: 3}
       propertyPath: generoPermitido
       value: pociones
