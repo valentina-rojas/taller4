@@ -15,6 +15,11 @@ public class TendCat : MonoBehaviour
     public RectTransform platitoUI;
     public Sprite platitoLlenoSprite; 
 
+    [Header("Sonidos")]
+    public AudioSource audioSource;
+    public AudioClip sonidoCepillado;
+    public AudioClip sonidoComida;
+
     private float tiempoSobreAreaCepillado = 0f;
     private bool tareaCepillarCompletada = false;
     private bool tareaAlimentarCompletada = false;
@@ -62,6 +67,11 @@ public class TendCat : MonoBehaviour
                     barraCepilladoUI.value = 1f;
                     barraCepilladoUI.gameObject.SetActive(false); 
                 }
+                
+                // Reproducir sonido gato
+                if (audioSource != null && sonidoCepillado != null)
+                    audioSource.PlayOneShot(sonidoCepillado);
+
 
                 TaskManager.instance.CompletarTareaPorID(2);
             }
@@ -89,6 +99,12 @@ public class TendCat : MonoBehaviour
         {
             tareaAlimentarCompletada = true;
             Debug.Log("Gato alimentado correctamente (detectado por Overlaps)");
+            
+             // Reproducir sonido de gato
+            if (audioSource != null && sonidoComida != null)
+                audioSource.PlayOneShot(sonidoComida);
+            
+            
             TaskManager.instance.CompletarTareaPorID(3);
 
             Image platitoImage = platitoUI.GetComponent<Image>();

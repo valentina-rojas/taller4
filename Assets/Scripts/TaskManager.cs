@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
@@ -14,6 +15,9 @@ public class TaskManager : MonoBehaviour
 
     public List<TMP_Text> textosTareas;
     public List<bool> tareasCompletadas;
+
+    public AudioSource audioSource;
+    public AudioClip sonidoTareaCompletada;
 
     private void Awake()
     {
@@ -74,8 +78,16 @@ public class TaskManager : MonoBehaviour
         if (!tareasCompletadas[id])
         {
             tareasCompletadas[id] = true;
-            string nombreOriginal = textosTareas[id].text;
-            textosTareas[id].text = "<s>" + nombreOriginal + "</s>";
+
+            if (audioSource != null && sonidoTareaCompletada != null)
+            {
+                StartCoroutine(TacharYReproducirSonido(id, 0.5f)); // 0.5 segundos de delay
+            }
+            else
+            {
+                // En caso de que no haya audio, tachar inmediatamente
+                TacharTexto(id);
+            }
         }
 
         RevisarTareas();
@@ -98,5 +110,30 @@ public class TaskManager : MonoBehaviour
         }
         return true;
     }
+
+    private IEnumerator TacharYReproducirSonido(int id, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        TacharTexto(id);
+        audioSource.PlayOneShot(sonidoTareaCompletada);
+
+        RevisarTareas();
+    }
+
+    private void TacharTexto(int id)
+    {
+        string nombreOriginal = textosTareas[id].text;
+        textosTareas[id].text = "<s>" + nombreOriginal + "</s>";
+    }
+    
+    
+    private System.Collections.IEnumerator ReproducirSonidoTareaConDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(sonidoTareaCompletada);
+    }
+
+
 
 }

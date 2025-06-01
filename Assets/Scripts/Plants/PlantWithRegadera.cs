@@ -9,6 +9,11 @@ public class PlantWithRegadera : MonoBehaviour
     public GameObject regadera;
     public Slider barraRiegoUI; 
 
+    [Header("Sonido")]
+    public AudioSource audioSource;
+    public AudioClip sonidoRegadera;
+
+
     private int waterClicks = 0;
     private int maxWater = 3;
     private bool regaderaVisible = false;
@@ -25,6 +30,9 @@ public class PlantWithRegadera : MonoBehaviour
 
     private void Start()
     {
+        audioSource.Stop();
+        audioSource.loop = false;
+        
         if (growthStages != null && growthStages.Length > 0)
         {
             plantRenderer.sprite = growthStages[0];
@@ -79,6 +87,14 @@ public class PlantWithRegadera : MonoBehaviour
             regaderaVisible = false;
             if (regadera != null)
                 regadera.SetActive(false);
+        
+            // Detener sonido si estaba sonando
+            if (audioSource != null && audioSource.isPlaying)
+            {
+            audioSource.Stop();
+            audioSource.loop = false;
+            Debug.Log("🔇 Sonido de regadera detenido.");
+            }
         }
     }
 
@@ -94,11 +110,24 @@ public class PlantWithRegadera : MonoBehaviour
     void ShowRegadera()
     {
         regaderaVisible = true;
+
         if (regadera != null)
             regadera.SetActive(true);
 
         if (barraRiegoUI != null)
             barraRiegoUI.gameObject.SetActive(true); 
+
+        // ✅ Reproducir sonido solo si no está ya reproduciéndose
+        if (audioSource != null && sonidoRegadera != null)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = sonidoRegadera;
+                audioSource.loop = true;
+                audioSource.Play();
+                Debug.Log("💧 Sonido de regadera iniciado");
+            }
+        }   
     }
 
     void WaterPlant()
@@ -133,6 +162,14 @@ public class PlantWithRegadera : MonoBehaviour
 
         if (barraRiegoUI != null)
             barraRiegoUI.gameObject.SetActive(false); 
+
+        // ✅ Detener sonido de regadera si aún está activo
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+            Debug.Log("🔇 Sonido de regadera detenido al terminar riego.");
+        }
 
         if (PlantManager.instance != null)
             PlantManager.instance.NotifyPlantFullyWatered();

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class CharacterSpawn : MonoBehaviour
 {
     private GameObject[] characters;
@@ -11,15 +12,15 @@ public class CharacterSpawn : MonoBehaviour
     private int currentIndex = 0;
     private bool interactionFinished = false;
 
+    [Header("Sonido")]
+    public AudioSource audioSource;
+    public AudioClip sonidoAparicionPersonaje;
+
 
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
     {
         characters = personajesDelNivel;
     }
-
-
-
-
 
        private void MezclarPersonajes()
     {
@@ -31,11 +32,6 @@ public class CharacterSpawn : MonoBehaviour
             characters[randomIndex] = temp;
         }
     }
-
-  
-    
-    
-
     
     public void ComenzarSpawn()
     {
@@ -50,6 +46,12 @@ public class CharacterSpawn : MonoBehaviour
         {
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
 
+            // Reproducir sonido al aparecer
+            if (audioSource != null && sonidoAparicionPersonaje != null)
+            {
+                audioSource.PlayOneShot(sonidoAparicionPersonaje);
+            }
+            
             interactionFinished = false;
             CharacterManager.instance.ResetearAtencion();
 

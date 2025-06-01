@@ -28,6 +28,8 @@ public class BookManager : MonoBehaviour
     private List<BookData> librosMismaSeccion = new List<BookData>(); 
     private int indiceLibroActual = 0; 
 
+
+
     private void Awake()
     {
         if (instance == null)
@@ -65,6 +67,7 @@ public class BookManager : MonoBehaviour
             {
                 librosMismaSeccion.Add(b);
             }
+            
         }
 
         librosMismaSeccion = librosMismaSeccion
@@ -72,6 +75,7 @@ public class BookManager : MonoBehaviour
             .ToList();
 
         indiceLibroActual = librosMismaSeccion.IndexOf(libro);
+
 
         if (indiceLibroActual == -1)
         {
@@ -164,6 +168,7 @@ public class BookManager : MonoBehaviour
             CharacterManager.instance.UltimoPersonajeAtendido.tituloLibroPrestado = libroActual.titulo;
         }
 
+     
         GameManager.instance.VerificarRecomendacion(libroActual);
 
         if (characterSpawn != null)

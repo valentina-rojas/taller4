@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     [Header("Estado del juego")]
     public CharacterAttributes personajeActual;
 
+    [Header("Sonidos")]
+    public AudioClip sonidoCorrecto;
+    public AudioClip sonidoIncorrecto;
+    public AudioClip sonidoEstrellas;
+    private AudioSource audioSource;
+
     public GameObject panelInfoLibro;
     public GameObject panelFinNivel;
     public TMP_Text textoDia;
@@ -53,6 +59,12 @@ public class GameManager : MonoBehaviour
         uiManager = FindFirstObjectByType<UIManager>();
         characterSpawn = FindFirstObjectByType<CharacterSpawn>();
 
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+        
+        audioSource.volume = 0.7f; // entre 0.0 y 1.0
+        
         if (uiManager == null)
             Debug.LogError("UIManager no encontrado en la escena.");
 
@@ -112,11 +124,15 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
             libro.gameObject.SetActive(false);
+
+            audioSource.PlayOneShot(sonidoCorrecto);
         }
         else
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
+
+            audioSource.PlayOneShot(sonidoIncorrecto);
         }
     }
 
@@ -125,6 +141,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restauración completada.");
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
         recomendacionesBuenas++;
+
+        audioSource.PlayOneShot(sonidoEstrellas);
     }
 
     public void CompletarPortada(List<StickerID> stickersUsados)
@@ -161,7 +179,10 @@ public class GameManager : MonoBehaviour
         resultadoRecomendacion = tieneTodos ? ResultadoRecomendacion.Buena : ResultadoRecomendacion.Mala;
 
         if (tieneTodos)
+        {
             recomendacionesBuenas++;
+            audioSource.PlayOneShot(sonidoEstrellas);
+        } 
         else
             recomendacionesMalas++;
 
@@ -189,6 +210,8 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
             Debug.Log($"Hechizo completado correctamente: {hechizoRealizado}");
+
+            audioSource.PlayOneShot(sonidoEstrellas);
         }
         else
         {
