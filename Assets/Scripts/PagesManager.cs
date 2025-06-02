@@ -12,6 +12,10 @@ public class PagesManager : MonoBehaviour
 
     private CharacterSpawn characterSpawn;
 
+    [Header("Sonido")]
+    public AudioSource audioSource;
+    public AudioClip sonidoCorrecto;
+
 
     private void Awake()
     {
@@ -61,6 +65,11 @@ public class PagesManager : MonoBehaviour
             }
         }
 
+         // Reproducir sonido de éxito
+        if (audioSource != null && sonidoCorrecto != null)
+        {
+            audioSource.PlayOneShot(sonidoCorrecto);
+        }
 
         //habilitar boton
         botonEntregar.gameObject.SetActive(true);

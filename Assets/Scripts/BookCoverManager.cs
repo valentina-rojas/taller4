@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
@@ -10,6 +11,7 @@ public class BookCoverManager : MonoBehaviour
     public Button finalizarButton;
     public RectTransform areaPortada;
     public TMP_Text textoTituloLibro;
+
 
     public void ActualizarTituloLibro()
     {
@@ -27,6 +29,7 @@ public class BookCoverManager : MonoBehaviour
     public void VerificarElementosEnPortada()
     {
         finalizarButton.interactable = portadaEditable.transform.childCount > 0;
+        
     }
 
     public void Finalizar()

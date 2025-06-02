@@ -142,7 +142,6 @@ public class GameManager : MonoBehaviour
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
         recomendacionesBuenas++;
 
-        audioSource.PlayOneShot(sonidoEstrellas);
     }
 
     public void CompletarPortada(List<StickerID> stickersUsados)
