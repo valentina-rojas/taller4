@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("Diálogo")]
-    [SerializeField] private GameObject dialogueMark;
+    [SerializeField] private Button dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Button botonSiguiente;
     [SerializeField] private TMP_Text botonSiguienteTexto;
     [SerializeField] private Button botonRepetir;
     [SerializeField] private Button botonFinalizar;
-    public GameObject GetDialogueMark() => dialogueMark;
+    public Button GetDialogueMark() => dialogueMark;
     public GameObject GetDialoguePanel() => dialoguePanel;
     public TMP_Text GetDialogueText() => dialogueText;
     public Button GetBotonSiguiente() => botonSiguiente;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private GameObject dialogueMark;
+    [SerializeField] private Button dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
 
@@ -63,16 +63,13 @@ public class DialogueManager : MonoBehaviour
             botonFinalizar.gameObject.SetActive(false);
         }
 
+        if (dialogueMark != null)
+        {
+            dialogueMark.onClick.AddListener(EmpezarDialogoResultado);
+            dialogueMark.gameObject.SetActive(false);
+        }
 
         characterAttributes = GetComponent<CharacterAttributes>();
-    }
-
-    void Update()
-    {
-        if (isMouseOver && Input.GetMouseButtonDown(0) && !hasInteracted && !didDialogueStart)
-        {
-            StartDialogue();
-        }
     }
 
     public void EmpezarDialogoResultado()
@@ -103,8 +100,7 @@ public class DialogueManager : MonoBehaviour
         didDialogueStart = true;
         TaskManager.instance.OcultarListaTareas();
         dialoguePanel.SetActive(true);
-        dialogueMark.SetActive(false);
-        CameraManager.instance.DesactivarBotonCamara();
+        dialogueMark.gameObject.SetActive(false);
         lineIndex = 0;
 
         if (botonSiguiente != null)
@@ -204,8 +200,7 @@ public class DialogueManager : MonoBehaviour
         hasInteracted = false;
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
-        dialogueMark.SetActive(false);
-        CameraManager.instance.DesactivarBotonCamara();
+        dialogueMark.gameObject.SetActive(false);
 
         if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(true);
@@ -220,7 +215,7 @@ public class DialogueManager : MonoBehaviour
     {
         didDialogueStart = false;
         dialoguePanel.SetActive(false);
-        dialogueMark.SetActive(false);
+        dialogueMark.gameObject.SetActive(false);
         hasInteracted = true;
 
         if (botonSiguiente != null)
@@ -243,7 +238,7 @@ public class DialogueManager : MonoBehaviour
         if (!hasInteracted)
         {
             isMouseOver = true;
-            dialogueMark.SetActive(true);
+            dialogueMark.gameObject.SetActive(true);
         }
     }
 

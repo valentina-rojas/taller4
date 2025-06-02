@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
     public void IniciarSpawnDePersonajes()
     {
         TaskManager.instance.OcultarListaTareas();
-        CameraManager.instance.DesactivarBotonCamara();
 
         if (nivelActual - 1 < niveles.Length)
         {
