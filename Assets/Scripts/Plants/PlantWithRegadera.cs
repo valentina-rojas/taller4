@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems; 
 
 public class PlantWithRegadera : MonoBehaviour
 {
@@ -52,8 +53,13 @@ public class PlantWithRegadera : MonoBehaviour
             PlantManager.instance.RegisterPlant();
     }
 
+
+
     private void OnMouseDown()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (isFullyWatered) return;
 
         ShowRegadera();
@@ -61,6 +67,7 @@ public class PlantWithRegadera : MonoBehaviour
         if (wateringCoroutine == null)
             wateringCoroutine = StartCoroutine(WateringRoutine());
     }
+
 
     private void OnMouseUp()
     {
@@ -163,12 +170,11 @@ public class PlantWithRegadera : MonoBehaviour
         if (barraRiegoUI != null)
             barraRiegoUI.gameObject.SetActive(false); 
 
-        // ✅ Detener sonido de regadera si aún está activo
         if (audioSource != null && audioSource.isPlaying)
         {
             audioSource.Stop();
             audioSource.loop = false;
-            Debug.Log("🔇 Sonido de regadera detenido al terminar riego.");
+            Debug.Log("Sonido de regadera detenido al terminar riego.");
         }
 
         if (PlantManager.instance != null)
