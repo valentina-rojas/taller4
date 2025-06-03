@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 690207381077084677, guid: c541a975eb3eb174a8357aae45b9e412, type: 3}
+  m_Sprite: {fileID: 476900927, guid: d65f33f931bba9c4cbab03bfee64aa50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.16, y: 8}
+    oldSize: {x: 4.16, y: 7.99}
     newSize: {x: 4.16, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   - "\xA1No, no, no! Yo quiero hongos. "
   - "Bah, me llevo esto igual\u2026"
   - Pero no era lo que buscaba...
-  spriteRespuestaBuena: {fileID: -8064676831942617074, guid: efe1c55f26f798a439e4b267d8b6ad97, type: 3}
-  spriteRespuestaMala: {fileID: -8837985258337553644, guid: 92436ca22062f814795d6271bbe1e8fa, type: 3}
+  spriteRespuestaBuena: {fileID: -990964772, guid: d65f33f931bba9c4cbab03bfee64aa50, type: 3}
+  spriteRespuestaMala: {fileID: -1670925046, guid: d65f33f931bba9c4cbab03bfee64aa50, type: 3}
   libroDeseadoID: 33
   tipoPreferido: herbologia
   nombreDelCliente: Bruja

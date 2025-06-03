@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 8940196389654725227, guid: 28cffb02ed5b948429c1357294dfd960, type: 3}
+  m_Sprite: {fileID: 1761835546, guid: 68ad608c8f0e52745af1cbbc76225bd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.87, y: 7.09}
+    oldSize: {x: 4.87, y: 8}
     newSize: {x: 4.87, y: 7.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,6 +172,8 @@ MonoBehaviour:
   - Si alguien indeseado lo abre... no quiero ni imaginarlo.
   - "Tendr\xE9 que buscar a otra alma sensible que pueda ayudarme. Pero gracias por
     intentarlo\u2026"
+  spriteRespuestaBuena: {fileID: 199910097, guid: 68ad608c8f0e52745af1cbbc76225bd4, type: 3}
+  spriteRespuestaMala: {fileID: -1394314759, guid: 68ad608c8f0e52745af1cbbc76225bd4, type: 3}
   libroDeseadoID: 12
   tipoPreferido: misterio
   nombreDelCliente: Bruja Mayor

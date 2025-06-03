@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: -8965315051571284603, guid: 5b4427591704bb947ba4bf69f702834b, type: 3}
+  m_Sprite: {fileID: 829811526, guid: b6f696f6fecafb949ae7a64dc6242b7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.57, y: 7.84}
+    oldSize: {x: 5.57, y: 8}
     newSize: {x: 5.57, y: 7.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -171,10 +171,16 @@ MonoBehaviour:
   - "\xA1No, no, no! Yo quiero hongos. "
   - "Bah, me llevo esto igual\u2026"
   - Pero no era lo que buscaba...
+  spriteRespuestaBuena: {fileID: -1118278708, guid: b6f696f6fecafb949ae7a64dc6242b7e, type: 3}
+  spriteRespuestaMala: {fileID: 829811526, guid: b6f696f6fecafb949ae7a64dc6242b7e, type: 3}
   libroDeseadoID: 33
   tipoPreferido: herbologia
   nombreDelCliente: Aprendiz
   descripcionPedido: "Solicit\xF3 reparar libro"
+  tituloLibroPrestado: 
+  stickersRequeridos: 
+  tituloLibroPortada: 
+  hechizoSolicitado: 0
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 8409309857071036182, guid: dc4a97eb246c70d4db9d92ef70d4a075, type: 3}
+  m_Sprite: {fileID: -116916566, guid: 1d5feb4c40c77e942984aab325e0aad6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,6 +163,8 @@ MonoBehaviour:
   - Si vas a ocupar este puesto, al menos finge saber lo que haces.
   - Eso fue... doloroso. Para ambos.
   - Mejor me largo. No puedo ver tanta mediocridad junta.
+  spriteRespuestaBuena: {fileID: -691833446, guid: 1d5feb4c40c77e942984aab325e0aad6, type: 3}
+  spriteRespuestaMala: {fileID: -718686173, guid: 1d5feb4c40c77e942984aab325e0aad6, type: 3}
   libroDeseadoID: 12
   tipoPreferido: misterio
   nombreDelCliente: Don Vinagre

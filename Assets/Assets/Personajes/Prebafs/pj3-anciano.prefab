@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 6457913801384220289, guid: 8c9ff1d8b036ef64bacccd5a5d90994b, type: 3}
+  m_Sprite: {fileID: -656934528, guid: 1eb3ebefd4ee59a4a86fff92b07faf47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.83, y: 7.68}
+    oldSize: {x: 5.83, y: 8}
     newSize: {x: 5.83, y: 7.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -166,11 +166,17 @@ MonoBehaviour:
   - "A ver\u2026"
   - "\xBFy esto qu\xE9 es?..."
   - como me dejen un zapato bajo la cama esta noche, te maldigo las pantuflas.
+  spriteRespuestaBuena: {fileID: -310598990, guid: 1eb3ebefd4ee59a4a86fff92b07faf47, type: 3}
+  spriteRespuestaMala: {fileID: 2020737730, guid: 1eb3ebefd4ee59a4a86fff92b07faf47, type: 3}
   libroDeseadoID: 63
   tipoPreferido: terror
   nombreDelCliente: Anciano
   descripcionPedido: "Solicit\xF3 un cuento para asustar a los \"mocosos\" que se
     esconden debajo de su cama"
+  tituloLibroPrestado: 
+  stickersRequeridos: 
+  tituloLibroPortada: 
+  hechizoSolicitado: 0
 --- !u!114 &1136955672045997557
 MonoBehaviour:
   m_ObjectHideFlags: 0
