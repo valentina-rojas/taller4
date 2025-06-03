@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlantManager : MonoBehaviour
 {
@@ -6,17 +7,18 @@ public class PlantManager : MonoBehaviour
 
     public int totalPlants = 0;
     private int fullyWateredPlants = 0;
+    private List<PlantWithRegadera> plantas = new List<PlantWithRegadera>();
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void RegisterPlant()
+    public void RegisterPlant(PlantWithRegadera planta)
     {
-        totalPlants++;
+        plantas.Add(planta);
+        totalPlants = plantas.Count;
     }
-
     public void NotifyPlantFullyWatered()
     {
         fullyWateredPlants++;
@@ -32,5 +34,15 @@ public class PlantManager : MonoBehaviour
     {
         Debug.Log("Acción final ejecutada: todas las plantas regadas.");
         TaskManager.instance.CompletarTareaPorID(4);
+    }
+
+    public void ReiniciarEstado()
+    {
+        fullyWateredPlants = 0;
+
+        foreach (var planta in plantas)
+        {
+            planta.ReiniciarPlanta();
+        }
     }
 }

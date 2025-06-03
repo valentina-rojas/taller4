@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using TMPro;
 
 public class CameraManager : MonoBehaviour
@@ -52,6 +51,11 @@ public class CameraManager : MonoBehaviour
         cameras[currentCameraIndex].enabled = true;
         if (canvasObjects != null && currentCameraIndex < canvasObjects.Length)
             canvasObjects[currentCameraIndex].SetActive(true);
+
+        if (cameraIndex == 1) 
+        {
+            ShelfManager.instance?.IntentarDesorganizarLibros();
+        }
     }
 
     public void DesactivarBotonCamara()
@@ -69,8 +73,9 @@ public class CameraManager : MonoBehaviour
     {
         panelReparacion.gameObject.SetActive(true);
         TaskManager.instance.OcultarBotonTareas();
-         Debug.Log("PANEL RESTAURACION HABILITADO");
+        Debug.Log("PANEL RESTAURACION HABILITADO");
     }
+
     public void DesactivarPanelReparacion()
     {
         panelReparacion.gameObject.SetActive(false);
@@ -91,16 +96,18 @@ public class CameraManager : MonoBehaviour
         panelPortada.gameObject.SetActive(false);
         panelPortada2.gameObject.SetActive(false);
     }
+
     public void ActivarPanelHechizo()
     {
         panelHechizo.gameObject.SetActive(true);
         TaskManager.instance.OcultarBotonTareas();
     }
+
     public void DesctivarPanelHechizo()
     {
-
         panelHechizo.gameObject.SetActive(false);
     }
+
     public void ActivarCamaraPrincipal()
     {
         CambiarCamara(0);

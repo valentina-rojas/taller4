@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
 
 public class PlantWithRegadera : MonoBehaviour
 {
     public Sprite[] growthStages;
     public SpriteRenderer plantRenderer;
     public GameObject regadera;
-    public Slider barraRiegoUI; 
+    public Slider barraRiegoUI;
 
     [Header("Sonido")]
     public AudioSource audioSource;
@@ -33,7 +33,7 @@ public class PlantWithRegadera : MonoBehaviour
     {
         audioSource.Stop();
         audioSource.loop = false;
-        
+
         if (growthStages != null && growthStages.Length > 0)
         {
             plantRenderer.sprite = growthStages[0];
@@ -44,13 +44,14 @@ public class PlantWithRegadera : MonoBehaviour
 
         if (barraRiegoUI != null)
         {
-            barraRiegoUI.gameObject.SetActive(false); 
+            barraRiegoUI.gameObject.SetActive(false);
             barraRiegoUI.maxValue = maxWater;
             barraRiegoUI.value = 0;
         }
 
         if (PlantManager.instance != null)
-            PlantManager.instance.RegisterPlant();
+            PlantManager.instance.RegisterPlant(this);
+
     }
 
 
@@ -94,13 +95,12 @@ public class PlantWithRegadera : MonoBehaviour
             regaderaVisible = false;
             if (regadera != null)
                 regadera.SetActive(false);
-        
-            // Detener sonido si estaba sonando
+
             if (audioSource != null && audioSource.isPlaying)
             {
-            audioSource.Stop();
-            audioSource.loop = false;
-            Debug.Log("🔇 Sonido de regadera detenido.");
+                audioSource.Stop();
+                audioSource.loop = false;
+                Debug.Log("🔇 Sonido de regadera detenido.");
             }
         }
     }
@@ -122,9 +122,8 @@ public class PlantWithRegadera : MonoBehaviour
             regadera.SetActive(true);
 
         if (barraRiegoUI != null)
-            barraRiegoUI.gameObject.SetActive(true); 
+            barraRiegoUI.gameObject.SetActive(true);
 
-        // ✅ Reproducir sonido solo si no está ya reproduciéndose
         if (audioSource != null && sonidoRegadera != null)
         {
             if (!audioSource.isPlaying)
@@ -132,9 +131,9 @@ public class PlantWithRegadera : MonoBehaviour
                 audioSource.clip = sonidoRegadera;
                 audioSource.loop = true;
                 audioSource.Play();
-                Debug.Log("💧 Sonido de regadera iniciado");
+                Debug.Log("Sonido de regadera iniciado");
             }
-        }   
+        }
     }
 
     void WaterPlant()
@@ -168,7 +167,7 @@ public class PlantWithRegadera : MonoBehaviour
             regadera.SetActive(false);
 
         if (barraRiegoUI != null)
-            barraRiegoUI.gameObject.SetActive(false); 
+            barraRiegoUI.gameObject.SetActive(false);
 
         if (audioSource != null && audioSource.isPlaying)
         {
@@ -186,4 +185,23 @@ public class PlantWithRegadera : MonoBehaviour
         Debug.Log("Plantas regadas");
         TaskManager.instance.CompletarTareaPorID(4);
     }
+    
+    public void ReiniciarPlanta()
+    {
+        waterClicks = 0;
+        isFullyWatered = false;
+
+        if (barraRiegoUI != null)
+        {
+            barraRiegoUI.value = 0;
+            barraRiegoUI.gameObject.SetActive(false);
+        }
+
+        if (regadera != null)
+            regadera.SetActive(false);
+
+        if (growthStages != null && growthStages.Length > 0)
+            plantRenderer.sprite = growthStages[0];
+    }
+
 }

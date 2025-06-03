@@ -7,15 +7,12 @@ using TMPro;
 public class TaskManager : MonoBehaviour
 {
     public static TaskManager instance;
-
     public GameObject panelTareas;
     public Button botonAbrirLista;
     public Button botonCerrarLista;
     public Button botonAbrirTienda;
-
     public List<TMP_Text> textosTareas;
     public List<bool> tareasCompletadas;
-
     public AudioSource audioSource;
     public AudioClip sonidoTareaCompletada;
 
@@ -81,11 +78,10 @@ public class TaskManager : MonoBehaviour
 
             if (audioSource != null && sonidoTareaCompletada != null)
             {
-                StartCoroutine(TacharYReproducirSonido(id, 0.5f)); // 0.5 segundos de delay
+                StartCoroutine(TacharYReproducirSonido(id, 0.5f)); 
             }
             else
             {
-                // En caso de que no haya audio, tachar inmediatamente
                 TacharTexto(id);
             }
         }
@@ -111,6 +107,25 @@ public class TaskManager : MonoBehaviour
         return true;
     }
 
+    public void ReiniciarTareas()
+    {
+        for (int i = 0; i < tareasCompletadas.Count; i++)
+        {
+            tareasCompletadas[i] = false;
+            string textoOriginal = textosTareas[i].text;
+
+            if (textoOriginal.StartsWith("<s>") && textoOriginal.EndsWith("</s>"))
+            {
+                textosTareas[i].text = textoOriginal.Substring(3, textoOriginal.Length - 7);
+            }
+        }
+
+        panelTareas.SetActive(false);
+        botonAbrirLista.gameObject.SetActive(true);
+        botonCerrarLista.gameObject.SetActive(false);
+        botonAbrirTienda.gameObject.SetActive(true);
+    }
+
     private IEnumerator TacharYReproducirSonido(int id, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -127,13 +142,9 @@ public class TaskManager : MonoBehaviour
         textosTareas[id].text = "<s>" + nombreOriginal + "</s>";
     }
     
-    
     private System.Collections.IEnumerator ReproducirSonidoTareaConDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         audioSource.PlayOneShot(sonidoTareaCompletada);
     }
-
-
-
 }

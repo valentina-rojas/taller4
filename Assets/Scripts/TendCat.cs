@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class TendCat : MonoBehaviour
 {
+    public static TendCat instance;
+
     [Header("Cepillado")]
     public RectTransform cepilloUI;
-    public RectTransform areaCepilladoUI;  
+    public RectTransform areaCepilladoUI;
     public float tiempoNecesario = 2f;
     public Slider barraCepilladoUI;
 
@@ -13,7 +15,8 @@ public class TendCat : MonoBehaviour
     [Header("Alimentar")]
     public RectTransform bolsaComidaUI;
     public RectTransform platitoUI;
-    public Sprite platitoLlenoSprite; 
+    public Sprite platitoLlenoSprite;
+    public Sprite platitoVacioSprite;
 
     [Header("Sonidos")]
     public AudioSource audioSource;
@@ -26,11 +29,18 @@ public class TendCat : MonoBehaviour
 
     private Camera camara;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject); 
+    }
     private void Start()
     {
         camara = Camera.main;
         if (barraCepilladoUI != null)
-        barraCepilladoUI.gameObject.SetActive(false);
+            barraCepilladoUI.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -65,10 +75,9 @@ public class TendCat : MonoBehaviour
                 if (barraCepilladoUI != null)
                 {
                     barraCepilladoUI.value = 1f;
-                    barraCepilladoUI.gameObject.SetActive(false); 
+                    barraCepilladoUI.gameObject.SetActive(false);
                 }
-                
-                // Reproducir sonido gato
+
                 if (audioSource != null && sonidoCepillado != null)
                     audioSource.PlayOneShot(sonidoCepillado);
 
@@ -83,7 +92,7 @@ public class TendCat : MonoBehaviour
             if (barraCepilladoUI != null)
             {
                 barraCepilladoUI.value = 0f;
-                barraCepilladoUI.gameObject.SetActive(false); 
+                barraCepilladoUI.gameObject.SetActive(false);
             }
         }
     }
@@ -99,12 +108,11 @@ public class TendCat : MonoBehaviour
         {
             tareaAlimentarCompletada = true;
             Debug.Log("Gato alimentado correctamente (detectado por Overlaps)");
-            
-             // Reproducir sonido de gato
+
             if (audioSource != null && sonidoComida != null)
                 audioSource.PlayOneShot(sonidoComida);
-            
-            
+
+
             TaskManager.instance.CompletarTareaPorID(3);
 
             Image platitoImage = platitoUI.GetComponent<Image>();
@@ -124,5 +132,25 @@ public class TendCat : MonoBehaviour
         Vector2 topRight = RectTransformUtility.WorldToScreenPoint(camara, corners[2]);
 
         return new Rect(bottomLeft, topRight - bottomLeft);
+    }
+    
+    public void ReiniciarEstado()
+    {
+        tareaCepillarCompletada = false;
+        tiempoSobreAreaCepillado = 0f;
+
+        if (barraCepilladoUI != null)
+        {
+            barraCepilladoUI.value = 0f;
+            barraCepilladoUI.gameObject.SetActive(false);
+        }
+
+        tareaAlimentarCompletada = false;
+
+        Image platitoImage = platitoUI.GetComponent<Image>();
+        if (platitoImage != null && platitoVacioSprite != null)
+        {
+            platitoImage.sprite = platitoVacioSprite;
+        }
     }
 }

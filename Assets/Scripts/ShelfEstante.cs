@@ -12,8 +12,16 @@ public class ShelfEstante : MonoBehaviour
     private void Start()
     {
         if (cartelGenero != null)
+        {
             colorOriginal = cartelGenero.color;
+            if (colorOriginal.a < 0.1f) 
+            {
+                colorOriginal.a = 1f; 
+                cartelGenero.color = colorOriginal; 
+            }
+        }
     }
+
 
     public void VerificarEstante()
     {

@@ -4,7 +4,6 @@ public class CobwebCleaning : MonoBehaviour
 {
     public float cantidadClicsParaDesaparecer = 5f;
     private float clicsActuales = 0f;
-
     private SpriteRenderer sr;
 
     private void Start()
@@ -22,7 +21,15 @@ public class CobwebCleaning : MonoBehaviour
         if (clicsActuales >= cantidadClicsParaDesaparecer)
         {
             CobwebManager.instance.EliminarTelaraña(this);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
+
+    public void ReiniciarTelaraña()
+    {
+        clicsActuales = 0f;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+        gameObject.SetActive(true);
+    }
+
 }

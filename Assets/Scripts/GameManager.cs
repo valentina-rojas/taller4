@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
         
-        audioSource.volume = 0.7f; // entre 0.0 y 1.0
+        audioSource.volume = 0.7f; 
         
         if (uiManager == null)
             Debug.LogError("UIManager no encontrado en la escena.");
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator MostrarCartelInicioDia()
     {
         MenuPausa.instance.OcultarBotonPausa();
+        TaskManager.instance.ReiniciarTareas();
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
         Time.timeScale = 0f;
@@ -194,7 +195,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void CompletarHechizo(CharacterAttributes.Hechizo hechizoRealizado)
     {
         if (personajeActual == null)
@@ -202,7 +202,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No hay personaje actual asignado.");
             return;
         }
-
         if (hechizoRealizado == personajeActual.hechizoSolicitado)
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
@@ -217,16 +216,12 @@ public class GameManager : MonoBehaviour
             recomendacionesMalas++;
             Debug.LogWarning($"Hechizo incorrecto. Realizado: {hechizoRealizado}, Solicitado: {personajeActual.hechizoSolicitado}");
         }
-
         CameraManager.instance.DesctivarPanelHechizo();
-
         if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }
-
     }
-
 
      public void CompletarTrivia(int correctas, int incorrectas)
     {
@@ -240,15 +235,11 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
         }       
-
-
             if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }
-     
     } 
-
 
     public void FinDeNivel()
     {
@@ -288,9 +279,7 @@ public class GameManager : MonoBehaviour
             mensajeFinal = "Un día regular. ¡Seguro mañana será mejor!\n\n" + resumenClientes;
         }
 
-
         textoResultadoFinal.text = mensajeFinal;
-
         recomendacionesBuenas = 0;
         recomendacionesMalas = 0;
     }
@@ -309,8 +298,28 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-
         revisandoIntento = false;
+    }
+    public void AvanzarAlSiguienteNivel()
+    {
+        panelFinNivel.SetActive(false);
+        
+        if (ShelfManager.instance != null)
+            ShelfManager.instance.ReiniciarEstado();
+
+        if (CameraManager.instance != null)
+            CameraManager.instance.ActivarCamaraPrincipal();
+
+        if (CobwebManager.instance != null)
+            CobwebManager.instance.ReiniciarTelarañas();
+        
+        if (TendCat.instance != null) 
+            TendCat.instance.ReiniciarEstado();
+        
+        if (PlantManager.instance != null)
+            PlantManager.instance.ReiniciarEstado();
+
+        StartCoroutine(MostrarCartelInicioDia());
     }
 
     public void ReturnToMenu()
