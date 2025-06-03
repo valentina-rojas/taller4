@@ -167,10 +167,16 @@ MonoBehaviour:
   - "\xA1No, no, no! Yo quiero hongos. "
   - "Bah, me llevo esto igual\u2026"
   - Pero no era lo que buscaba...
+  spriteRespuestaBuena: {fileID: -8064676831942617074, guid: efe1c55f26f798a439e4b267d8b6ad97, type: 3}
+  spriteRespuestaMala: {fileID: -8837985258337553644, guid: 92436ca22062f814795d6271bbe1e8fa, type: 3}
   libroDeseadoID: 33
   tipoPreferido: herbologia
   nombreDelCliente: Bruja
   descripcionPedido: "Solicit\xF3 \"Breviario de Elixires y Conjuros L\xEDquidos\""
+  tituloLibroPrestado: 
+  stickersRequeridos: 
+  tituloLibroPortada: 
+  hechizoSolicitado: 0
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0

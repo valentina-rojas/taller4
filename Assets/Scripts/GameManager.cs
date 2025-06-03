@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private UIManager uiManager;
     private CharacterSpawn characterSpawn;
+    private SpriteRenderer spriteRendererPersonaje;
+
 
     [Header("Estado del juego")]
     public CharacterAttributes personajeActual;
@@ -106,7 +108,9 @@ public class GameManager : MonoBehaviour
     public void EstablecerPersonajeActual(CharacterAttributes personaje)
     {
         personajeActual = personaje;
+        spriteRendererPersonaje = personajeActual.GetComponent<SpriteRenderer>();
     }
+
 
     public void VerificarRecomendacion(BookData libro)
     {
@@ -126,6 +130,7 @@ public class GameManager : MonoBehaviour
             libro.gameObject.SetActive(false);
 
             audioSource.PlayOneShot(sonidoCorrecto);
+            ActualizarSpritePersonaje();
         }
         else
         {
@@ -133,6 +138,7 @@ public class GameManager : MonoBehaviour
             recomendacionesMalas++;
 
             audioSource.PlayOneShot(sonidoIncorrecto);
+            ActualizarSpritePersonaje();
         }
     }
 
@@ -141,6 +147,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restauración completada.");
         resultadoRecomendacion = ResultadoRecomendacion.Buena;
         recomendacionesBuenas++;
+        ActualizarSpritePersonaje();
 
     }
 
@@ -181,9 +188,11 @@ public class GameManager : MonoBehaviour
         {
             recomendacionesBuenas++;
             audioSource.PlayOneShot(sonidoEstrellas);
-        } 
+            ActualizarSpritePersonaje();
+        }
         else
             recomendacionesMalas++;
+            ActualizarSpritePersonaje();
 
         Debug.Log("Resultado recomendación: " + resultadoRecomendacion);
 
@@ -207,7 +216,7 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
             Debug.Log($"Hechizo completado correctamente: {hechizoRealizado}");
-
+            ActualizarSpritePersonaje();
             audioSource.PlayOneShot(sonidoEstrellas);
         }
         else
@@ -215,6 +224,7 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
             Debug.LogWarning($"Hechizo incorrecto. Realizado: {hechizoRealizado}, Solicitado: {personajeActual.hechizoSolicitado}");
+            ActualizarSpritePersonaje();
         }
         CameraManager.instance.DesctivarPanelHechizo();
         if (characterSpawn != null)
@@ -229,17 +239,42 @@ public class GameManager : MonoBehaviour
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
+            ActualizarSpritePersonaje();
         }
         else if (incorrectas > correctas)
         {
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
+            ActualizarSpritePersonaje();
         }       
             if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }
     } 
+
+    private void ActualizarSpritePersonaje()
+    {
+        if (spriteRendererPersonaje == null || personajeActual == null)
+            return;
+
+        switch (resultadoRecomendacion)
+        {
+            case ResultadoRecomendacion.Buena:
+                if (personajeActual.spriteRespuestaBuena != null)
+                    spriteRendererPersonaje.sprite = personajeActual.spriteRespuestaBuena;
+                break;
+
+            case ResultadoRecomendacion.Mala:
+                if (personajeActual.spriteRespuestaMala != null)
+                    spriteRendererPersonaje.sprite = personajeActual.spriteRespuestaMala;
+                break;
+
+            case ResultadoRecomendacion.Ninguna:
+            default:
+                break;
+        }
+    }
 
     public void FinDeNivel()
     {

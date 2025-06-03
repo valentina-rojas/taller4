@@ -34,6 +34,10 @@ public class CharacterAttributes : MonoBehaviour
     [Header("Diálogos si la recomendación fue mala")]
     [SerializeField, TextArea(2, 4)] private string[] dialogueLinesMala;
 
+    [Header("Sprites para respuestas")]
+    public Sprite spriteRespuestaBuena;
+    public Sprite spriteRespuestaMala;
+
     [Header("Preferencias del personaje")]
     public int libroDeseadoID;
     public string tipoPreferido;
