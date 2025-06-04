@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boton-registro-libros_0: -5376478815467484236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

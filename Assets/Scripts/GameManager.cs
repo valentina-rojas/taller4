@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
         panelInfoLibro.SetActive(false);
         Time.timeScale = 1f;
         MenuPausa.instance.MostrarBotonPausa();
+        TaskManager.instance.InicializarTareasParaNivel();
         FindFirstObjectByType<CatDialogues>().IniciarDialogoDelDia(nivelActual);
     }
 

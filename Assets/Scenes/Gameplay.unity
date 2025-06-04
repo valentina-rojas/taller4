@@ -12003,15 +12003,23 @@ MonoBehaviour:
   botonAbrirLista: {fileID: 2039754069}
   botonCerrarLista: {fileID: 800807190}
   botonAbrirTienda: {fileID: 2118850859}
-  textosTareas:
-  - {fileID: 1867413056}
-  - {fileID: 2039622572}
-  - {fileID: 328437950}
-  - {fileID: 507800318}
-  - {fileID: 100328859}
-  tareasCompletadas: 
   audioSource: {fileID: 564981033}
   sonidoTareaCompletada: {fileID: 8300000, guid: af40468b5dccd564a9250faeebd55716, type: 3}
+  nivelesDeTareas:
+  - textosTareas:
+    - {fileID: 1867413056}
+    - {fileID: 2039622572}
+  - textosTareas:
+    - {fileID: 1867413056}
+    - {fileID: 2039622572}
+    - {fileID: 328437950}
+    - {fileID: 507800318}
+  - textosTareas:
+    - {fileID: 1867413056}
+    - {fileID: 2039622572}
+    - {fileID: 328437950}
+    - {fileID: 507800318}
+    - {fileID: 100328859}
 --- !u!4 &564981032
 Transform:
   m_ObjectHideFlags: 0
