@@ -26931,6 +26931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ff9f0b5386c7f44acf469f09293d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cepilloGO: {fileID: 2104915440}
+  bolsaComidaGO: {fileID: 1429613656}
+  platitoGO: {fileID: 1332856014}
   cepilloUI: {fileID: 2104915441}
   areaCepilladoUI: {fileID: 1088219257}
   tiempoNecesario: 2

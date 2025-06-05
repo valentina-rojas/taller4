@@ -5,11 +5,47 @@ public class ShelfManager : MonoBehaviour
 {
     public static ShelfManager instance;
     public AudioSource audioLibroCorrecto;
-    private bool librosDesorganizados = false; 
+
+    private bool librosDesorganizados = false;
+
+    public Dictionary<string, int> librosEsperadosPorGenero = new Dictionary<string, int>()
+    {
+        { "fantasia", 3 },
+        { "misterio", 3 },
+        { "pociones", 3 },
+        { "herbologia", 3 },
+        { "recetas", 2 },
+        { "historia", 2 },
+        { "terror", 3 },
+    };
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public int ObtenerLibrosEsperadosParaGenero(string genero)
+    {
+        if (librosEsperadosPorGenero.TryGetValue(genero, out int cantidad))
+            return cantidad;
+        return 0;
+    }
+
+    public void RestarLibroEsperadoPorGenero(string genero)
+    {
+        if (librosEsperadosPorGenero.ContainsKey(genero))
+        {
+            librosEsperadosPorGenero[genero] = Mathf.Max(0, librosEsperadosPorGenero[genero] - 1);
+
+            ShelfEstante[] estantes = FindObjectsOfType<ShelfEstante>();
+            foreach (var estante in estantes)
+            {
+                if (estante.genero == genero)
+                {
+                    estante.ActualizarCantidadEsperada();
+                }
+            }
+        }
     }
 
     public void RevisarOrganizacionConDelay()
@@ -25,26 +61,32 @@ public class ShelfManager : MonoBehaviour
         foreach (ShelfEstante estante in estantes)
         {
             int librosCorrectos = 0;
+            bool hayLibroIncorrecto = false;
 
             foreach (Transform slot in estante.transform)
             {
                 if (slot.childCount == 1)
                 {
                     Transform libro = slot.GetChild(0);
-                    BookData book = libro.GetComponent<BookData>();
+                    if (libro == null || !libro.gameObject.activeInHierarchy)
+                        continue;
 
-                    if (book != null && book.tipoLibro == estante.genero)
+                    BookData book = libro.GetComponent<BookData>();
+                    if (book != null)
                     {
-                        librosCorrectos++;
-                    }
-                    else if (book != null)
-                    {
-                        Debug.Log($"Libro '{book.titulo}' mal ubicado en estante '{estante.genero}'");
+                        if (book.tipoLibro == estante.genero)
+                        {
+                            librosCorrectos++;
+                        }
+                        else
+                        {
+                            hayLibroIncorrecto = true;
+                        }
                     }
                 }
             }
 
-            if (librosCorrectos != estante.cantidadLibrosEsperados)
+            if (librosCorrectos != ObtenerLibrosEsperadosParaGenero(estante.genero) || hayLibroIncorrecto)
             {
                 todosCorrectos = false;
             }
@@ -54,8 +96,18 @@ public class ShelfManager : MonoBehaviour
 
         if (todosCorrectos)
         {
-            Debug.Log("Todos los libros están correctamente organizados.");
+            Debug.Log("🎉 Todos los libros visibles están correctamente organizados.");
             TaskManager.instance.CompletarTareaPorID(1);
+            MarcarTodosLosCartelesComoCorrectos();
+        }
+    }
+
+    public void MarcarTodosLosCartelesComoCorrectos()
+    {
+        ShelfEstante[] estantes = FindObjectsOfType<ShelfEstante>();
+        foreach (var estante in estantes)
+        {
+            estante.MarcarCartelComoCorrecto();
         }
     }
 
@@ -63,7 +115,6 @@ public class ShelfManager : MonoBehaviour
     {
         List<Transform> librosActivos = new List<Transform>();
         ShelfEstante[] estantes = FindObjectsOfType<ShelfEstante>();
-        Debug.Log($"Cantidad de estantes encontrados: {estantes.Length}");
         List<Transform> slotsDisponibles = new List<Transform>();
 
         foreach (ShelfEstante estante in estantes)
@@ -98,7 +149,8 @@ public class ShelfManager : MonoBehaviour
         {
             estante.VerificarEstante();
         }
-        Debug.Log($"Libros reorganizados: {librosActivos.Count}");
+
+        Debug.Log($"🔀 Libros reorganizados: {librosActivos.Count}");
     }
 
     public void IntentarDesorganizarLibros()
@@ -114,6 +166,7 @@ public class ShelfManager : MonoBehaviour
     {
         librosDesorganizados = false;
     }
+
     private void Shuffle<T>(List<T> lista)
     {
         for (int i = 0; i < lista.Count; i++)

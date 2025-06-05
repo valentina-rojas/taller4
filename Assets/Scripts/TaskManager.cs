@@ -45,7 +45,7 @@ public class TaskManager : MonoBehaviour
         botonCerrarLista.onClick.AddListener(OcultarListaTareas);
         botonAbrirTienda.onClick.AddListener(OnClickAbrirTienda);
 
-        InicializarTareasParaNivel(); 
+        InicializarTareasParaNivel();
     }
 
     public void InicializarTareasParaNivel()
@@ -77,7 +77,7 @@ public class TaskManager : MonoBehaviour
             {
                 texto.gameObject.SetActive(true);
                 string textoPlano = texto.text.Replace("<s>", "").Replace("</s>", "");
-                texto.text = textoPlano; 
+                texto.text = textoPlano;
             }
             tareasCompletadas.Add(false);
         }
@@ -86,6 +86,9 @@ public class TaskManager : MonoBehaviour
         botonAbrirLista.gameObject.SetActive(true);
         botonCerrarLista.gameObject.SetActive(false);
         botonAbrirTienda.gameObject.SetActive(true);
+
+        if (TendCat.instance != null)
+            TendCat.instance.ActualizarVisibilidadObjetos();
     }
 
 
@@ -187,4 +190,13 @@ public class TaskManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         audioSource.PlayOneShot(sonidoTareaCompletada);
     }
+    
+    public bool EsTareaActiva(int id)
+    {
+        if (textosTareas == null || id < 0 || id >= textosTareas.Count)
+            return false;
+
+        return textosTareas[id].gameObject.activeSelf;
+    }
+
 }

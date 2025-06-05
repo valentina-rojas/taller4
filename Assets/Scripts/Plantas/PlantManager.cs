@@ -13,11 +13,18 @@ public class PlantManager : MonoBehaviour
     {
         instance = this;
     }
+    public int expectedPlantCount = 4;
 
     public void RegisterPlant(PlantWithRegadera planta)
     {
         plantas.Add(planta);
         totalPlants = plantas.Count;
+
+        if (plantas.Count == expectedPlantCount)
+        {
+            Debug.Log("Todas las plantas registradas. Actualizando estado.");
+            ActualizarEstadoPlantasPorTarea();
+        }
     }
     public void NotifyPlantFullyWatered()
     {
@@ -45,4 +52,13 @@ public class PlantManager : MonoBehaviour
             planta.ReiniciarPlanta();
         }
     }
+
+    public void ActualizarEstadoPlantasPorTarea()
+    {
+        foreach (var planta in plantas)
+        {
+            planta.ActualizarEstadoPorTareaActiva();
+        }
+    }
+
 }

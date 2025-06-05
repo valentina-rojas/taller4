@@ -5,6 +5,11 @@ public class TendCat : MonoBehaviour
 {
     public static TendCat instance;
 
+    [Header("GameObjects de interacción")]
+    public GameObject cepilloGO;
+    public GameObject bolsaComidaGO;
+    public GameObject platitoGO;
+
     [Header("Cepillado")]
     public RectTransform cepilloUI;
     public RectTransform areaCepilladoUI;
@@ -47,6 +52,21 @@ public class TendCat : MonoBehaviour
     {
         VerificarCepillado();
         VerificarAlimentacion();
+    }
+
+    public void ActualizarVisibilidadObjetos()
+    {
+        if (TaskManager.instance == null)
+            return;
+
+        // Mostrar el cepillo si la tarea 2 está activa
+        bool mostrarCepillo = TaskManager.instance.EsTareaActiva(2);
+        if (cepilloGO != null) cepilloGO.SetActive(mostrarCepillo);
+
+        // Mostrar comida y platito si la tarea 3 está activa
+        bool mostrarComida = TaskManager.instance.EsTareaActiva(3);
+        if (bolsaComidaGO != null) bolsaComidaGO.SetActive(mostrarComida);
+        if (platitoGO != null) platitoGO.SetActive(mostrarComida);
     }
 
     private void VerificarCepillado()

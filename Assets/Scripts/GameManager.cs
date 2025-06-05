@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour
         {
             resultadoRecomendacion = ResultadoRecomendacion.Buena;
             recomendacionesBuenas++;
+
+            ShelfManager.instance.RestarLibroEsperadoPorGenero(libro.tipoLibro);
             libro.gameObject.SetActive(false);
 
             audioSource.PlayOneShot(sonidoCorrecto);
