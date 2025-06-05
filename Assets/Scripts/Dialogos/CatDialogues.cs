@@ -31,13 +31,16 @@ public class CatDialogues : MonoBehaviour
         },
         { 2, new string[] {
             "¡Buen trabajo ayer!",
-            "Hoy los clientes serán un poco más exigentes.",
-            "Recuerda: si no das el libro correcto, la reputación baja."
+            "Hoy los clientes serán un poco más exigentes ¡Y yo igual!.",
+            "No puedes dejarme sin comer ni cepillarme.",
+            "Y deberías cuidar las plantas o este lugar empezará a ponerse triste...",
+            "Pero por el resto vas bien ¡Sigue así!."
         }},
         { 3, new string[] {
             "¡Ya eres todo un experto!",
-            "Hoy puede que algunos clientes no sepan lo que quieren...",
-            "¡Confía en tu instinto de librero mágico!"
+            "Puede que los clientes cada vez hagan pedidos más diferentes...",
+            "¡Pero confía en tu instinto de librero mágico!",
+            "¡Vas muy bien!"
         }}
     };
 

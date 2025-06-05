@@ -1995,7 +1995,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: historia
-  cantidadLibrosEsperados: 2
   cartelGenero: {fileID: 1982164396}
 --- !u!1 &104946628
 GameObject:
@@ -6327,7 +6326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: recetas
-  cantidadLibrosEsperados: 2
   cartelGenero: {fileID: 861946251}
 --- !u!1 &296093484
 GameObject:
@@ -12014,6 +12012,7 @@ MonoBehaviour:
     - {fileID: 2039622572}
     - {fileID: 328437950}
     - {fileID: 507800318}
+    - {fileID: 100328859}
   - textosTareas:
     - {fileID: 1867413056}
     - {fileID: 2039622572}
@@ -12529,6 +12528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPlants: 0
+  expectedPlantCount: 4
 --- !u!1 &587792347
 GameObject:
   m_ObjectHideFlags: 0
@@ -14968,7 +14968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: herbologia
-  cantidadLibrosEsperados: 3
   cartelGenero: {fileID: 1223050789}
 --- !u!1 &722080023
 GameObject:
@@ -20546,7 +20545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: pociones
-  cantidadLibrosEsperados: 3
   cartelGenero: {fileID: 799165594}
 --- !u!1 &977227096
 GameObject:
@@ -25432,7 +25430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: misterio
-  cantidadLibrosEsperados: 3
   cartelGenero: {fileID: 1139431215}
 --- !u!1001 &1230415080
 PrefabInstance:
@@ -38345,7 +38342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: fantasia
-  cantidadLibrosEsperados: 3
   cartelGenero: {fileID: 969397807}
 --- !u!1 &1918575313
 GameObject:
@@ -42246,7 +42242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genero: terror
-  cantidadLibrosEsperados: 3
   cartelGenero: {fileID: 2145585177}
 --- !u!1 &2145585175
 GameObject:
