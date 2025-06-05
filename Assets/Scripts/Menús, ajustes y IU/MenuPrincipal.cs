@@ -8,7 +8,7 @@ public class MenuPrincipal : MonoBehaviour
 
 public void IniciarJuego()
 {
-    ChangeScene("Gameplay"); 
+    ChangeScene("Cinematica"); 
 }
 
 public void ChangeScene(string name)
