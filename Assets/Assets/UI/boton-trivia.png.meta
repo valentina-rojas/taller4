@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boton-trivia_0: 1002425565367290660
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
