@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -248,12 +247,5 @@ public class DialogueManager : MonoBehaviour
         return !didDialogueStart;
     }
 
-    private void Update()
-    {
-        if (didDialogueStart && Input.GetMouseButtonDown(0))
-        {
-            NextDialogueLine();
-        }
-    }
 
 }
