@@ -16,13 +16,16 @@ public class CharacterSpawn : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip sonidoAparicionPersonaje;
 
-
+    [Header("Configuración de personajes")]
+    public GameObject[] personajesEnOrden; // Editable desde el Inspector
+    
+    
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
     {
         characters = personajesDelNivel;
     }
 
-       private void MezclarPersonajes()
+       /*private void MezclarPersonajes()
     {
         for (int i = 0; i < characters.Length; i++)
         {
@@ -31,12 +34,13 @@ public class CharacterSpawn : MonoBehaviour
             characters[i] = characters[randomIndex];
             characters[randomIndex] = temp;
         }
-    }
+    }*/
     
     public void ComenzarSpawn()
     {
         currentIndex = 0;
-        MezclarPersonajes(); // ← Esto aleatoriza el orden
+        characters = personajesEnOrden; // Usar el orden definido en el Inspector
+        //MezclarPersonajes(); // ← Esto aleatoriza el orden
         StartCoroutine(SpawnCharacters());
     }
 

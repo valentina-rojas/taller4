@@ -9355,6 +9355,14 @@ MonoBehaviour:
   destination: {fileID: 1648088103}
   audioSource: {fileID: 449646820}
   sonidoAparicionPersonaje: {fileID: 8300000, guid: 6112bd2aebc13004992bfc2bb4f12e77, type: 3}
+  personajesEnOrden:
+  - {fileID: 4652195673153815505, guid: 3d804dc5ddf43a74b99b3e1f31086122, type: 3}
+  - {fileID: 4406605961863887185, guid: a8da8e8cc78bcbd419e10bb0856638f2, type: 3}
+  - {fileID: 4406605961863887185, guid: 3292f0a8089a0bf47ba8eb57c5425656, type: 3}
+  - {fileID: 4406605961863887185, guid: 2bbd8921cbad5f448bba30b648ad6ac7, type: 3}
+  - {fileID: 5489013454305063670, guid: 5450ced4880d35e4eb7f17dd4ee1d761, type: 3}
+  - {fileID: 4652195673153815505, guid: a53379c409dd25c46b363e76d8993fe0, type: 3}
+  - {fileID: 4652195673153815505, guid: 5ed168854d0dcd642aedcca10c2ebfa4, type: 3}
 --- !u!82 &449646820
 AudioSource:
   m_ObjectHideFlags: 0

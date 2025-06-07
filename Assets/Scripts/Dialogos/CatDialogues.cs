@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CatDialogues : MonoBehaviour
 {
@@ -192,6 +193,14 @@ public class CatDialogues : MonoBehaviour
     {
         dialogueLines = new string[] { mensaje };
         StartDialogue();
+    }
+
+    void Update()
+    {
+        if (dialoguePanel.activeSelf && Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            OnBotonSiguienteClick();
+        }
     }
 
 }
