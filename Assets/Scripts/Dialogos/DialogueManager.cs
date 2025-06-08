@@ -120,7 +120,6 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             dialogueText.text = dialogueLines[lineIndex];
             isTyping = false;
-            ActualizarTextoBoton();
             return;
         }
 
@@ -132,9 +131,10 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            ActualizarTextoBoton();
+            lineIndex = dialogueLines.Length - 1; 
+            botonFinalizar.gameObject.SetActive(true);
+            botonRepetir.gameObject.SetActive(true);
         }
-
     }
 
     private IEnumerator ShowLine()
@@ -154,28 +154,15 @@ public class DialogueManager : MonoBehaviour
 
     private void ActualizarTextoBoton()
     {
-        if (botonSiguiente == null || botonFinalizar == null) return;
-
-        bool esUltimaLinea = (lineIndex == dialogueLines.Length - 1);
-
-        if (esUltimaLinea && !isTyping)
-        {
-            botonSiguiente.gameObject.SetActive(false);
-            botonFinalizar.gameObject.SetActive(true);
-
-            if (botonRepetir != null)
-                botonRepetir.gameObject.SetActive(true);
-        }
-        else
-        {
+        if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(true);
+
+        if (botonFinalizar != null)
             botonFinalizar.gameObject.SetActive(false);
 
-            if (botonRepetir != null)
-                botonRepetir.gameObject.SetActive(false);
-        }
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false);
     }
-
 
     private void ReiniciarDialogo()
     {
@@ -232,7 +219,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     public void EnableDialogue()
     {
         if (!hasInteracted)
@@ -246,6 +232,4 @@ public class DialogueManager : MonoBehaviour
     {
         return !didDialogueStart;
     }
-
-
 }

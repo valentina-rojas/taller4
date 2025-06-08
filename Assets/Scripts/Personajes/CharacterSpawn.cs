@@ -15,32 +15,14 @@ public class CharacterSpawn : MonoBehaviour
     [Header("Sonido")]
     public AudioSource audioSource;
     public AudioClip sonidoAparicionPersonaje;
-
-    [Header("Configuración de personajes")]
-    public GameObject[] personajesEnOrden; // Editable desde el Inspector
-    
-    
     public void AsignarPersonajesDelNivel(GameObject[] personajesDelNivel)
     {
         characters = personajesDelNivel;
     }
-
-       /*private void MezclarPersonajes()
-    {
-        for (int i = 0; i < characters.Length; i++)
-        {
-            GameObject temp = characters[i];
-            int randomIndex = Random.Range(i, characters.Length);
-            characters[i] = characters[randomIndex];
-            characters[randomIndex] = temp;
-        }
-    }*/
     
     public void ComenzarSpawn()
     {
         currentIndex = 0;
-        characters = personajesEnOrden; // Usar el orden definido en el Inspector
-        //MezclarPersonajes(); // ← Esto aleatoriza el orden
         StartCoroutine(SpawnCharacters());
     }
 
@@ -50,7 +32,6 @@ public class CharacterSpawn : MonoBehaviour
         {
             GameObject currentCharacter = Instantiate(characters[currentIndex], spawnPoint.position, Quaternion.identity);
 
-            // Reproducir sonido al aparecer
             if (audioSource != null && sonidoAparicionPersonaje != null)
             {
                 audioSource.PlayOneShot(sonidoAparicionPersonaje);

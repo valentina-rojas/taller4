@@ -3,13 +3,11 @@ using System.Collections;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class CatDialogues : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private TMP_Text botonSiguienteTexto;
     [SerializeField] private Button botonSiguiente;
     [SerializeField] private Button botonRepetir;
     [SerializeField] private Button botonFinalizar;
@@ -74,7 +72,6 @@ public class CatDialogues : MonoBehaviour
             StopCoroutine(typingCoroutine);
             dialogueText.text = dialogueLines[lineIndex];
             isTyping = false;
-
             ActualizarTextoBoton();
         }
         else
@@ -138,7 +135,9 @@ public class CatDialogues : MonoBehaviour
         }
         else
         {
-            FinalizarDialogo();
+            lineIndex = dialogueLines.Length - 1; 
+            botonFinalizar.gameObject.SetActive(true);
+            botonRepetir.gameObject.SetActive(true);
         }
     }
 
@@ -159,48 +158,23 @@ public class CatDialogues : MonoBehaviour
         TaskManager.instance?.MostrarTareas();
     }
 
+   private void ActualizarTextoBoton()
+   {
+        if (botonSiguiente != null)
+            botonSiguiente.gameObject.SetActive(true);
 
-    private void ActualizarTextoBoton()
-    {
-        bool esUltimaLinea = (lineIndex == dialogueLines.Length - 1);
+        if (botonFinalizar != null)
+            botonFinalizar.gameObject.SetActive(false);
 
-        if (esUltimaLinea && !isTyping)
-        {
-            if (botonSiguiente != null)
-                botonSiguiente.gameObject.SetActive(false);
-
-            if (botonFinalizar != null)
-                botonFinalizar.gameObject.SetActive(true);
-
-            if (botonRepetir != null)
-                botonRepetir.gameObject.SetActive(true);
-        }
-        else
-        {
-            if (botonSiguiente != null)
-                botonSiguiente.gameObject.SetActive(true);
-
-            if (botonFinalizar != null)
-                botonFinalizar.gameObject.SetActive(false);
-
-            if (botonRepetir != null)
-                botonRepetir.gameObject.SetActive(false);
-        }
+        if (botonRepetir != null)
+            botonRepetir.gameObject.SetActive(false);
     }
 
-   
+
     public void IniciarDialogoExtra(string mensaje)
     {
         dialogueLines = new string[] { mensaje };
         StartDialogue();
-    }
-
-    void Update()
-    {
-        if (dialoguePanel.activeSelf && Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            OnBotonSiguienteClick();
-        }
     }
 
 }
