@@ -356,7 +356,7 @@ public class GameManager : MonoBehaviour
         
         if (PlantManager.instance != null)
             PlantManager.instance.ReiniciarEstado();
-
+        ShelfManager.instance?.AvanzarContadorDesorden();
         StartCoroutine(MostrarCartelInicioDia());
     }
 

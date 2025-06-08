@@ -5,7 +5,7 @@ public class ShelfManager : MonoBehaviour
 {
     public static ShelfManager instance;
     public AudioSource audioLibroCorrecto;
-
+    private int contadorDesorden = 1;
     private bool librosDesorganizados = false;
 
     public Dictionary<string, int> librosEsperadosPorGenero = new Dictionary<string, int>()
@@ -111,6 +111,13 @@ public class ShelfManager : MonoBehaviour
         }
     }
 
+    public void AvanzarContadorDesorden()
+    {
+        contadorDesorden++;
+        if (contadorDesorden > 4)
+            contadorDesorden = 1;
+    }
+
     public void DesorganizarLibros()
     {
         List<Transform> librosActivos = new List<Transform>();
@@ -155,7 +162,8 @@ public class ShelfManager : MonoBehaviour
 
     public void IntentarDesorganizarLibros()
     {
-        if (!librosDesorganizados)
+        RevisarOrganizacion();
+        if (contadorDesorden == 1 && !librosDesorganizados)
         {
             DesorganizarLibros();
             librosDesorganizados = true;
