@@ -5,7 +5,7 @@ public class ShelfManager : MonoBehaviour
 {
     public static ShelfManager instance;
     public AudioSource audioLibroCorrecto;
-    private int contadorDesorden = 1;
+    private int contadorDesorden = 2;
     private bool librosDesorganizados = false;
 
     public Dictionary<string, int> librosEsperadosPorGenero = new Dictionary<string, int>()
@@ -114,7 +114,7 @@ public class ShelfManager : MonoBehaviour
     public void AvanzarContadorDesorden()
     {
         contadorDesorden++;
-        if (contadorDesorden > 4)
+        if (contadorDesorden > 5)
             contadorDesorden = 1;
     }
 

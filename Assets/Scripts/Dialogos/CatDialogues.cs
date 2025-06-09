@@ -40,6 +40,18 @@ public class CatDialogues : MonoBehaviour
             "Puede que los clientes cada vez hagan pedidos más diferentes...",
             "¡Pero confía en tu instinto de librero mágico!",
             "¡Vas muy bien!"
+        }},
+        { 4, new string[] {
+            "¡Vas muy bien!"
+        }},
+        { 5, new string[] {
+            "¡Vas muy bien!"
+        }},
+        { 6, new string[] {
+            "¡Vas muy bien!"
+        }},
+        { 7, new string[] {
+            "¡Vas muy bien!"
         }}
     };
 

@@ -36,9 +36,6 @@ public class GameManager : MonoBehaviour
     public TMP_Text textoResultadoFinal;
     public TMP_Text textoTituloFinDeDia;
 
-    private bool intentoFinPendiente = false;
-    private bool revisandoIntento = false;
-
     [System.Serializable]
     public class Nivel
     {
@@ -281,18 +278,6 @@ public class GameManager : MonoBehaviour
 
     public void FinDeNivel()
     {
-        if (!TaskManager.instance.TodasLasTareasCompletadas())
-        {
-            FindFirstObjectByType<CatDialogues>()?.IniciarDialogoExtra("Aún quedan cosas por hacer... mejor termina tu lista de tareas.");
-            intentoFinPendiente = true;
-
-            if (!revisandoIntento)
-                StartCoroutine(RevisarIntentoFinPendiente());
-
-            return;
-        }
-
-        intentoFinPendiente = false;
         TaskManager.instance.OcultarListaTareas();
         TaskManager.instance.OcultarBotonTareas();
         MenuPausa.instance.OcultarBotonPausa();
@@ -320,23 +305,6 @@ public class GameManager : MonoBehaviour
         textoResultadoFinal.text = mensajeFinal;
         recomendacionesBuenas = 0;
         recomendacionesMalas = 0;
-    }
-
-    private IEnumerator RevisarIntentoFinPendiente()
-    {
-        revisandoIntento = true;
-
-        while (intentoFinPendiente)
-        {
-            yield return new WaitForSeconds(1f);
-
-            if (TaskManager.instance.TodasLasTareasCompletadas())
-            {
-                FinDeNivel(); 
-                break;
-            }
-        }
-        revisandoIntento = false;
     }
     public void AvanzarAlSiguienteNivel()
     {

@@ -85,7 +85,7 @@ public class TaskManager : MonoBehaviour
         panelTareas.SetActive(false);
         botonAbrirLista.gameObject.SetActive(true);
         botonCerrarLista.gameObject.SetActive(false);
-        botonAbrirTienda.gameObject.SetActive(true);
+        botonAbrirTienda.gameObject.SetActive(false);
 
         if (TendCat.instance != null)
             TendCat.instance.ActualizarVisibilidadObjetos();
@@ -142,7 +142,6 @@ public class TaskManager : MonoBehaviour
 
         RevisarTareas();
     }
-
     private void RevisarTareas()
     {
         foreach (bool completada in tareasCompletadas)
@@ -152,6 +151,9 @@ public class TaskManager : MonoBehaviour
         }
 
         Debug.Log("¡Todas las tareas de este nivel están completas!");
+
+        if (botonAbrirTienda != null)
+            botonAbrirTienda.gameObject.SetActive(true);
     }
 
     public bool TodasLasTareasCompletadas()
