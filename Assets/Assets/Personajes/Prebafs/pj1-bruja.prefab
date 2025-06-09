@@ -151,11 +151,11 @@ MonoBehaviour:
   tipoDePedido: 0
   dialogueLinesInicio:
   - Escucha...
-  - "Necesito ese Breviario de Elixires y Conjuros L\xEDquidos..."
+  - Necesito algo para vengarme...
   - URGENTE!!
   - "Mi vecino lleva semanas molest\xE1ndome con sus gallinas infernales..."
   - y, francamente, creo que ya es hora de convertirlo en un helecho.
-  - "\xBFLo tienes o no?"
+  - "\xBFTienes algo o no?"
   dialogueLinesBuena:
   - "\xA1Por el caldero de mi abuela!"
   - "\xA1Este mismo!"
@@ -172,7 +172,7 @@ MonoBehaviour:
   libroDeseadoID: 33
   tipoPreferido: herbologia
   nombreDelCliente: Bruja
-  descripcionPedido: "Solicit\xF3 \"Breviario de Elixires y Conjuros L\xEDquidos\""
+  descripcionPedido: "Solicit\xF3 \"Algo para vengarse\""
   tituloLibroPrestado: 
   stickersRequeridos: 
   tituloLibroPortada: 

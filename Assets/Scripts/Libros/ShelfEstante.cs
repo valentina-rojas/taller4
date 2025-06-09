@@ -53,7 +53,7 @@ public class ShelfEstante : MonoBehaviour
 
         if (!hayLibroIncorrecto && librosCorrectos == cantidadEsperadaActual)
         {
-            cartelGenero.color = new Color(1f, 0.85f, 0f); 
+            cartelGenero.color = new Color(1f, 0.85f, 0f);
         }
         else
         {

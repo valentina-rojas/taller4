@@ -12,10 +12,10 @@ public class ShelfManager : MonoBehaviour
     {
         { "fantasia", 3 },
         { "misterio", 3 },
-        { "pociones", 3 },
+        { "pociones", 0 },
         { "herbologia", 3 },
-        { "recetas", 2 },
-        { "historia", 2 },
+        { "recetas", 0 },
+        { "historia", 0 },
         { "terror", 3 },
     };
 
