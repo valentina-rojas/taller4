@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
     private bool verificacionInicialHecha = false;
     public Button botonCambiarCamara1;
     public Button botonCambiarCamara2;
+    public Button botonCambiarCamara3;
     public GameObject panelReparacion;
     public GameObject panelPortada;
     public GameObject panelPortada2;

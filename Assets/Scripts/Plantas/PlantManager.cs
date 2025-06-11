@@ -9,11 +9,12 @@ public class PlantManager : MonoBehaviour
     private int fullyWateredPlants = 0;
     private List<PlantWithRegadera> plantas = new List<PlantWithRegadera>();
 
+    public int expectedPlantCount = 4;
+
     private void Awake()
     {
         instance = this;
     }
-    public int expectedPlantCount = 4;
 
     public void RegisterPlant(PlantWithRegadera planta)
     {
@@ -22,10 +23,10 @@ public class PlantManager : MonoBehaviour
 
         if (plantas.Count == expectedPlantCount)
         {
-            Debug.Log("Todas las plantas registradas. Actualizando estado.");
-            ActualizarEstadoPlantasPorTarea();
+            Debug.Log("Todas las plantas registradas.");
         }
     }
+
     public void NotifyPlantFullyWatered()
     {
         fullyWateredPlants++;
@@ -33,14 +34,8 @@ public class PlantManager : MonoBehaviour
         if (fullyWateredPlants >= totalPlants)
         {
             Debug.Log("¡Todas las plantas fueron regadas!");
-            AccionFinal();
+            TaskManager.instance.CompletarTareaPorID(4);
         }
-    }
-
-    private void AccionFinal()
-    {
-        Debug.Log("Acción final ejecutada: todas las plantas regadas.");
-        TaskManager.instance.CompletarTareaPorID(4);
     }
 
     public void ReiniciarEstado()
@@ -52,13 +47,4 @@ public class PlantManager : MonoBehaviour
             planta.ReiniciarPlanta();
         }
     }
-
-    public void ActualizarEstadoPlantasPorTarea()
-    {
-        foreach (var planta in plantas)
-        {
-            planta.ActualizarEstadoPorTareaActiva();
-        }
-    }
-
 }
