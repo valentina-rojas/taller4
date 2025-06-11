@@ -132,6 +132,7 @@ public class CameraManager : MonoBehaviour
 
     public void ActivarPanelDonar()
     {
+        DonationManager.instance.ActualizarPortada();
         panelDonar.gameObject.SetActive(true);
         TaskManager.instance.OcultarBotonTareas();
     }

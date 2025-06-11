@@ -177,6 +177,7 @@ MonoBehaviour:
   stickersRequeridos: 
   tituloLibroPortada: 
   hechizoSolicitado: 0
+  libroDonadoID: 0
 --- !u!114 &4978074495582524776
 MonoBehaviour:
   m_ObjectHideFlags: 0
