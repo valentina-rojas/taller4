@@ -58,7 +58,10 @@ public class CharacterManager : MonoBehaviour
                 Debug.Log("Este personaje quiere hacerte preguntas");
                 QuizManager.instance.StartQuiz();
                 break;
-
+            case CharacterAttributes.TipoDePedido.DonarLibro:
+                Debug.Log("Este personaje quiere donar un libro");
+                CameraManager.instance.ActivarPanelDonar();
+                break;
         }
 
         yaAtendido = true;

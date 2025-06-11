@@ -232,6 +232,15 @@ public class GameManager : MonoBehaviour
             characterSpawn.EndInteraction();
         }
     }
+    
+    public void LibroDonado()
+    {
+        if (characterSpawn != null)
+        {
+            resultadoRecomendacion = ResultadoRecomendacion.Buena;
+            characterSpawn.EndInteraction();
+        }
+    }
 
      public void CompletarTrivia(int correctas, int incorrectas)
     {
@@ -246,8 +255,8 @@ public class GameManager : MonoBehaviour
             resultadoRecomendacion = ResultadoRecomendacion.Mala;
             recomendacionesMalas++;
             ActualizarSpritePersonaje();
-        }       
-            if (characterSpawn != null)
+        }
+        if (characterSpawn != null)
         {
             characterSpawn.EndInteraction();
         }

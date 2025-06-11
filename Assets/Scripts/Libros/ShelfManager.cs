@@ -48,6 +48,23 @@ public class ShelfManager : MonoBehaviour
         }
     }
 
+    public void SumarLibroEsperadoPorGenero(string genero)
+    {
+        if (librosEsperadosPorGenero.ContainsKey(genero))
+        {
+            librosEsperadosPorGenero[genero] += 1;
+
+            ShelfEstante[] estantes = FindObjectsOfType<ShelfEstante>();
+            foreach (var estante in estantes)
+            {
+                if (estante.genero == genero)
+                {
+                    estante.ActualizarCantidadEsperada();
+                }
+            }
+        }
+    }
+
     public void RevisarOrganizacionConDelay()
     {
         Invoke(nameof(RevisarOrganizacion), 0.1f);

@@ -16,6 +16,7 @@ public class CameraManager : MonoBehaviour
     public GameObject panelPortada2;
     public BookCoverManager bookCoverManager;
     public GameObject panelHechizo;
+    public GameObject panelDonar;
 
     void Awake()
     {
@@ -127,6 +128,17 @@ public class CameraManager : MonoBehaviour
     public void DesctivarPanelHechizo()
     {
         panelHechizo.gameObject.SetActive(false);
+    }
+
+    public void ActivarPanelDonar()
+    {
+        panelDonar.gameObject.SetActive(true);
+        TaskManager.instance.OcultarBotonTareas();
+    }
+
+    public void DesctivarPanelDonar()
+    {
+        panelDonar.gameObject.SetActive(false);
     }
 
     public void ActivarCamaraPrincipal()

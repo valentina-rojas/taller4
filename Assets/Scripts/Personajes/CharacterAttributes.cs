@@ -9,7 +9,8 @@ public class CharacterAttributes : MonoBehaviour
         RepararLibro,
         HacerPortada,
         HechizarLibro,
-        JuegoTrivia
+        JuegoTrivia,
+        DonarLibro
     }
 
     public enum Hechizo
@@ -56,9 +57,9 @@ public class CharacterAttributes : MonoBehaviour
 
     [Header("Hechizo solicitado (opcional)")]
     public Hechizo hechizoSolicitado = Hechizo.Ninguno;
-
+    [Header("Libro a donar (opcional)")]
+    public int libroDonadoID;
     public string[] GetDialogueInicio() => dialogueLinesInicio;
     public string[] GetDialogueBuena() => dialogueLinesBuena;
     public string[] GetDialogueMala() => dialogueLinesMala;
 }
-
