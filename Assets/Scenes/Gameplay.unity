@@ -412,7 +412,7 @@ MonoBehaviour:
   panelInfoLibro: {fileID: 381347094}
   panelFinNivel: {fileID: 1701651264}
   textoDia: {fileID: 331868680}
-  nivelActual: 1
+  nivelActual: 2
   resultadoRecomendacion: 0
   recomendacionesBuenas: 0
   recomendacionesMalas: 0
@@ -425,11 +425,15 @@ MonoBehaviour:
     - {fileID: 5489013454305063670, guid: 5450ced4880d35e4eb7f17dd4ee1d761, type: 3}
   - personajesDelNivel:
     - {fileID: 4406605961863887185, guid: 3292f0a8089a0bf47ba8eb57c5425656, type: 3}
+    - {fileID: 4652195673153815505, guid: 936769568974c334f94db094c46b8f26, type: 3}
     - {fileID: 4406605961863887185, guid: 051a8835e4e71954faaf6d006e81f740, type: 3}
+    - {fileID: 4652195673153815505, guid: 7710f8d2258c02c48b805730fb95b8af, type: 3}
     - {fileID: 4406605961863887185, guid: 2bbd8921cbad5f448bba30b648ad6ac7, type: 3}
   - personajesDelNivel:
     - {fileID: 4652195673153815505, guid: a53379c409dd25c46b363e76d8993fe0, type: 3}
+    - {fileID: 4652195673153815505, guid: c4fa8613d88e60744a7ee098e9db3282, type: 3}
     - {fileID: 4652195673153815505, guid: 5ed168854d0dcd642aedcca10c2ebfa4, type: 3}
+    - {fileID: 4652195673153815505, guid: 1b026a25b810aa64bb78c010516f220d, type: 3}
 --- !u!4 &44262575
 Transform:
   m_ObjectHideFlags: 0
@@ -17903,8 +17907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 58, y: -138}
-  m_SizeDelta: {x: 237, y: 55}
+  m_AnchoredPosition: {x: 291.6, y: -131.6}
+  m_SizeDelta: {x: 180, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859196847
 MonoBehaviour:
@@ -17926,7 +17930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6967318839643664148, guid: e8f60b6a3dea95d4a8d33ecd87ff9e38, type: 3}
+  m_Sprite: {fileID: 974319402721627392, guid: 77498f7dd9ab57140a835f3e76400dfa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29671,10 +29675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -33454,13 +33458,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   libroID: 2
   tipoLibro: fantasia
-  titulo: "Los \xDAltimos Hijos del Cometa Azul"
-  descripcion: "Cuando un antiguo cometa reaparece en los cielos, tres descendientes
-    de un linaje olvidado comienzan a despertar poderes que no comprenden. Perseguidos
-    por cazadores y guiados por sue\xF1os extra\xF1os, deber\xE1n descubrir la verdad
-    sobre su origen antes de que la magia estelar desaparezca para siempre.  Una
-    historia de magia antigua, sangre celestial y destinos que se cruzan bajo un
-    cielo que vuelve a brillar.  "
+  titulo: "El Guardi\xE1n del Bosque Azul"
+  descripcion: "En los rincones olvidados de un bosque encantado, una criatura ancestral
+    custodia un secreto que podr\xEDa cambiar el destino de todo el reino. Antiguas
+    leyendas hablan de un artefacto de inmenso poder, oculto entre \xE1rboles que
+    susurran nombres y senderos que se desvanecen. Solo los valientes que logren
+    descifrar las pistas del Guardi\xE1n podr\xE1n descubrir la verdad y decidir
+    si ese poder merece ser liberado. "
   imagenLibro: {fileID: 6875664790056892873, guid: 0388c976766e8944db976454d33c8882, type: 3}
 --- !u!1 &1667180119
 GameObject:
@@ -36584,8 +36588,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286832127
-  m_fontColor: {r: 1, g: 0.86619216, b: 0.514151, a: 1}
+    rgba: 4284688458
+  m_fontColor: {r: 0.2910066, g: 0.15873088, b: 0.38679248, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -43076,10 +43080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
