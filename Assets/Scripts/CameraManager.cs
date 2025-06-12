@@ -36,8 +36,15 @@ public class CameraManager : MonoBehaviour
             if (canvasObjects != null && i < canvasObjects.Length)
                 canvasObjects[i].SetActive(isActive);
         }
-        botonCambiarCamara2.gameObject.SetActive(false);
-        botonCambiarCamara3.gameObject.SetActive(false);
+
+
+        // botonCambiarCamara2.gameObject.SetActive(false);
+        // botonCambiarCamara3.gameObject.SetActive(false);
+
+        int nivel = GameManager.instance.nivelActual;
+
+        botonCambiarCamara2.gameObject.SetActive(nivel > 2);
+        botonCambiarCamara3.gameObject.SetActive(nivel > 1);
     }
 
     public void CambiarCamara(int cameraIndex)
@@ -73,7 +80,7 @@ public class CameraManager : MonoBehaviour
 
     private System.Collections.IEnumerator VerificarEstantesDespuesDeFrame()
     {
-        yield return null; 
+        yield return null;
 
         ShelfEstante[] estantes = FindObjectsOfType<ShelfEstante>();
         foreach (var estante in estantes)
@@ -86,12 +93,15 @@ public class CameraManager : MonoBehaviour
     {
         botonCambiarCamara1.interactable = false;
         botonCambiarCamara2.interactable = false;
+        botonCambiarCamara3.interactable = false;
     }
 
     public void ActivarBotonCamara()
     {
         botonCambiarCamara1.interactable = true;
         botonCambiarCamara2.interactable = true;
+        botonCambiarCamara3.interactable = true;
+
         Debug.Log("botones habilitados");
     }
 
