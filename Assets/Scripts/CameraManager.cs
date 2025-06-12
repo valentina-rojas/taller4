@@ -36,10 +36,13 @@ public class CameraManager : MonoBehaviour
             if (canvasObjects != null && i < canvasObjects.Length)
                 canvasObjects[i].SetActive(isActive);
         }
+        botonCambiarCamara2.gameObject.SetActive(false);
+        botonCambiarCamara3.gameObject.SetActive(false);
     }
 
     public void CambiarCamara(int cameraIndex)
     {
+        TaskManager.instance.OcultarListaTareas();
         if (cameraIndex < 0 || cameraIndex >= cameras.Length)
         {
             Debug.LogWarning("Índice de cámara fuera de rango.");

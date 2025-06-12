@@ -32,7 +32,7 @@ public class CatDialogues : MonoBehaviour
             "¡Buen trabajo ayer!",
             "Hoy los clientes serán un poco más exigentes ¡Y yo igual!.",
             "No puedes dejarme sin comer ni cepillarme.",
-            "Y deberías cuidar las plantas o este lugar empezará a ponerse triste...",
+            "Y deberías cuidar las plantas del patio o Rhea se pondra triste cuando vuelva...",
             "Pero por el resto vas bien ¡Sigue así!."
         }},
         { 3, new string[] {
@@ -42,7 +42,10 @@ public class CatDialogues : MonoBehaviour
             "¡Vas muy bien!"
         }},
         { 4, new string[] {
-            "¡Vas muy bien!"
+            "Sin duda Rhea eligió a la persona correcta para cuidar este lugar.",
+            "Así que creo que podríamos abrir la sala de lectura a partir de hoy.",
+            "No te preocupes, casi ni notarás que está abierta.",
+            "¡Buena suerte!"
         }},
         { 5, new string[] {
             "¡Vas muy bien!"

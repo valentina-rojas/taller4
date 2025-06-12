@@ -79,6 +79,11 @@ public class GameManager : MonoBehaviour
         TaskManager.instance.ReiniciarTareas();
         panelInfoLibro.SetActive(true);
         textoDia.text = $"Día {nivelActual}";
+
+        if (nivelActual == 2)
+            CameraManager.instance.botonCambiarCamara3.gameObject.SetActive(true);
+        if (nivelActual == 4)
+            CameraManager.instance.botonCambiarCamara2.gameObject.SetActive(true);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(3f);
         panelInfoLibro.SetActive(false);
