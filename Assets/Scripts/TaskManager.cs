@@ -19,6 +19,7 @@ public class TaskManager : MonoBehaviour
     public Button botonAbrirLista;
     public Button botonCerrarLista;
     public Button botonAbrirTienda;
+    private bool tareasYaCompletadas = false;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -50,6 +51,8 @@ public class TaskManager : MonoBehaviour
 
     public void InicializarTareasParaNivel()
     {
+        tareasYaCompletadas = false; 
+
         int nivelIndex = GameManager.instance.nivelActual - 1;
 
         if (nivelIndex < 0 || nivelIndex >= nivelesDeTareas.Count)
@@ -90,7 +93,6 @@ public class TaskManager : MonoBehaviour
         if (TendCat.instance != null)
             TendCat.instance.ActualizarVisibilidadObjetos();
     }
-
 
     public void MostrarTareas()
     {
@@ -144,16 +146,24 @@ public class TaskManager : MonoBehaviour
     }
     private void RevisarTareas()
     {
+        if (tareasYaCompletadas) return; 
+
         foreach (bool completada in tareasCompletadas)
         {
             if (!completada)
                 return;
         }
 
+        tareasYaCompletadas = true; 
+
         Debug.Log("¡Todas las tareas de este nivel están completas!");
 
         if (botonAbrirTienda != null)
+        {
+            panelTareas.SetActive(true);
+            botonAbrirLista.gameObject.SetActive(false);
             botonAbrirTienda.gameObject.SetActive(true);
+        }
     }
 
     public bool TodasLasTareasCompletadas()

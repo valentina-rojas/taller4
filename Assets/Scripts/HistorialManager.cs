@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 
 public class HistorialManager : MonoBehaviour
 {
     private UIManager uiManager;
+    private GameObject ultimaEntradaInstanciada;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class HistorialManager : MonoBehaviour
             if (uiManager.GetBotonAbrirHistorial() != null)
                 uiManager.GetBotonAbrirHistorial().onClick.AddListener(AbrirHistorialDesdeBoton);
 
-            uiManager.GetPanelHistorial().SetActive(false); // Ocultar al inicio
+            uiManager.GetPanelHistorial().SetActive(false); 
         }
     }
 
@@ -26,20 +26,17 @@ public class HistorialManager : MonoBehaviour
     {
         if (uiManager == null) return;
 
-        // Obtener la lista completa de personajes atendidos en el día
-        List<CharacterAttributes> personajes = CharacterManager.instance.GetPersonajesAtendidos();
+        var personajes = CharacterManager.instance.GetPersonajesAtendidos();
 
         LimpiarHistorialUI();
 
         if (personajes == null || personajes.Count == 0)
         {
-            // Si no hay personajes atendidos, mostrar mensaje vacío
             MostrarMensajeHistorialVacio("No hay historial para mostrar.");
         }
         else
         {
-            // Instanciar una entrada para cada personaje en el historial
-            foreach (CharacterAttributes personaje in personajes)
+            foreach (var personaje in personajes)
             {
                 GameObject entrada = Instantiate(uiManager.GetPrefabEntradaHistorial(), uiManager.GetHistorialContent());
                 TMP_Text[] textos = entrada.GetComponentsInChildren<TMP_Text>();
@@ -48,10 +45,13 @@ public class HistorialManager : MonoBehaviour
                 {
                     textos[0].text = personaje.nombreDelCliente;
                     textos[1].text = personaje.descripcionPedido;
+
+                    ultimaEntradaInstanciada = entrada;
+                    Debug.Log($"Entrada añadida al historial: {personaje.nombreDelCliente}");
                 }
                 else
                 {
-                    Debug.LogWarning("Prefab de entrada historial necesita al menos 2 TMP_Text");
+                    Debug.LogWarning("El prefab necesita al menos 2 TMP_Text.");
                 }
             }
         }
@@ -65,6 +65,8 @@ public class HistorialManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        ultimaEntradaInstanciada = null;
     }
 
     private void MostrarMensajeHistorialVacio(string mensaje)
@@ -86,6 +88,26 @@ public class HistorialManager : MonoBehaviour
             uiManager.GetPanelHistorial().SetActive(false);
         }
     }
+
+    public void TacharUltimaEntrada()
+    {
+        if (ultimaEntradaInstanciada == null)
+        {
+            Debug.LogWarning("No hay entrada instanciada para tachar.");
+            return;
+        }
+
+        TMP_Text[] textos = ultimaEntradaInstanciada.GetComponentsInChildren<TMP_Text>();
+        foreach (TMP_Text txt in textos)
+        {
+            string textoOriginal = txt.text;
+            txt.text = $"<color=red><s>{textoOriginal}</s></color>";
+
+            Debug.Log($"Texto antes: {textoOriginal}");
+            Debug.Log($"Texto después: {txt.text}");
+        }
+
+        Canvas.ForceUpdateCanvases();
+        Debug.Log("Entrada tachada correctamente.");
+    }
 }
-
-

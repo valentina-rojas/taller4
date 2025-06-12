@@ -421,6 +421,8 @@ MonoBehaviour:
   niveles:
   - personajesDelNivel:
     - {fileID: 4652195673153815505, guid: 3d804dc5ddf43a74b99b3e1f31086122, type: 3}
+    - {fileID: 4406605961863887185, guid: a8da8e8cc78bcbd419e10bb0856638f2, type: 3}
+    - {fileID: 5489013454305063670, guid: 5450ced4880d35e4eb7f17dd4ee1d761, type: 3}
   - personajesDelNivel:
     - {fileID: 4406605961863887185, guid: 3292f0a8089a0bf47ba8eb57c5425656, type: 3}
     - {fileID: 4406605961863887185, guid: 051a8835e4e71954faaf6d006e81f740, type: 3}
@@ -15777,7 +15779,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.0009994972, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &779073029
 MonoBehaviour:
@@ -30951,7 +30953,7 @@ MonoBehaviour:
   prefabEntradaHistorial: {fileID: 4469383039418106170, guid: 13da797f45c920442bb8f5b54ed02c67, type: 3}
   panelHistorial: {fileID: 1479853289}
   botonCerrarHistorial: {fileID: 77535123}
-  botonAbrirHistorial: {fileID: 1866513194}
+  botonAbrirHistorial: {fileID: 0}
   panelLibrosPrestados: {fileID: 2038109631}
   librosContent: {fileID: 1670475058}
   prefabEntradaLibro: {fileID: 4469383039418106170, guid: f444594ad8494494c8c4c541cbe2de8d, type: 3}
