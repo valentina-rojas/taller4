@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 77498f7dd9ab57140a835f3e76400dfa
+guid: 9fdbd39993d0b5743afbabe85fb880b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 974319402721627392
-    second: nombre-gato_0
+      213: 1033039406874498316
+    second: animacion-lapiz-120x120 (1)_0
+  - first:
+      213: -7863102371484548522
+    second: animacion-lapiz-120x120 (1)_1
+  - first:
+      213: 5537889094080732190
+    second: animacion-lapiz-120x120 (1)_2
+  - first:
+      213: -8439866090409766246
+    second: animacion-lapiz-120x120 (1)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nombre-gato_0
+      name: animacion-lapiz-120x120 (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 180
-        height: 66
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 00d4ef8a55a758d00800000000000000
-      internalID: 974319402721627392
+      spriteID: b6b076e7e826d6f40994d6754d1391f3
+      internalID: 1811746957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion-lapiz-120x120 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5938b061dc0d0b46a9716d76f1ff489
+      internalID: -701750817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion-lapiz-120x120 (1)_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7807491d500818942b326b9819e5af69
+      internalID: -1715989899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion-lapiz-120x120 (1)_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732447795a417e64cbb328bc0a99f3a1
+      internalID: -1397436670
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ffbfef574db7a4e40bdda7b353d6751f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nombre-gato_0: 974319402721627392
+      animacion-lapiz-120x120 (1)_0: 1811746957
+      animacion-lapiz-120x120 (1)_1: -701750817
+      animacion-lapiz-120x120 (1)_2: -1715989899
+      animacion-lapiz-120x120 (1)_3: -1397436670
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

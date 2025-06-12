@@ -14,6 +14,8 @@ public class TaskManager : MonoBehaviour
 {
     public static TaskManager instance;
 
+    public AnimacionLapiz animacionLapiz;
+
     [Header("Paneles y Botones")]
     public GameObject panelTareas;
     public Button botonAbrirLista;
@@ -131,6 +133,14 @@ public class TaskManager : MonoBehaviour
         if (!tareasCompletadas[id])
         {
             tareasCompletadas[id] = true;
+
+           // if (animacionLapiz != null)
+          //  animacionLapiz.ReproducirAnimacion();
+
+             if (animacionLapiz != null && botonAbrirLista.gameObject.activeInHierarchy)
+            {
+            animacionLapiz.ReproducirAnimacion();
+            }
 
             if (audioSource != null && sonidoTareaCompletada != null)
             {
