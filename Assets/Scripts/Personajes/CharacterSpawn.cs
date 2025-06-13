@@ -92,20 +92,10 @@ public class CharacterSpawn : MonoBehaviour
         HabilitarDialogo();
     }
 
-    public void EndInteraction()
+   public void EndInteraction()
     {
         if (!interactionFinished)
         {
-            HistorialManager historial = FindFirstObjectByType<HistorialManager>();
-            if (historial != null)
-            {
-                historial.TacharUltimaEntrada();
-            }
-            else
-            {
-                Debug.LogWarning("HistorialManager no encontrado.");
-            }
-
             StartCoroutine(MostrarDialogoDeResultado());
         }
     }

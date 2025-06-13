@@ -20,27 +20,24 @@ public class UIManager : MonoBehaviour
     public Button GetBotonRepetir() => botonRepetir;
     public Button GetBotonFinalizar() => botonFinalizar;
 
+    [Header("Panel Unificado")]
+    [SerializeField] private GameObject panelHistorial; // Ahora contiene ambos contenidos
+    [SerializeField] private Button botonCerrarHistorial;
+    [SerializeField] private Button botonAbrirHistorial;
+
     [Header("Historial de Pedido")]
     [SerializeField] private Transform historialContent;
     [SerializeField] private GameObject prefabEntradaHistorial;
-    [SerializeField] private GameObject panelHistorial;
-    [SerializeField] private Button botonCerrarHistorial;
-    [SerializeField] private Button botonAbrirHistorial;
-    public Transform GetHistorialContent() => historialContent;
-    public GameObject GetPrefabEntradaHistorial() => prefabEntradaHistorial;
+
+    [Header("Libros Prestados")]
+    [SerializeField] private Transform librosContent;
+    [SerializeField] private GameObject prefabEntradaLibro;
+
     public GameObject GetPanelHistorial() => panelHistorial;
     public Button GetBotonCerrarHistorial() => botonCerrarHistorial;
     public Button GetBotonAbrirHistorial() => botonAbrirHistorial;
-
-    [Header("Libros Prestados")]
-    [SerializeField] private GameObject panelLibrosPrestados;
-    [SerializeField] private Transform librosContent;
-    [SerializeField] private GameObject prefabEntradaLibro;
-    [SerializeField] private Button botonCerrarLibros;
-    [SerializeField] private Button botonAbrirLibros;
-    public GameObject GetPanelLibrosPrestados() => panelLibrosPrestados;
+    public Transform GetHistorialContent() => historialContent;
+    public GameObject GetPrefabEntradaHistorial() => prefabEntradaHistorial;
     public Transform GetLibrosContent() => librosContent;
     public GameObject GetPrefabEntradaLibro() => prefabEntradaLibro;
-    public Button GetBotonCerrarLibros() => botonCerrarLibros;
-    public Button GetBotonAbrirLibros() => botonAbrirLibros;
 }

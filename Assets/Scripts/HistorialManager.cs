@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HistorialManager : MonoBehaviour
 {
     private UIManager uiManager;
-    private GameObject ultimaEntradaInstanciada;
 
     private void Start()
     {
@@ -13,21 +13,37 @@ public class HistorialManager : MonoBehaviour
         if (uiManager != null)
         {
             if (uiManager.GetBotonCerrarHistorial() != null)
-                uiManager.GetBotonCerrarHistorial().onClick.AddListener(CerrarHistorial);
+                uiManager.GetBotonCerrarHistorial().onClick.AddListener(CerrarTodo);
 
             if (uiManager.GetBotonAbrirHistorial() != null)
-                uiManager.GetBotonAbrirHistorial().onClick.AddListener(AbrirHistorialDesdeBoton);
+                uiManager.GetBotonAbrirHistorial().onClick.AddListener(AbrirTodo);
 
-            uiManager.GetPanelHistorial().SetActive(false); 
+            uiManager.GetPanelHistorial().SetActive(false);
         }
     }
 
-    public void AbrirHistorialDesdeBoton()
+    public void AbrirTodo()
     {
         if (uiManager == null) return;
 
-        var personajes = CharacterManager.instance.GetPersonajesAtendidos();
+        MostrarHistorial();
+        MostrarLibrosPrestados();
+        uiManager.GetPanelHistorial().SetActive(true);
+    }
 
+    public void CerrarTodo()
+    {
+        if (uiManager != null && uiManager.GetPanelHistorial() != null)
+        {
+            uiManager.GetPanelHistorial().SetActive(false);
+            Debug.Log("Panel de historial cerrado"); // Mensaje de depuración
+        }
+    }
+
+    #region Historial de Pedidos
+    private void MostrarHistorial()
+    {
+        var personajes = CharacterManager.instance.GetPersonajesAtendidos();
         LimpiarHistorialUI();
 
         if (personajes == null || personajes.Count == 0)
@@ -45,28 +61,19 @@ public class HistorialManager : MonoBehaviour
                 {
                     textos[0].text = personaje.nombreDelCliente;
                     textos[1].text = personaje.descripcionPedido;
-
-                    ultimaEntradaInstanciada = entrada;
-                    Debug.Log($"Entrada añadida al historial: {personaje.nombreDelCliente}");
-                }
-                else
-                {
-                    Debug.LogWarning("El prefab necesita al menos 2 TMP_Text.");
                 }
             }
         }
-
-        uiManager.GetPanelHistorial().SetActive(true);
     }
 
     private void LimpiarHistorialUI()
     {
+        if (uiManager.GetHistorialContent() == null) return;
+
         foreach (Transform child in uiManager.GetHistorialContent())
         {
             Destroy(child.gameObject);
         }
-
-        ultimaEntradaInstanciada = null;
     }
 
     private void MostrarMensajeHistorialVacio(string mensaje)
@@ -80,34 +87,77 @@ public class HistorialManager : MonoBehaviour
             textos[1].text = "";
         }
     }
+    #endregion
 
-    public void CerrarHistorial()
+    #region Libros Prestados
+    private void MostrarLibrosPrestados()
     {
-        if (uiManager != null)
+        var personajes = CharacterManager.instance.GetPersonajesAtendidos();
+        LimpiarLibrosUI();
+
+        if (personajes == null || personajes.Count == 0)
         {
-            uiManager.GetPanelHistorial().SetActive(false);
+            MostrarMensajeLibrosVacio("No hay libros prestados para mostrar.");
+            Debug.Log("No hay personajes atendidos"); // Mensaje de depuración
+        }
+        else
+        {
+            bool hayLibros = false;
+
+            foreach (var personaje in personajes)
+            {
+                Debug.Log($"Revisando personaje: {personaje.nombreDelCliente} - Libro: '{personaje.tituloLibroPrestado}'");
+
+                if (!string.IsNullOrEmpty(personaje.tituloLibroPrestado))
+                {
+                    hayLibros = true;
+
+                    GameObject entrada = Instantiate(uiManager.GetPrefabEntradaLibro(), uiManager.GetLibrosContent());
+                    TMP_Text[] textos = entrada.GetComponentsInChildren<TMP_Text>();
+
+                    if (textos.Length >= 2)
+                    {
+                        textos[0].text = personaje.nombreDelCliente;
+                        textos[1].text = personaje.tituloLibroPrestado;
+                        Debug.Log($"Libro prestado mostrado: {personaje.tituloLibroPrestado}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Prefab de entrada libro necesita al menos 2 TMP_Text.");
+                    }
+                }
+            }
+
+            if (!hayLibros)
+            {
+                MostrarMensajeLibrosVacio("No hay libros prestados para mostrar.");
+                Debug.Log("No se encontraron libros prestados en personajes.");
+            }
         }
     }
 
-    public void TacharUltimaEntrada()
+
+    private void LimpiarLibrosUI()
     {
-        if (ultimaEntradaInstanciada == null)
+        if (uiManager.GetLibrosContent() == null) return;
+
+        foreach (Transform child in uiManager.GetLibrosContent())
         {
-            Debug.LogWarning("No hay entrada instanciada para tachar.");
-            return;
+            Destroy(child.gameObject);
         }
-
-        TMP_Text[] textos = ultimaEntradaInstanciada.GetComponentsInChildren<TMP_Text>();
-        foreach (TMP_Text txt in textos)
-        {
-            string textoOriginal = txt.text;
-            txt.text = $"<color=red><s>{textoOriginal}</s></color>";
-
-            Debug.Log($"Texto antes: {textoOriginal}");
-            Debug.Log($"Texto después: {txt.text}");
-        }
-
-        Canvas.ForceUpdateCanvases();
-        Debug.Log("Entrada tachada correctamente.");
     }
+
+    private void MostrarMensajeLibrosVacio(string mensaje)
+    {
+        GameObject entradaVacia = Instantiate(uiManager.GetPrefabEntradaLibro(), uiManager.GetLibrosContent());
+        TMP_Text[] textos = entradaVacia.GetComponentsInChildren<TMP_Text>();
+
+        if (textos.Length >= 2)
+        {
+            textos[0].text = mensaje;
+            textos[1].text = "";
+            Debug.Log("Mostrando mensaje de libros vacío"); // Mensaje de depuración
+        }
+    }
+    #endregion
 }

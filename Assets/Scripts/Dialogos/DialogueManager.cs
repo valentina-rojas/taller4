@@ -156,12 +156,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(true);
-
-        if (botonFinalizar != null)
-            botonFinalizar.gameObject.SetActive(false);
-
-        if (botonRepetir != null)
-            botonRepetir.gameObject.SetActive(false);
     }
 
     private void ReiniciarDialogo()
@@ -191,8 +185,6 @@ public class DialogueManager : MonoBehaviour
 
         if (botonSiguiente != null)
             botonSiguiente.gameObject.SetActive(true);
-        if (botonRepetir != null)
-            botonRepetir.gameObject.SetActive(false);
 
         ActualizarTextoBoton();
         typingCoroutine = StartCoroutine(ShowLine());
